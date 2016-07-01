@@ -34,7 +34,7 @@ var upload_data_s3 = function upload_data_s3(stream) {
   return params.Body;
 };
 
-function Filter(classes, options) {
+function Filter(names,classes, options) {
   if (!(this instanceof Filter)) {
     return new Filter(taxid, options);
   }
@@ -42,6 +42,7 @@ function Filter(classes, options) {
   if (!options) options = {};
   options.objectMode = true;
   Transform.call(this, options);
+  this.names = names;
   this.classes = classes;
   this.lastid = null;
   this.domains = [];
@@ -55,7 +56,11 @@ Filter.prototype._transform = function (obj,enc,cb) {
     this.push([this.lastid.toLowerCase(),[].concat(this.domains)]);
     this.domains = [];
   }
-  this.domains.push({'dom' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) });
+  let data = {'dom' : this.names[obj[1]], 'interpro' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
+  if (this.classes[obj[1]]) {
+    data.class = this.classes[obj[1]];
+  }
+  this.domains.push(data);
   this.lastid = obj[0];
   cb();
 };
@@ -66,7 +71,6 @@ const line_filter = function(filter,stream) {
       input: stream
     });
     lineReader.on('line',function(dat) {
-      console.log(dat);
       let row = dat.toString().split('\t');
       filter.write(row);
     });
@@ -114,22 +118,23 @@ const get_interpro_set_keys = function(bucket) {
   });
 };
 
-const create_json_writer = function() {
-  let meta = [{ a:'b'}];
+const create_json_writer = function(interpro_release,glycodomain_release,taxonomies) {
+  let meta = [{ interpro: interpro_release, glycodomain: glycodomain_release, taxonomy: taxonomies }];
   var out = JSONStream.stringifyObject('{\n"data" : {\n\t',',\n\t','\n},\n"metadata":'+JSON.stringify(meta)+'\n}');
   out.on('error',function(err) {
     console.log(err,err.stack);
   });
-  //out.pipe(fs.createWriteStream('test.json'));
-  out.pipe(upload_data_s3());
+  out.pipe(fs.createWriteStream('test.json'));
+  //out.pipe(upload_data_s3());
   return out;
 };
 
 const get_interpro_streams_s3 = function() {
   return get_interpro_set_keys('node-lambda').then(function(interpros) {
-    return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream) {
+    return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
       let result = (new require('stream').PassThrough());
       stream.pipe(result);
+      result.taxid = interpros[idx].replace(/.*InterPro-/,'');
       return result;
     });
   });
@@ -137,23 +142,60 @@ const get_interpro_streams_s3 = function() {
 
 const get_interpro_streams = function() {
   //return get_interpro_streams_s3();
-  return Promise.resolve([ fs.createReadStream('InterPro-559292.tsv') ]);
+  let stream = fs.createReadStream('InterPro-559292.tsv');
+  stream.taxid = '559292';
+  return Promise.resolve([ stream ]);
+};
+
+const download_glycodomain_classes = function() {
+  return download_file_s3('node-lambda','glycodomain/Glycodomain-latest-InterPro-latest-class.tsv').then(function(data) {
+    let classes = {};
+    (data.Body || '').toString().split('\n').forEach(function(line) {
+      let bits = line.split('\t');
+      classes[bits[0]] = classes[bits[0]] || [];
+      classes[bits[0]].push(bits[1]);
+    });
+    return classes;
+  });
+};
+
+const download_interpro_names = function() {
+  return download_file_s3('node-lambda','interpro/meta-InterPro.tsv').then(function(data) {
+    let names = {};
+    names['release'] = data.Metadata.interpro;
+    (data.Body || '').toString().split('\n').forEach(function(line) {
+      let bits = line.split('\t');
+      names[bits[0]] = bits[1];
+    });
+    return names;
+  });
 };
 
 const create_glycodomain_filter = function() {
-  let classes = [];
-  return Promise.resolve(line_filter.bind(null,new Filter(classes)));
+  let classes = {};
+  let names = {};
+  return Promise.all([ download_glycodomain_classes(), download_interpro_names() ]).then(function(results) {
+    let classes = results[0];
+    let names = results[1];
+    let filter = new Filter(names,classes);
+    let result = line_filter.bind(null,filter);
+    result.interpro_release = names['release'];
+    result.glycodomain_release = 'latest';
+    delete names['release'];
+    return result;
+  });
 };
 
 const produce_dataset = function() {
   return get_interpro_streams().then(function(interpro_streams) {
     let combined = require('stream-stream')();
+    let taxids = interpro_streams.map((str) => str.taxid );
     while( interpro_streams.length > 0 ) {
       combined.write(interpro_streams.shift());
     }
     combined.end();
-    let writer = create_json_writer();
     return create_glycodomain_filter().then(function(domain_filter) {
+      let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, taxids);
       return domain_filter(combined).then(function(stream) {
         stream.pipe(writer);
         return new Promise(function(resolve,reject) {
@@ -170,44 +212,6 @@ const produce_dataset = function() {
     });
   }).catch(function(err) {
     console.log(err,err.stack);
-  });
-};
-
-var download_all_data_s3 = function(accession,grants) {
-  // Get metadata entries that contain the desired accession
-  var start_time = (new Date()).getTime();
-  console.log("datasets_containing_acc start ");
-  return datasets_containing_acc(accession).then(function(sets) {
-    console.log("datasets_containing_acc end ",(new Date()).getTime() - start_time);
-    console.log(sets);
-    var valid_sets = [];
-    sets.forEach(function(set) {
-
-      // Filter metadata by the JWT permissions
-
-      if (grants[set.group_id+'/'+set.id]) {
-        var valid_prots = grants[set.group_id+'/'+set.id];
-        if (valid_prots.filter(function(id) { return id == '*' || id.toLowerCase() == accession; }).length > 0) {
-          valid_sets.push(set.group_id+':'+set.id);
-        }
-      }
-      if (grants[set.group_id+'/*']) {
-        var valid_prots = grants[set.group_id+'/*'];
-        if (valid_prots.filter(function(id) { return id == '*' || id.toLowerCase() == accession; }).length > 0) {
-          valid_sets.push(set.group_id+':'+set.id);
-        }
-      }
-    });
-    console.log(valid_sets.join(','));
-    return valid_sets;
-  }).then(function(sets) {
-    start_time = (new Date()).getTime();
-    // Get data from S3 and combine
-    console.log("download_set_s3 start");
-    return Promise.all(sets.map(function (set) { return download_set_s3(set+'/'+accession); })).then(function(entries) {
-      console.log("download_set_s3 end ",(new Date()).getTime() - start_time);
-      return entries;
-    });
   });
 };
 
