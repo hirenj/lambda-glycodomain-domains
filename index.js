@@ -134,17 +134,17 @@ const get_interpro_streams_s3 = function() {
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
       let result = (new require('stream').PassThrough());
       stream.pipe(result);
-      result.taxid = interpros[idx].replace(/.*InterPro-/,'');
+      result.taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
       return result;
     });
   });
 };
 
 const get_interpro_streams = function() {
-  //return get_interpro_streams_s3();
-  let stream = fs.createReadStream('InterPro-559292.tsv');
-  stream.taxid = '559292';
-  return Promise.resolve([ stream ]);
+  return get_interpro_streams_s3();
+  // let stream = fs.createReadStream('InterPro-559292.tsv');
+  // stream.taxid = '559292';
+  // return Promise.resolve([ stream ]);
 };
 
 const download_glycodomain_classes = function() {
