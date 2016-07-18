@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     lambda_invoke: {
-      splitFile: {
+      produceDataset: {
         package: 'glycodomains',
         options: {
           file_name: 'index.js',
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
           file_name: 'index.js',
           handler: 'index.produceDataset',
         },
-        function: config.functions['produceDataset'] || 'produceDataset',
+        function: config.functions['glycodomainDomains'] || 'glycodomainDomains',
         arn: null,
       }
     },

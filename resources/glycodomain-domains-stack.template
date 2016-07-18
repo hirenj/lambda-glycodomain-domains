@@ -6,13 +6,13 @@
       "Properties" : {
         "Code" : {
           "ZipFile": { "Fn::Join": ["", [
-            "exports.splitFile = function(event, context) {",
+            "exports.produceDataset = function(event, context) {",
             "  context.succeed('OK');",
             "};"
           ]]}
         },
-        "Description" : "splitFiles",
-        "Handler" : "index.splitFile",
+        "Description" : "produceDataset",
+        "Handler" : "index.produceDataset",
         "Role" : {"Fn::GetAtt" : ["LambdaGlycodomainDomainsRole", "Arn"] },
         "Runtime" : "nodejs",
         "MemorySize" : 256,

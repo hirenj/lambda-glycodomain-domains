@@ -19,18 +19,25 @@ try {
 } catch (e) {
 }
 
-var upload_data_s3 = function upload_data_s3(stream) {
+var upload_data_s3 = function upload_data_s3() {
   var params = {
     'Bucket': bucket_name,
     'Key': 'uploads/glycodomain/public',
     'ContentType': 'application/json'
   };
+  console.log("Writing domains to ",params);
   params.Body = (new require('stream').PassThrough());
   var options = {partSize: 5 * 1024 * 1024, queueSize: 1};
-  s3.upload(params, options,function(err,data) {
-    console.log(err);
-    console.log(data);
+  let written_promise = new Promise(function(resolve,reject) {
+    s3.upload(params, options,function(err,data) {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve(data);
+    });
   });
+  params.Body.promise = written_promise;
   return params.Body;
 };
 
@@ -124,8 +131,9 @@ const create_json_writer = function(interpro_release,glycodomain_release,taxonom
   out.on('error',function(err) {
     console.log(err,err.stack);
   });
-  out.pipe(fs.createWriteStream('test.json'));
-  //out.pipe(upload_data_s3());
+  let outstream = upload_data_s3();
+  out.pipe(outstream);
+  out.promise = outstream.promise;
   return out;
 };
 
@@ -208,10 +216,12 @@ const produce_dataset = function() {
             reject();
           });
         });
+      }).then(function() {
+        if (writer.promise) {
+          return writer.promise;
+        }
       });
     });
-  }).catch(function(err) {
-    console.log(err,err.stack);
   });
 };
 
