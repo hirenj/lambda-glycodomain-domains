@@ -75,7 +75,7 @@ Filter.prototype._transform = function (obj,enc,cb) {
   }
   let data = {'dom' : this.names[interpro], 'interpro' : interpro, 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
   let glycodomain = this.classes[interpro];
-  data.class = glycodomain ? glycodomain.concat(entry_type) : [entry_type];
+  data.class = glycodomain ? glycodomain.filter(dom => dom !== 'Skipped' && dom !== 'REMOVE' && dom !== 'Skipped?').concat(entry_type) : [entry_type];
   this.domains.push(data);
   this.lastid = obj[0];
   cb();
