@@ -135,7 +135,11 @@ const get_interpro_set_keys = function(bucket) {
 };
 
 const create_json_writer = function(interpro_release,glycodomain_release,taxonomies) {
-  let meta = [{ interpro: interpro_release, glycodomain: glycodomain_release, taxonomy: taxonomies }];
+  let meta = {
+    "release" : { interpro: interpro_release, glycodomain: glycodomain_release, taxonomy: taxonomies },
+    "mimetype" : "application/json+glycodomain",
+    "title" : "Glycodomains"
+  };
   var out = JSONStream.stringifyObject('{\n"data" : {\n\t',',\n\t','\n},\n"metadata":'+JSON.stringify(meta)+'\n}');
   out.on('error',function(err) {
     console.log(err,err.stack);
