@@ -41,9 +41,9 @@ var upload_data_s3 = function upload_data_s3() {
   return params.Body;
 };
 
-function Filter(names,classes, options) {
+function Filter(names,classes,groups,options) {
   if (!(this instanceof Filter)) {
-    return new Filter(taxid, options);
+    return new Filter(names,classes,groups,options);
   }
 
   if (!options) options = {};
@@ -51,6 +51,7 @@ function Filter(names,classes, options) {
   Transform.call(this, options);
   this.names = names;
   this.classes = classes;
+  this.groups = groups;
   this.lastid = null;
   this.domains = [];
 }
@@ -60,13 +61,21 @@ util.inherits(Filter, Transform);
 /* filter each object's sensitive properties */
 Filter.prototype._transform = function (obj,enc,cb) {
   if (this.lastid != null && this.lastid !== obj[0]) {
-    this.push([this.lastid.toLowerCase(),[].concat(this.domains)]);
+    if (this.domains.length > 0) {
+      this.push([this.lastid.toLowerCase(),[].concat(this.domains)]);
+    }
     this.domains = [];
   }
-  let data = {'dom' : this.names[obj[1]], 'interpro' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
-  if (this.classes[obj[1]]) {
-    data.class = this.classes[obj[1]];
+  let interpro = obj[1];
+  let entry_type = this.groups[interpro];
+  if (! entry_type) {
+    this.lastid = obj[0];
+    cb();
+    return;
   }
+  let data = {'dom' : this.names[interpro], 'interpro' : interpro, 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
+  let glycodomain = this.classes[interpro];
+  data.class = glycodomain ? glycodomain.concat(entry_type) : [entry_type];
   this.domains.push(data);
   this.lastid = obj[0];
   cb();
@@ -179,13 +188,29 @@ const download_interpro_names = function() {
   });
 };
 
+const download_interpro_classes = function() {
+  return download_file_s3('node-lambda','interpro/class-InterPro.tsv').then(function(data) {
+    let groups = {};
+    (data.Body || '').toString().split(/(?!\nIPR.*\n)\n/).forEach(function(group) {
+      let lines = group.split(/\n/);
+      let clazz = lines.shift().trim();
+      if (clazz == 'Domain' || clazz == 'Repeat') {
+        lines.map(line => line.split(/\s/)[0]).forEach(interpro => groups[interpro] = clazz);
+      }
+    });
+    return groups;
+  });
+};
+
+
 const create_glycodomain_filter = function() {
   let classes = {};
   let names = {};
-  return Promise.all([ download_glycodomain_classes(), download_interpro_names() ]).then(function(results) {
+  return Promise.all([ download_glycodomain_classes(), download_interpro_names(), download_interpro_classes() ]).then(function(results) {
     let classes = results[0];
     let names = results[1];
-    let filter = new Filter(names,classes);
+    let groups = results[2];
+    let filter = new Filter(names,classes,groups);
     let result = line_filter.bind(null,filter);
     result.interpro_release = names['release'];
     result.glycodomain_release = 'latest';
