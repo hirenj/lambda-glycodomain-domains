@@ -73,28 +73,25 @@ Filter.prototype._transform = function (obj,enc,cb) {
 };
 
 const line_filter = function(filter,stream) {
-  return new Promise(function(resolve) {
-    var lineReader = require('readline').createInterface({
-      input: stream
-    });
-    lineReader.on('line',function(dat) {
-      let row = dat.toString().split('\t');
-      filter.write(row);
-    });
-
-    lineReader.on('close',function() {
-      console.log("Done reading");
-      filter.write([null,null,null,null]);
-      filter.end();
-    });
-
-    lineReader.on('error',function(err) {
-      console.log(err);
-      reject(err);
-    });
-
-    resolve(filter);
+  var lineReader = require('readline').createInterface({
+    input: stream
   });
+  lineReader.on('line',function(dat) {
+    let row = dat.toString().split('\t');
+    filter.write(row);
+  });
+
+  lineReader.on('close',function() {
+    console.log("Done reading");
+    filter.write([null,null,null,null]);
+    filter.end();
+  });
+
+  lineReader.on('error',function(err) {
+    console.log(err);
+  });
+
+  return filter;
 };
 
 const retrieve_file_s3 = function retrieve_file_s3(bucket,filekey) {
@@ -125,13 +122,22 @@ const get_interpro_set_keys = function(bucket) {
   });
 };
 
+const upload_data_file = function(filename) {
+  let outstream = fs.createWriteStream(filename);
+  outstream.promise = new Promise(function(resolve,reject) {
+    outstream.on('end',resolve);
+    outstream.on('error',reject);
+  });
+  return outstream;
+};
+
 const create_json_writer = function(interpro_release,glycodomain_release,taxonomies) {
   let meta = [{ interpro: interpro_release, glycodomain: glycodomain_release, taxonomy: taxonomies }];
   var out = JSONStream.stringifyObject('{\n"data" : {\n\t',',\n\t','\n},\n"metadata":'+JSON.stringify(meta)+'\n}');
   out.on('error',function(err) {
     console.log(err,err.stack);
   });
-  let outstream = upload_data_s3();
+  let outstream = upload_data_file('/tmp/foo.json');//upload_data_s3();
   out.pipe(outstream);
   out.promise = outstream.promise;
   return out;
@@ -140,8 +146,8 @@ const create_json_writer = function(interpro_release,glycodomain_release,taxonom
 const get_interpro_streams_s3 = function() {
   return get_interpro_set_keys('node-lambda').then(function(interpros) {
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
-      let result = (new require('stream').PassThrough());
-      stream.pipe(result);
+      let result = (new require('stream').PassThrough({objectMode: true}));
+      line_filter(result,stream);
       result.taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
       return result;
     });
@@ -186,17 +192,16 @@ const create_glycodomain_filter = function() {
     let classes = results[0];
     let names = results[1];
     let filter = new Filter(names,classes);
-    let result = line_filter.bind(null,filter);
-    result.interpro_release = names['release'];
-    result.glycodomain_release = 'latest';
+    filter.interpro_release = names['release'];
+    filter.glycodomain_release = 'latest';
     delete names['release'];
-    return result;
+    return filter;
   });
 };
 
 const produce_dataset = function() {
   return get_interpro_streams().then(function(interpro_streams) {
-    let combined = require('stream-stream')();
+    let combined = require('stream-stream')({objectMode: true});
     let taxids = interpro_streams.map((str) => str.taxid );
     while( interpro_streams.length > 0 ) {
       combined.write(interpro_streams.shift());
@@ -204,23 +209,22 @@ const produce_dataset = function() {
     combined.end();
     return create_glycodomain_filter().then(function(domain_filter) {
       let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, taxids);
-      return domain_filter(combined).then(function(stream) {
-        stream.pipe(writer);
-        return new Promise(function(resolve,reject) {
-          stream.on('end',function() {
-            console.log("Done");
-            resolve();
-          });
-          stream.on('error',function(err) {
-            console.log(err);
-            reject();
-          });
+      let stream = combined.pipe(domain_filter).pipe(writer);
+      return new Promise(function(resolve,reject) {
+        stream.on('end',function() {
+          console.log("Done");
+          resolve();
         });
-      }).then(function() {
-        if (writer.promise) {
-          return writer.promise;
-        }
+        stream.on('error',function(err) {
+          console.log(err);
+          reject();
+        });
       });
+      return writer;
+    }).then(function(writer) {
+      if (writer.promise) {
+        return writer.promise;
+      }
     });
   });
 };
