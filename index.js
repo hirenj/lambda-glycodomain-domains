@@ -3,7 +3,6 @@
 
 const AWS = require('lambda-helpers').AWS;
 const s3 = new AWS.S3();
-const JSONStream = require('JSONStream');
 const fs = require('fs');
 
 const stream = require('stream');
@@ -59,7 +58,7 @@ util.inherits(Filter, Transform);
 
 Filter.prototype._transform = function (obj,enc,cb) {
   if (this.lastid != null && this.lastid !== obj[0]) {
-    this.push([this.lastid.toLowerCase(),[].concat(this.domains)]);
+    this.push([this.lastid.toLowerCase(),JSON.stringify([].concat(this.domains))]);
     this.domains = [];
   }
   let data = {'dom' : this.names[obj[1]], 'interpro' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
@@ -93,6 +92,34 @@ TabSplitter.prototype._flush = function (cb) {
   cb();
 };
 
+function CheapJSON(meta,options) {
+  if (!(this instanceof CheapJSON)) {
+    return new CheapJSON(meta,options);
+  }
+
+  if (!options) options = {};
+  options.objectMode = true;
+  this.meta = meta;
+  this.first = false;
+  Transform.call(this, options);
+}
+
+util.inherits(CheapJSON, Transform);
+
+CheapJSON.prototype._transform = function (obj,enc,cb) {
+  let sep = ',';
+  if (! this.first) {
+    sep = '{\n"data":{';
+  }
+  this.first = this.first || true;
+  this.push(sep+'\n\t"'+obj[0]+'":'+obj[1]);//JSON.stringify(obj[1]));
+  cb();
+};
+
+CheapJSON.prototype._flush = function(cb) {
+  this.push('\n},\n"meta":'+JSON.stringify(this.meta)+'\n}\n');
+  cb();
+};
 
 function StreamInterleaver(stream, options) {
   if (!(this instanceof StreamInterleaver)) {
@@ -236,11 +263,12 @@ const upload_data_file = function(filename) {
 };
 
 const create_json_writer = function(interpro_release,glycodomain_release,taxonomies) {
-  let meta = [{ interpro: interpro_release, glycodomain: glycodomain_release, taxonomy: taxonomies }];
-  var out = JSONStream.stringifyObject('{\n"data" : {\n\t',',\n\t','\n},\n"metadata":'+JSON.stringify(meta)+'\n}');
-  out.on('error',function(err) {
-    console.log(err,err.stack);
-  });
+  let meta = { "mimetype" : "application/json+glycodomain",
+               "title" : "GlycoDomain",
+               "version" : { interpro: interpro_release,
+                              glycodomain: glycodomain_release,
+                              taxonomy: taxonomies } };
+  let out = new CheapJSON(meta);
   let outstream = upload_data_file('/tmp/foo.json');//upload_data_s3();
   out.pipe(outstream);
   out.promise = outstream.promise;
@@ -256,10 +284,11 @@ const get_uniprot_membrane_stream_s3 = function(taxid) {
 const get_interpro_streams_s3 = function() {
   return get_interpro_set_keys('node-lambda').then(function(interpros) {
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
-      let result = line_filter(stream);
-      result.taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
-      let interleaver = new StreamInterleaver(get_uniprot_membrane_stream_s3(result.taxid));
-      return result.pipe(interleaver);
+      let lines = line_filter(stream);
+      let taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
+      let result = new StreamInterleaver(get_uniprot_membrane_stream_s3(taxid));
+      result.taxid = taxid;
+      return lines.pipe(result);
     });
   });
 };
@@ -285,7 +314,7 @@ const download_glycodomain_classes = function() {
 
 const download_interpro_names = function() {
   return download_file_s3('node-lambda','interpro/meta-InterPro.tsv').then(function(data) {
-    let names = { 'TMhelix' : 'TMhelix', 'SIGNAL' : 'SIGNAL'};
+    let names = {'TMhelix':'TMhelix', 'SIGNAL' : 'SIGNAL'};
     names['release'] = data.Metadata.interpro;
     (data.Body || '').toString().split('\n').forEach(function(line) {
       let bits = line.split('\t');

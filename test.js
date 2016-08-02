@@ -1,2 +1,2 @@
 var foo = require('./index');
-foo.produceDataset();
+foo.produceDataset({},{succeed: function(message) { console.log(message); }});
