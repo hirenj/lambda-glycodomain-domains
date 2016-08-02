@@ -57,7 +57,6 @@ function Filter(names,classes, options) {
 
 util.inherits(Filter, Transform);
 
-/* filter each object's sensitive properties */
 Filter.prototype._transform = function (obj,enc,cb) {
   if (this.lastid != null && this.lastid !== obj[0]) {
     this.push([this.lastid.toLowerCase(),[].concat(this.domains)]);
@@ -71,6 +70,46 @@ Filter.prototype._transform = function (obj,enc,cb) {
   this.lastid = obj[0];
   cb();
 };
+
+function StreamInterleaver(stream, options) {
+  if (!(this instanceof StreamInterleaver)) {
+    return new StreamInterleaver(stream, options);
+  }
+
+  if (!options) options = {};
+  options.objectMode = true;
+  Transform.call(this, options);
+  this.stream = stream;
+}
+
+util.inherits(StreamInterleaver, Transform);
+
+StreamInterleaver.prototype._transform = function (obj,enc,cb) {
+  let ref_id = obj[0];
+  let self = this;
+  if ( ! this.first_row || this.first_row[0] <= ref_id ) {
+    if (this.first_row) {
+      this.push(this.first_row);
+      this.first_row = null;
+    }
+    this.stream.on('data',function(row) {
+      let id = row[0];
+      if (id <= ref_id) {
+        self.push(row);
+      }
+      if (id > ref_id) {
+        self.first_row = row;
+        self.stream.removeAllListeners('data');
+        self.push(obj);
+        cb();
+      }
+    });
+  } else {
+    self.push(obj);
+    cb();
+  }
+};
+
 
 const line_filter = function(filter,stream) {
   var lineReader = require('readline').createInterface({
@@ -143,13 +182,21 @@ const create_json_writer = function(interpro_release,glycodomain_release,taxonom
   return out;
 };
 
+const get_uniprot_membrane_stream_s3 = function(taxid) {
+  let s3_stream = retrieve_file_s3('node-lambda','interpro/membrane-'+taxid);
+  let result = (new require('stream').PassThrough({objectMode: true}));
+  line_filter(result,s3_stream);
+  return result;
+};
+
 const get_interpro_streams_s3 = function() {
   return get_interpro_set_keys('node-lambda').then(function(interpros) {
+    interpros = ['interpro/InterPro-559292.tsv'];
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
       let result = (new require('stream').PassThrough({objectMode: true}));
       line_filter(result,stream);
       result.taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
-      return result;
+      return result.pipe(new StreamInterleaver(get_uniprot_membrane_stream_s3(result.taxid)));
     });
   });
 };
