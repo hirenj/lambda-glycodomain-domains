@@ -80,6 +80,11 @@ function StreamInterleaver(stream, options) {
   options.objectMode = true;
   Transform.call(this, options);
   this.stream = stream;
+  let self = this;
+  this.stream.on('end',function() {
+    console.log("Ending input stream");
+    delete self.stream;
+  });
 }
 
 util.inherits(StreamInterleaver, Transform);
@@ -87,18 +92,19 @@ util.inherits(StreamInterleaver, Transform);
 StreamInterleaver.prototype._transform = function (obj,enc,cb) {
   let ref_id = obj[0];
   let self = this;
-  if ( ! this.first_row || this.first_row[0] <= ref_id ) {
+  if ( this.stream && ( ! this.first_row || this.first_row[0] <= ref_id ) ) {
     if (this.first_row) {
       this.push(this.first_row);
       this.first_row = null;
     }
+    this.stream.resume();
     this.stream.on('data',function(row) {
       let id = row[0];
       if (id <= ref_id) {
         self.push(row);
-      }
-      if (id > ref_id) {
+      } else {
         self.first_row = row;
+        self.stream.pause();
         self.stream.removeAllListeners('data');
         self.push(obj);
         cb();
@@ -110,6 +116,22 @@ StreamInterleaver.prototype._transform = function (obj,enc,cb) {
   }
 };
 
+StreamInterleaver.prototype._flush = function(cb) {
+  var self = this;
+  if (this.stream) {
+    console.log("Flushing stream");
+    if (this.first_row) {
+      this.push(this.first_row);
+    }
+    this.stream.on('data',function(row) {
+      self.push(row);
+    });
+    this.stream.on('end',cb);
+  } else {
+    console.log("Stream flush not required");
+    cb();
+  }
+};
 
 const line_filter = function(filter,stream) {
   var lineReader = require('readline').createInterface({
@@ -260,14 +282,13 @@ const produce_dataset = function() {
       return new Promise(function(resolve,reject) {
         stream.on('end',function() {
           console.log("Done");
-          resolve();
+          resolve(writer);
         });
         stream.on('error',function(err) {
           console.log(err);
           reject();
         });
       });
-      return writer;
     }).then(function(writer) {
       if (writer.promise) {
         return writer.promise;
