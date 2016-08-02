@@ -71,6 +71,29 @@ Filter.prototype._transform = function (obj,enc,cb) {
   cb();
 };
 
+function TabSplitter(options) {
+  if (!(this instanceof TabSplitter)) {
+    return new TabSplitter(options);
+  }
+
+  if (!options) options = {};
+  options.objectMode = true;
+  Transform.call(this, options);
+}
+
+util.inherits(TabSplitter, Transform);
+
+TabSplitter.prototype._transform = function (obj,enc,cb) {
+  this.push(obj.toString().split('\t'));
+  cb();
+};
+
+TabSplitter.prototype._flush = function (cb) {
+  this.push([null,null,null,null]);
+  cb();
+};
+
+
 function StreamInterleaver(stream, options) {
   if (!(this instanceof StreamInterleaver)) {
     return new StreamInterleaver(stream, options);
@@ -82,7 +105,6 @@ function StreamInterleaver(stream, options) {
   this.stream = stream;
   let self = this;
   this.stream.on('end',function() {
-    console.log("Ending input stream");
     delete self.stream;
   });
 }
@@ -97,19 +119,25 @@ StreamInterleaver.prototype._transform = function (obj,enc,cb) {
       this.push(this.first_row);
       this.first_row = null;
     }
-    this.stream.resume();
     this.stream.on('data',function(row) {
+      self.stream.pause();
       let id = row[0];
       if (id <= ref_id) {
         self.push(row);
+        self.stream.resume();
       } else {
         self.first_row = row;
-        self.stream.pause();
-        self.stream.removeAllListeners('data');
         self.push(obj);
+        self.stream.removeAllListeners('data');
+        self.stream.removeListener('end',self.stream.end_cb);
         cb();
       }
     });
+    this.stream.end_cb = function() {
+      cb();
+    };
+    this.stream.on('end',this.stream.end_cb);
+    self.stream.resume();
   } else {
     self.push(obj);
     cb();
@@ -119,7 +147,6 @@ StreamInterleaver.prototype._transform = function (obj,enc,cb) {
 StreamInterleaver.prototype._flush = function(cb) {
   var self = this;
   if (this.stream) {
-    console.log("Flushing stream");
     if (this.first_row) {
       this.push(this.first_row);
     }
@@ -128,22 +155,29 @@ StreamInterleaver.prototype._flush = function(cb) {
     });
     this.stream.on('end',cb);
   } else {
-    console.log("Stream flush not required");
     cb();
   }
 };
 
-const line_filter = function(filter,stream) {
+const line_filter = function(stream) {
+  let byline = require('byline');
+  let line_splitter = byline.createStream();
+  return stream.pipe(line_splitter).pipe(new TabSplitter());
+}
+
+const line_filter_old = function(filter,stream) {
   var lineReader = require('readline').createInterface({
     input: stream
   });
+  let line_count = 0;
   lineReader.on('line',function(dat) {
     let row = dat.toString().split('\t');
+    line_count += 1;
     filter.write(row);
   });
 
   lineReader.on('close',function() {
-    console.log("Done reading");
+    console.log("Done reading ",stream.source," read ",line_count," lines ");
     filter.write([null,null,null,null]);
     filter.end();
   });
@@ -151,7 +185,7 @@ const line_filter = function(filter,stream) {
   lineReader.on('error',function(err) {
     console.log(err);
   });
-
+  filter.source = stream.source;
   return filter;
 };
 
@@ -160,7 +194,9 @@ const retrieve_file_s3 = function retrieve_file_s3(bucket,filekey) {
     'Key' : filekey,
     'Bucket' : bucket
   };
-  return s3.getObject(params).createReadStream();
+  let stream = s3.getObject(params).createReadStream();
+  stream.source = params.Key;
+  return stream;
 };
 
 
@@ -186,8 +222,15 @@ const get_interpro_set_keys = function(bucket) {
 const upload_data_file = function(filename) {
   let outstream = fs.createWriteStream(filename);
   outstream.promise = new Promise(function(resolve,reject) {
-    outstream.on('end',resolve);
-    outstream.on('error',reject);
+    console.log("Binding events for writing");
+    outstream.on('close', function() {
+      console.log("Finished writing file");
+      resolve();
+    });
+    outstream.on('error',function(err) {
+      console.log(err);
+      reject(err);
+    });
   });
   return outstream;
 };
@@ -206,19 +249,17 @@ const create_json_writer = function(interpro_release,glycodomain_release,taxonom
 
 const get_uniprot_membrane_stream_s3 = function(taxid) {
   let s3_stream = retrieve_file_s3('node-lambda','interpro/membrane-'+taxid);
-  let result = (new require('stream').PassThrough({objectMode: true}));
-  line_filter(result,s3_stream);
+  let result = line_filter(s3_stream);
   return result;
 };
 
 const get_interpro_streams_s3 = function() {
   return get_interpro_set_keys('node-lambda').then(function(interpros) {
-    interpros = ['interpro/InterPro-559292.tsv'];
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
-      let result = (new require('stream').PassThrough({objectMode: true}));
-      line_filter(result,stream);
+      let result = line_filter(stream);
       result.taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
-      return result.pipe(new StreamInterleaver(get_uniprot_membrane_stream_s3(result.taxid)));
+      let interleaver = new StreamInterleaver(get_uniprot_membrane_stream_s3(result.taxid));
+      return result.pipe(interleaver);
     });
   });
 };
@@ -244,7 +285,7 @@ const download_glycodomain_classes = function() {
 
 const download_interpro_names = function() {
   return download_file_s3('node-lambda','interpro/meta-InterPro.tsv').then(function(data) {
-    let names = {};
+    let names = { 'TMhelix' : 'TMhelix', 'SIGNAL' : 'SIGNAL'};
     names['release'] = data.Metadata.interpro;
     (data.Body || '').toString().split('\n').forEach(function(line) {
       let bits = line.split('\t');
@@ -278,10 +319,11 @@ const produce_dataset = function() {
     combined.end();
     return create_glycodomain_filter().then(function(domain_filter) {
       let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, taxids);
-      let stream = combined.pipe(domain_filter).pipe(writer);
+      let stream = combined.pipe(domain_filter);
+      stream.pipe(writer);
       return new Promise(function(resolve,reject) {
         stream.on('end',function() {
-          console.log("Done");
+          console.log("Done reading data");
           resolve(writer);
         });
         stream.on('error',function(err) {
