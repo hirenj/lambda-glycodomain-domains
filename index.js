@@ -30,6 +30,7 @@ var upload_data_s3 = function upload_data_s3(taxid) {
   let written_promise = new Promise(function(resolve,reject) {
     s3.upload(params, options,function(err,data) {
       if (err) {
+        console.log("Writing error for ",taxid,params.Bucket,params.Key);
         reject(err);
         return;
       }
