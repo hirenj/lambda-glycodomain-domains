@@ -89,6 +89,8 @@ DomainTransform.prototype._transform = function (obj,enc,cb) {
   let interpro = obj[1];
   let entry_type = this.groups[interpro];
   if ( ! entry_type )  {
+    this.lastid = obj[0];
+    this.lasttax = obj[4];
     cb();
     return;
   }
