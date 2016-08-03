@@ -62,9 +62,9 @@ TaxFilter.prototype._transform = function (obj, enc, cb) {
 };
 
 
-function DomainTransform(names,classes, options) {
+function DomainTransform(names,classes,groups,options) {
   if (!(this instanceof DomainTransform)) {
-    return new DomainTransform(taxid, options);
+    return new DomainTransform(names,classes,groups,options);
   }
 
   if (!options) options = {};
@@ -81,12 +81,16 @@ util.inherits(DomainTransform, Transform);
 
 DomainTransform.prototype._transform = function (obj,enc,cb) {
   if (this.lastid != null && this.lastid !== obj[0]) {
-    this.push([this.lastid.toLowerCase(),JSON.stringify([].concat(this.domains)),this.lasttax]);
+    if (this.domains.length > 0) {
+      this.push([this.lastid.toLowerCase(),JSON.stringify([].concat(this.domains)),this.lasttax]);
+    }
     this.domains = [];
   }
-  let data = {'dom' : this.names[obj[1]], 'interpro' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3])};
-  if (this.classes[obj[1]]) {
-    data.class = this.classes[obj[1]];
+  let interpro = obj[1];
+  let entry_type = this.groups[interpro];
+  if ( ! entry_type )  {
+    cb();
+    return;
   }
   let data = {'dom' : this.names[interpro], 'interpro' : interpro, 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
   let glycodomain = this.classes[interpro];
@@ -342,6 +346,7 @@ const get_interpro_streams = function() {
 
 let classes_promise = null;
 let names_promise = null;
+let groups_promise = null;
 
 const download_glycodomain_classes = function() {
   if ( classes_promise ) {
@@ -376,17 +381,21 @@ const download_interpro_names = function() {
 };
 
 const download_interpro_classes = function() {
-  return download_file_s3('node-lambda','interpro/class-InterPro.tsv').then(function(data) {
-    let groups = {};
+  if (groups_promise) {
+    return groups_promise;
+  }
+  groups_promise = download_file_s3('node-lambda','interpro/class-InterPro.tsv').then(function(data) {
+    let groups = {'TMhelix' : 'topo', 'SIGNAL' : 'topo'};
     (data.Body || '').toString().split(/(?!\nIPR.*\n)\n/).forEach(function(group) {
       let lines = group.split(/\n/);
-      let clazz = lines.shift().trim();
-      if (clazz == 'Domain' || clazz == 'Repeat') {
+      let clazz = lines.shift().trim().toLowerCase();
+      if (clazz == 'domain' || clazz == 'repeat') {
         lines.map(line => line.split(/\s/)[0]).forEach(interpro => groups[interpro] = clazz);
       }
     });
     return groups;
   });
+  return groups_promise;
 };
 
 
@@ -396,7 +405,8 @@ const create_glycodomain_filter = function() {
   return Promise.all([ download_glycodomain_classes(), download_interpro_names(), download_interpro_classes() ]).then(function(results) {
     let classes = results[0];
     let names = results[1];
-    let filter = new DomainTransform(names,classes);
+    let groups = results[2];
+    let filter = new DomainTransform(names,classes,groups);
     filter.interpro_release = names['release'];
     filter.glycodomain_release = 'latest';
     // delete names['release'];
