@@ -190,7 +190,7 @@ StreamInterleaver.prototype._transform = function (obj,enc,cb) {
     this.stream.on('end',this.stream.end_cb);
     self.stream.resume();
   } else {
-    self.push(obj);
+    self.push(obj.concat(self.taxid));
     cb();
   }
 };
