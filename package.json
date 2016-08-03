@@ -16,7 +16,7 @@
     "load-grunt-tasks": "^3.4.0"
   },
   "dependencies": {
-    "JSONStream": "^1.1.1",
+    "byline": "^5.0.0",
     "lambda-helpers": "hirenj/lambda-helpers",
     "stream-stream": "^1.2.6"
   }
