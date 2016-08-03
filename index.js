@@ -144,7 +144,7 @@ CheapJSON.prototype._transform = function (obj,enc,cb) {
 };
 
 CheapJSON.prototype._flush = function(cb) {
-  this.push('\n},\n"meta":'+JSON.stringify(this.meta)+'\n}\n');
+  this.push('\n},\n"metadata":'+JSON.stringify(this.meta)+'\n}\n');
   cb();
 };
 
