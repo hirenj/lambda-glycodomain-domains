@@ -18,10 +18,10 @@ try {
 } catch (e) {
 }
 
-var upload_data_s3 = function upload_data_s3() {
+var upload_data_s3 = function upload_data_s3(taxid) {
   var params = {
     'Bucket': bucket_name,
-    'Key': 'uploads/glycodomain/public',
+    'Key': 'uploads/glycodomain_'+taxid+'/public',
     'ContentType': 'application/json'
   };
   console.log("Writing domains to ",params);
@@ -40,9 +40,30 @@ var upload_data_s3 = function upload_data_s3() {
   return params.Body;
 };
 
-function Filter(names,classes, options) {
-  if (!(this instanceof Filter)) {
-    return new Filter(taxid, options);
+function TaxFilter(taxid, options) {
+  if (!(this instanceof TaxFilter)) {
+    return new TaxFilter(taxid, options);
+  }
+
+  if (!options) options = {};
+  options.objectMode = true;
+  Transform.call(this, options);
+  this.taxid = taxid;
+}
+
+util.inherits(TaxFilter, Transform);
+
+TaxFilter.prototype._transform = function (obj, enc, cb) {
+  if (this.taxid == obj[2]) {
+    this.push(obj);
+  }
+  cb();
+};
+
+
+function DomainTransform(names,classes, options) {
+  if (!(this instanceof DomainTransform)) {
+    return new DomainTransform(taxid, options);
   }
 
   if (!options) options = {};
@@ -54,19 +75,20 @@ function Filter(names,classes, options) {
   this.domains = [];
 }
 
-util.inherits(Filter, Transform);
+util.inherits(DomainTransform, Transform);
 
-Filter.prototype._transform = function (obj,enc,cb) {
+DomainTransform.prototype._transform = function (obj,enc,cb) {
   if (this.lastid != null && this.lastid !== obj[0]) {
-    this.push([this.lastid.toLowerCase(),JSON.stringify([].concat(this.domains))]);
+    this.push([this.lastid.toLowerCase(),JSON.stringify([].concat(this.domains)),this.lasttax]);
     this.domains = [];
   }
-  let data = {'dom' : this.names[obj[1]], 'interpro' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
+  let data = {'dom' : this.names[obj[1]], 'interpro' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3])};
   if (this.classes[obj[1]]) {
     data.class = this.classes[obj[1]];
   }
   this.domains.push(data);
   this.lastid = obj[0];
+  this.lasttax = obj[4];
   cb();
 };
 
@@ -121,15 +143,16 @@ CheapJSON.prototype._flush = function(cb) {
   cb();
 };
 
-function StreamInterleaver(stream, options) {
+function StreamInterleaver(stream, taxid,options) {
   if (!(this instanceof StreamInterleaver)) {
-    return new StreamInterleaver(stream, options);
+    return new StreamInterleaver(stream, taxid,options);
   }
 
   if (!options) options = {};
   options.objectMode = true;
   Transform.call(this, options);
   this.stream = stream;
+  this.taxid = taxid;
   let self = this;
   this.stream.on('end',function() {
     delete self.stream;
@@ -143,18 +166,18 @@ StreamInterleaver.prototype._transform = function (obj,enc,cb) {
   let self = this;
   if ( this.stream && ( ! this.first_row || this.first_row[0] <= ref_id ) ) {
     if (this.first_row) {
-      this.push(this.first_row);
+      this.push(this.first_row.concat(self.taxid));
       this.first_row = null;
     }
     this.stream.on('data',function(row) {
       self.stream.pause();
       let id = row[0];
       if (id <= ref_id) {
-        self.push(row);
+        self.push(row.concat(self.taxid));
         self.stream.resume();
       } else {
         self.first_row = row;
-        self.push(obj);
+        self.push(obj.concat(self.taxid));
         self.stream.removeAllListeners('data');
         self.stream.removeListener('end',self.stream.end_cb);
         cb();
@@ -175,10 +198,10 @@ StreamInterleaver.prototype._flush = function(cb) {
   var self = this;
   if (this.stream) {
     if (this.first_row) {
-      this.push(this.first_row);
+      this.push(this.first_row.concat(self.taxid));
     }
     this.stream.on('data',function(row) {
-      self.push(row);
+      self.push(row.concat(self.taxid));
     });
     this.stream.on('end',cb);
   } else {
@@ -263,15 +286,21 @@ const upload_data_file = function(filename) {
 };
 
 const create_json_writer = function(interpro_release,glycodomain_release,taxonomies) {
-  let meta = { "mimetype" : "application/json+glycodomain",
-               "title" : "GlycoDomain",
-               "version" : { interpro: interpro_release,
-                              glycodomain: glycodomain_release,
-                              taxonomy: taxonomies } };
-  let out = new CheapJSON(meta);
-  let outstream = upload_data_file('/tmp/foo.json');//upload_data_s3();
-  out.pipe(outstream);
-  out.promise = outstream.promise;
+
+  let out = (new require('stream').PassThrough({objectMode: true}));
+  let write_promises = [];
+  taxonomies.forEach(function(tax) {
+    let meta = { "mimetype" : "application/json+glycodomain",
+                 "title" : "GlycoDomain "+tax,
+                 "version" : { interpro: interpro_release,
+                                glycodomain: glycodomain_release,
+                                taxonomy: tax } };
+    let json_stream = out.pipe(new TaxFilter(tax)).pipe(new CheapJSON(meta));
+    let outstream = upload_data_file('/tmp/foo_'+tax+'.json'); //upload_data_s3(tax);
+    json_stream.pipe(outstream);
+    write_promises.push(outstream.promise);
+  });
+  out.promise = Promise.all(write_promises);
   return out;
 };
 
@@ -289,6 +318,7 @@ const get_interpro_streams_s3 = function() {
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
       let lines = line_filter(stream);
       let taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
+      lines.taxid = taxid;
       let result = new StreamInterleaver(get_uniprot_membrane_stream_s3(taxid));
       result.taxid = taxid;
       return lines.pipe(result);
@@ -303,8 +333,14 @@ const get_interpro_streams = function() {
   // return Promise.resolve([ stream ]);
 };
 
+let classes_promise = null;
+let names_promise = null;
+
 const download_glycodomain_classes = function() {
-  return download_file_s3('node-lambda','glycodomain/Glycodomain-latest-InterPro-latest-class.tsv').then(function(data) {
+  if ( classes_promise ) {
+    return classes_promise;
+  }
+  classes_promise = download_file_s3('node-lambda','glycodomain/Glycodomain-latest-InterPro-latest-class.tsv').then(function(data) {
     let classes = {};
     (data.Body || '').toString().split('\n').forEach(function(line) {
       let bits = line.split('\t');
@@ -313,10 +349,14 @@ const download_glycodomain_classes = function() {
     });
     return classes;
   });
+  return classes_promise;
 };
 
 const download_interpro_names = function() {
-  return download_file_s3('node-lambda','interpro/meta-InterPro.tsv').then(function(data) {
+  if (names_promise) {
+    return names_promise;
+  }
+  names_promise = download_file_s3('node-lambda','interpro/meta-InterPro.tsv').then(function(data) {
     let names = {'TMhelix':'TMhelix', 'SIGNAL' : 'SIGNAL'};
     names['release'] = data.Metadata.interpro;
     (data.Body || '').toString().split('\n').forEach(function(line) {
@@ -325,6 +365,7 @@ const download_interpro_names = function() {
     });
     return names;
   });
+  return names_promise;
 };
 
 const create_glycodomain_filter = function() {
@@ -333,41 +374,39 @@ const create_glycodomain_filter = function() {
   return Promise.all([ download_glycodomain_classes(), download_interpro_names() ]).then(function(results) {
     let classes = results[0];
     let names = results[1];
-    let filter = new Filter(names,classes);
+    let filter = new DomainTransform(names,classes);
     filter.interpro_release = names['release'];
     filter.glycodomain_release = 'latest';
-    delete names['release'];
+    // delete names['release'];
     return filter;
   });
 };
 
 const produce_dataset = function() {
   return get_interpro_streams().then(function(interpro_streams) {
-    let combined = require('stream-stream')({objectMode: true});
     let taxids = interpro_streams.map((str) => str.taxid );
-    while( interpro_streams.length > 0 ) {
-      combined.write(interpro_streams.shift());
-    }
-    combined.end();
-    return create_glycodomain_filter().then(function(domain_filter) {
-      let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, taxids);
-      let stream = combined.pipe(domain_filter);
-      stream.pipe(writer);
-      return new Promise(function(resolve,reject) {
-        stream.on('end',function() {
-          console.log("Done reading data");
-          resolve(writer);
+    let write_promises = interpro_streams.map(function(interpro_stream) {
+      return create_glycodomain_filter().then(function(domain_filter) {
+        let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, [interpro_stream.taxid]);
+        let stream = interpro_stream.pipe(domain_filter);
+        stream.pipe(writer);
+        return new Promise(function(resolve,reject) {
+          stream.on('end',function() {
+            console.log("Done reading data for ",interpro_stream.taxid);
+            resolve(writer);
+          });
+          stream.on('error',function(err) {
+            console.log(err);
+            reject();
+          });
         });
-        stream.on('error',function(err) {
-          console.log(err);
-          reject();
-        });
+      }).then(function(writer) {
+        if (writer.promise) {
+          return writer.promise;
+        }
       });
-    }).then(function(writer) {
-      if (writer.promise) {
-        return writer.promise;
-      }
     });
+    return Promise.all(write_promises);
   });
 };
 
