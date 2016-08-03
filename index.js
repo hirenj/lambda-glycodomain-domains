@@ -283,6 +283,9 @@ const get_uniprot_membrane_stream_s3 = function(taxid) {
 
 const get_interpro_streams_s3 = function() {
   return get_interpro_set_keys('node-lambda').then(function(interpros) {
+    interpros = ['interpro/InterPro-10029.tsv','interpro/InterPro-6239.tsv'];
+    // interpros = ['interpro/InterPro-9606.tsv','interpro/InterPro-10116.tsv','interpro/InterPro-10090.tsv','interpro/InterPro-559292.tsv','interpro/InterPro-7227.tsv'];
+    console.log("Merging ",interpros.join(','));
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
       let lines = line_filter(stream);
       let taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
