@@ -41,11 +41,6 @@ var upload_data_s3 = function upload_data_s3(taxid) {
   return params.Body;
 };
 
-<<<<<<< HEAD
-function Filter(names,classes,groups,options) {
-  if (!(this instanceof Filter)) {
-    return new Filter(names,classes,groups,options);
-=======
 function TaxFilter(taxid, options) {
   if (!(this instanceof TaxFilter)) {
     return new TaxFilter(taxid, options);
@@ -70,7 +65,6 @@ TaxFilter.prototype._transform = function (obj, enc, cb) {
 function DomainTransform(names,classes, options) {
   if (!(this instanceof DomainTransform)) {
     return new DomainTransform(taxid, options);
->>>>>>> merge_membrane
   }
 
   if (!options) options = {};
@@ -87,26 +81,12 @@ util.inherits(DomainTransform, Transform);
 
 DomainTransform.prototype._transform = function (obj,enc,cb) {
   if (this.lastid != null && this.lastid !== obj[0]) {
-<<<<<<< HEAD
-    if (this.domains.length > 0) {
-      this.push([this.lastid.toLowerCase(),[].concat(this.domains)]);
-    }
-    this.domains = [];
-  }
-  let interpro = obj[1];
-  let entry_type = this.groups[interpro];
-  if (! entry_type) {
-    this.lastid = obj[0];
-    cb();
-    return;
-=======
     this.push([this.lastid.toLowerCase(),JSON.stringify([].concat(this.domains)),this.lasttax]);
     this.domains = [];
   }
   let data = {'dom' : this.names[obj[1]], 'interpro' : obj[1], 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3])};
   if (this.classes[obj[1]]) {
     data.class = this.classes[obj[1]];
->>>>>>> merge_membrane
   }
   let data = {'dom' : this.names[interpro], 'interpro' : interpro, 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
   let glycodomain = this.classes[interpro];
@@ -416,21 +396,11 @@ const create_glycodomain_filter = function() {
   return Promise.all([ download_glycodomain_classes(), download_interpro_names(), download_interpro_classes() ]).then(function(results) {
     let classes = results[0];
     let names = results[1];
-<<<<<<< HEAD
-    let groups = results[2];
-    let filter = new Filter(names,classes,groups);
-    let result = line_filter.bind(null,filter);
-    result.interpro_release = names['release'];
-    result.glycodomain_release = 'latest';
-    delete names['release'];
-    return result;
-=======
     let filter = new DomainTransform(names,classes);
     filter.interpro_release = names['release'];
     filter.glycodomain_release = 'latest';
     // delete names['release'];
     return filter;
->>>>>>> merge_membrane
   });
 };
 
