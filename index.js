@@ -24,7 +24,7 @@ var upload_data_s3 = function upload_data_s3(taxid) {
     'Key': 'uploads/glycodomain_'+taxid+'/public',
     'ContentType': 'application/json'
   };
-  console.log("Writing domains to ",params);
+  console.log("Writing domains to ",params.Bucket,params.Key);
   params.Body = (new require('stream').PassThrough());
   var options = {partSize: 5 * 1024 * 1024, queueSize: 1};
   let written_promise = new Promise(function(resolve,reject) {
@@ -203,8 +203,10 @@ StreamInterleaver.prototype._flush = function(cb) {
     this.stream.on('data',function(row) {
       self.push(row.concat(self.taxid));
     });
-    this.stream.on('end',cb);
+    this.stream.on('end',function() { console.log("Completed StreamInterleaver",self.taxid); cb(); });
+    this.stream.resume();
   } else {
+    console.log("Completed StreamInterleaver",self.taxid);
     cb();
   }
 };
@@ -296,7 +298,8 @@ const create_json_writer = function(interpro_release,glycodomain_release,taxonom
                                 glycodomain: glycodomain_release,
                                 taxonomy: tax } };
     let json_stream = out.pipe(new TaxFilter(tax)).pipe(new CheapJSON(meta));
-    let outstream = upload_data_file('/tmp/foo_'+tax+'.json'); //upload_data_s3(tax);
+    //upload_data_file('/tmp/foo_'+tax+'.json')
+    let outstream = upload_data_s3(tax);
     json_stream.pipe(outstream);
     write_promises.push(outstream.promise);
   });
@@ -312,7 +315,7 @@ const get_uniprot_membrane_stream_s3 = function(taxid) {
 
 const get_interpro_streams_s3 = function() {
   return get_interpro_set_keys('node-lambda').then(function(interpros) {
-    interpros = ['interpro/InterPro-10029.tsv','interpro/InterPro-6239.tsv'];
+    // interpros = ['interpro/InterPro-10029.tsv','interpro/InterPro-6239.tsv'];
     // interpros = ['interpro/InterPro-9606.tsv','interpro/InterPro-10116.tsv','interpro/InterPro-10090.tsv','interpro/InterPro-559292.tsv','interpro/InterPro-7227.tsv'];
     console.log("Merging ",interpros.join(','));
     return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
