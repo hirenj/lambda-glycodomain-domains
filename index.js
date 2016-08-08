@@ -12,10 +12,16 @@ const Transform = stream.Transform;
 
 var bucket_name = 'test-gator';
 
+let config = {};
+
 try {
-    var config = require('./resources.conf.json');
+    config = require('./resources.conf.json');
     bucket_name = config.buckets.dataBucket;
 } catch (e) {
+}
+
+if (config.region) {
+  require('lambda-helpers').AWS.setRegion(config.region);
 }
 
 var upload_data_s3 = function upload_data_s3(taxid) {
