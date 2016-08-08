@@ -30,8 +30,8 @@ module.exports = function(grunt) {
         options: {
           file_name: 'index.js',
           handler: 'index.produceDataset',
+          region: config.region,
         },
-        region: config.region,
         function: config.functions['glycodomainDomains'] || 'glycodomainDomains',
         arn: null,
       }
