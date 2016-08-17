@@ -2,7 +2,6 @@
 /*jshint esversion: 6, node:true */
 
 const AWS = require('lambda-helpers').AWS;
-const s3 = new AWS.S3();
 const fs = require('fs');
 
 const stream = require('stream');
@@ -23,6 +22,9 @@ try {
 if (config.region) {
   require('lambda-helpers').AWS.setRegion(config.region);
 }
+
+const s3 = new AWS.S3();
+
 
 var upload_data_s3 = function upload_data_s3(taxid) {
   var params = {
