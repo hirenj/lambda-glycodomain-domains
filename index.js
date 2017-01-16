@@ -11,6 +11,10 @@ const Transform = stream.Transform;
 
 var bucket_name = 'test-gator';
 
+let interpro_bucket = 'node-lambda';
+let glycodomain_bucket = 'node-lambda';
+let interpro_bucket_prefix = '/interpro';
+
 let config = {};
 
 try {
@@ -279,10 +283,10 @@ const download_file_s3 = function(bucket,key) {
   return s3.getObject(params).promise();
 };
 
-const get_interpro_set_keys = function(bucket) {
+const get_interpro_set_keys = function(bucket,release) {
   var params = {
     Bucket: bucket,
-    Prefix: "interpro/InterPro"
+    Prefix: interpro_bucket_prefix+"/InterPro"+(release ? ("-"+release) : "")
   };
   return s3.listObjects(params).promise().then(function(result) {
     let keys = result.Contents.map(function(content) { return content.Key; });
@@ -306,7 +310,7 @@ const upload_data_file = function(filename) {
   return outstream;
 };
 
-const create_json_writer = function(interpro_release,glycodomain_release,taxonomies) {
+const create_json_writer = function(interpro_release,glycodomain_release,taxonomies,file) {
   let out = (new require('stream').PassThrough({objectMode: true}));
   let write_promises = [];
   taxonomies.forEach(function(tax) {
@@ -316,8 +320,12 @@ const create_json_writer = function(interpro_release,glycodomain_release,taxonom
                                 glycodomain: glycodomain_release,
                                 taxonomy: tax } };
     let json_stream = out.pipe(new TaxFilter(tax)).pipe(new CheapJSON(meta));
-    //upload_data_file('/tmp/foo_'+tax+'.json')
-    let outstream = upload_data_s3(tax);
+    let outstream;
+    if (file) {
+      outstream = upload_data_file(file+'/glycodomain_'+tax+'.json');
+    } else {
+      outstream = upload_data_s3(tax);
+    }
     json_stream.pipe(outstream);
     write_promises.push(outstream.promise);
   });
@@ -326,19 +334,19 @@ const create_json_writer = function(interpro_release,glycodomain_release,taxonom
 };
 
 const get_uniprot_membrane_stream_s3 = function(taxid) {
-  let s3_stream = retrieve_file_s3('node-lambda','interpro/membrane-'+taxid);
+  let s3_stream = retrieve_file_s3(interpro_bucket,interpro_bucket_prefix+'/membrane-'+taxid);
   let result = line_filter(s3_stream);
   return result;
 };
 
-const get_interpro_streams_s3 = function() {
-  return get_interpro_set_keys('node-lambda').then(function(interpros) {
+const get_interpro_streams_s3 = function(release) {
+  return get_interpro_set_keys(interpro_bucket,release).then(function(interpros) {
     // interpros = ['interpro/InterPro-10029.tsv','interpro/InterPro-6239.tsv'];
     // interpros = ['interpro/InterPro-9606.tsv','interpro/InterPro-10116.tsv','interpro/InterPro-10090.tsv','interpro/InterPro-559292.tsv','interpro/InterPro-7227.tsv'];
     console.log("Merging ",interpros.join(','));
-    return (interpros.map(retrieve_file_s3.bind(null,'node-lambda'))).map(function(stream,idx) {
+    return (interpros.map(retrieve_file_s3.bind(null,interpro_bucket))).map(function(stream,idx) {
       let lines = line_filter(stream);
-      let taxid = interpros[idx].replace(/.*InterPro-/,'').replace(/\.tsv/,'');
+      let taxid = interpros[idx].replace(/.*InterPro-(?:[\d+\.]+-)?/,'').replace(/\.tsv/,'');
       lines.taxid = taxid;
       let result = new StreamInterleaver(get_uniprot_membrane_stream_s3(taxid));
       result.taxid = taxid;
@@ -347,8 +355,8 @@ const get_interpro_streams_s3 = function() {
   });
 };
 
-const get_interpro_streams = function() {
-  return get_interpro_streams_s3();
+const get_interpro_streams = function(release) {
+  return get_interpro_streams_s3(release);
   // let stream = fs.createReadStream('InterPro-559292.tsv');
   // stream.taxid = '559292';
   // return Promise.resolve([ stream ]);
@@ -362,7 +370,7 @@ const download_glycodomain_classes = function() {
   if ( classes_promise ) {
     return classes_promise;
   }
-  classes_promise = download_file_s3('node-lambda','glycodomain/Glycodomain-latest-InterPro-latest-class.tsv').then(function(data) {
+  classes_promise = download_file_s3(glycodomain_bucket,'glycodomain/Glycodomain-latest-InterPro-latest-class.tsv').then(function(data) {
     let classes = {};
     (data.Body || '').toString().split('\n').forEach(function(line) {
       let bits = line.split('\t');
@@ -378,7 +386,7 @@ const download_interpro_names = function() {
   if (names_promise) {
     return names_promise;
   }
-  names_promise = download_file_s3('node-lambda','interpro/meta-InterPro.tsv').then(function(data) {
+  names_promise = download_file_s3(interpro_bucket,interpro_bucket_prefix+'/meta-InterPro.tsv').then(function(data) {
     let names = {'TMhelix':'TMhelix', 'SIGNAL' : 'SIGNAL'};
     names['release'] = data.Metadata.interpro;
     (data.Body || '').toString().split('\n').forEach(function(line) {
@@ -394,7 +402,7 @@ const download_interpro_classes = function() {
   if (groups_promise) {
     return groups_promise;
   }
-  groups_promise = download_file_s3('node-lambda','interpro/class-InterPro.tsv').then(function(data) {
+  groups_promise = download_file_s3(interpro_bucket,interpro_bucket_prefix+'/class-InterPro.tsv').then(function(data) {
     let groups = {'TMhelix' : 'topo', 'SIGNAL' : 'topo'};
     (data.Body || '').toString().split(/(?!\nIPR.*\n)\n/).forEach(function(group) {
       let lines = group.split(/\n/);
@@ -424,12 +432,12 @@ const create_glycodomain_filter = function() {
   });
 };
 
-const produce_dataset = function() {
-  return get_interpro_streams().then(function(interpro_streams) {
+const produce_dataset = function(release,file_output) {
+  return get_interpro_streams(release).then(function(interpro_streams) {
     let taxids = interpro_streams.map((str) => str.taxid );
     let write_promises = interpro_streams.map(function(interpro_stream) {
       return create_glycodomain_filter().then(function(domain_filter) {
-        let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, [interpro_stream.taxid]);
+        let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, [interpro_stream.taxid],file_output);
         let stream = interpro_stream.pipe(domain_filter);
         stream.pipe(writer);
         return new Promise(function(resolve,reject) {
@@ -453,7 +461,14 @@ const produce_dataset = function() {
 };
 
 var produceDataset = function produceDataset(event,context) {
-  let result_promise = produce_dataset();
+  if (event.interpro_bucket) {
+    interpro_bucket = event.interpro_bucket;
+  }
+
+  if (event.interpro_bucket_prefix) {
+    interpro_bucket_prefix = event.interpro_bucket_prefix;
+  }
+  let result_promise = produce_dataset(event.release,event.file);
   result_promise.then(function(done) {
     console.log("Uploaded all components");
     context.succeed('OK');

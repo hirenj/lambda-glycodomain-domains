@@ -16,6 +16,7 @@ checkversion --fail-on-match \
 interpro_version=$(<"interpro_version.txt")
 
 echo "Checking for presence of ${taxids%,*} as extracted InterPro"
+echo "Checking S3 path s3:::${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/InterPro-${interpro_version}-${taxids%,*}.tsv"
 
 checkversion --fail-on-match \
 			 --print \
