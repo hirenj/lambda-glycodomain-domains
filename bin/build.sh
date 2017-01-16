@@ -20,4 +20,8 @@ if [ ! -e 'have_latest_interpro' ]; then
 	aws s3 sync --metadata "version=$interpro" /tmp/interpro/ "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/";
 fi
 
+if [ ! -d dist ]; then
+	mkdir -p dist
+fi
+
 node script.js
