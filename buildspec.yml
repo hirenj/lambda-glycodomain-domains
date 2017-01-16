@@ -1,0 +1,19 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - npm install
+  pre_build:
+    commands:
+      - bin/prebuild.sh $BUILD_TAXONOMY
+  build:
+    commands:
+      - if [ ! -e 'have_latest_interpro' ]; then mkdir -p /tmp/interpro; node node_modules/parse_interpro/index.js --taxid "${BUILD_TAXONOMY}" --test --output /tmp/interpro; fi
+      - if [ ! -e 'have_latest_interpro' ]; then aws s3 sync --metadata "version=$INTERPRO_VERSION" /tmp/interpro/ "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/"; fi
+  post_build:
+    commands:
+      - echo "Skipping post_build"
+artifacts:
+  files:
+    - dist

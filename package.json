@@ -13,7 +13,8 @@
     "grunt-aws": "^0.6.1",
     "grunt-aws-lambda": "^0.11.0",
     "grunt-env": "^0.4.4",
-    "load-grunt-tasks": "^3.4.0"
+    "load-grunt-tasks": "^3.4.0",
+    "parse_interpro" : "hirenj/docker-parse_interpro"
   },
   "dependencies": {
     "byline": "^5.0.0",
