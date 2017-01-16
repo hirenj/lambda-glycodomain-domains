@@ -2,20 +2,31 @@
 
 taxids=$1
 
+rm -rf /tmp/interpro
+rm have_latest_interpro
+rm *version.txt
+
 # Check for the latest version of InterPro from the source servers
 
-(checkversion --fail-on-match \
+checkversion --fail-on-match \
 			 --print-remote \
 			 --remote 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/current/release_notes.txt' \
-             --regex 'Release (\d+\.\d+)' \
-			 --s3path "s3:::${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/Interpro-${taxids%,*}.tsv" > interpro_version.txt) || touch 'have_latest_interpro'
+             --regex 'Release (\d+\.\d+)' > interpro_version.txt
 
+interpro_version=$(<"interpro_version.txt")
+
+echo "Checking for presence of ${taxids%,*} as extracted InterPro"
+
+checkversion --fail-on-match \
+			 --print \
+			 --s3path "s3:::${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/InterPro-${interpro_version}-${taxids%,*}.tsv" \
+			 --static "$interpro_version" && echo "No existing file" || touch 'have_latest_interpro' && echo "We have an existing InterPro build for this release"
 
 # Grab the files that have already been parsed for InterPro
 
 
 if [ -e 'have_latest_interpro' ]; then
-	aws s3 sync "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpo/" /tmp/interpro/
+	aws s3 sync "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/" /tmp/interpro/
 fi
 
 # Check that we have the extracted InterPro entries for our desired taxonomy ids
@@ -28,7 +39,6 @@ for taxid in $taxids; do
 	fi
 done
 
-interpro_version=$(<"interpro_version.txt")
 
 checkversion 	--fail-on-match \
 				--print-remote \
