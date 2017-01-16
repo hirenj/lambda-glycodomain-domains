@@ -32,11 +32,13 @@ fi
 
 # Check that we have the extracted InterPro entries for our desired taxonomy ids
 
-for taxid in $taxids; do
-	if [ -e "/tmp/interpro/InterPro-${taxid}.tsv" ]; then
+for taxid in ${taxids//,/ }; do
+	if [ ! -e "/tmp/interpro/InterPro-${interpro_version}-${taxid}.tsv" ]; then
 		echo "Missing InterPro data for $taxid - removing old data so that we can parse InterPro again"
 		rm /tmp/interpro/*;
 		rm have_latest_interpro;
+	else
+		echo "We have existing InterPro data for $taxid"
 	fi
 done
 
@@ -50,4 +52,6 @@ glycodomain_version=$(<"glycodomain_version.txt")
 
 echo "Checking for domains with version InterPro-${interpro_version}-Glycodomain-${glycodomain_version}"
 
-testversion "glycodomain_${taxids%,*}.json" --static "Interpro-${interpro_version}-Glycodomain-${glycodomain_version}"
+for taxid in ${taxids//,/ }; do
+	testversion "glycodomain_${taxid}.json" --static "Interpro-${interpro_version}-Glycodomain-${glycodomain_version}"
+done
