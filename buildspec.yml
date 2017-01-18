@@ -6,10 +6,12 @@ phases:
       - npm install
   pre_build:
     commands:
-      - bin/prebuild.sh $BUILD_TAXONOMY
+      - [ ! -z "$BUILD_TEST" ] && BUILD_TAXONOMY=1310605,35758;
+      - bin/prebuild.sh \$BUILD_TAXONOMY
   build:
     commands:
-      - bin/build.sh $BUILD_TAXONOMY
+      - [ ! -z "$BUILD_TEST" ] && BUILD_TAXONOMY=1310605,35758
+      - bin/build.sh \$BUILD_TAXONOMY
   post_build:
     commands:
       - echo "Skipping post_build"
