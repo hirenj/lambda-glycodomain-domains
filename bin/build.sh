@@ -4,6 +4,14 @@ if [ ! -z $BUILD_TEST ]; then
 	build_test_flag="--test"
 fi
 
+curl="curl -ssS"
+
+cached_curl
+
+if [ $? -eq 0 ]; then
+	curl="cached_curl"
+fi
+
 taxids=$1
 
 interpro=$(<"interpro_version.txt");
@@ -11,7 +19,8 @@ interpro=$(<"interpro_version.txt");
 if [ ! -e 'have_latest_interpro' ]; then
 	echo "Retrieving InterPro data for release $interpro locally"
 	mkdir -p /tmp/interpro;
-	node node_modules/parse_interpro/index.js --release="$interpro" --taxid "$taxids" $build_test_flag --output /tmp/interpro;
+	$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interpro/protein2ipr.dat.gz" > "/tmp/interpro_$interpro.gz"
+	node node_modules/parse_interpro/index.js --interpro-data="/tmp/interpro_$interpro.gz" --release="$interpro" --taxid "$taxids" $build_test_flag --output /tmp/interpro;
 	if [ $? -gt 0 ]; then
 		errcode = $?
 		echo "Failed to download InterPro entries"
