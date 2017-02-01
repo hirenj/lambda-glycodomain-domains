@@ -21,6 +21,14 @@ if [ ! -e 'have_latest_interpro' ]; then
 	echo "Retrieving InterPro data for release $interpro locally"
 	mkdir -p $workdir/interpro;
 	$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz"
+	if [ $? -gt 0 ]; then
+		errcode = $?
+		echo "Failed to download InterPro file"
+		exit $errcode
+	fi
+	echo "File info for locally downloaded InterPro"
+	local_interpro_info=$(ls -al $workdir/interpro_$interpro.gz)
+	echo "$local_interpro_info"
 	node node_modules/parse_interpro/index.js --interpro-data="$workdir/interpro_$interpro.gz" --release="$interpro" --taxid "$taxids" $build_test_flag --output $workdir/interpro;
 	if [ $? -gt 0 ]; then
 		errcode = $?
