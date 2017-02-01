@@ -1,8 +1,9 @@
 #!/bin/bash
 
 taxids=$1
+workdir=$2
 
-rm -rf /tmp/interpro
+rm -rf $workdir/interpro
 
 if [ -e have_latest_interpro ]; then
 	rm have_latest_interpro
@@ -37,15 +38,15 @@ fi
 
 
 if [ -e 'have_latest_interpro' ]; then
-	aws s3 sync "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/" /tmp/interpro/
+	aws s3 sync "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/" $workdir/interpro/
 fi
 
 # Check that we have the extracted InterPro entries for our desired taxonomy ids
 
 for taxid in ${taxids//,/ }; do
-	if [ ! -e "/tmp/interpro/InterPro-${interpro_version}-${taxid}.tsv" ]; then
+	if [ ! -e "$workdir/interpro/InterPro-${interpro_version}-${taxid}.tsv" ]; then
 		echo "Missing InterPro data for $taxid - removing old data so that we can parse InterPro again"
-		rm /tmp/interpro/*;
+		rm $workdir/interpro/*;
 		rm have_latest_interpro;
 	else
 		echo "We have existing InterPro data for $taxid"

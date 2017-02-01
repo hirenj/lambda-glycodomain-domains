@@ -13,22 +13,23 @@ if [ $? -eq 0 ]; then
 fi
 
 taxids=$1
+workdir=$2
 
 interpro=$(<"interpro_version.txt");
 
 if [ ! -e 'have_latest_interpro' ]; then
 	echo "Retrieving InterPro data for release $interpro locally"
-	mkdir -p /tmp/interpro;
-	$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interpro/protein2ipr.dat.gz" > "/tmp/interpro_$interpro.gz"
-	node node_modules/parse_interpro/index.js --interpro-data="/tmp/interpro_$interpro.gz" --release="$interpro" --taxid "$taxids" $build_test_flag --output /tmp/interpro;
+	mkdir -p $workdir/interpro;
+	$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz"
+	node node_modules/parse_interpro/index.js --interpro-data="$workdir/interpro_$interpro.gz" --release="$interpro" --taxid "$taxids" $build_test_flag --output $workdir/interpro;
 	if [ $? -gt 0 ]; then
 		errcode = $?
 		echo "Failed to download InterPro entries"
 		exit $errcode
 	fi
-	cp "/tmp/interpro/meta-InterPro-$interpro.tsv" "/tmp/interpro/meta-InterPro.tsv"
-	cp "/tmp/interpro/class-InterPro-$interpro.tsv" "/tmp/interpro/class-InterPro.tsv"
-	for f in /tmp/interpro/membrane*.tsv
+	cp "$workdir/interpro/meta-InterPro-$interpro.tsv" "$workdir/interpro/meta-InterPro.tsv"
+	cp "$workdir/interpro/class-InterPro-$interpro.tsv" "$workdir/interpro/class-InterPro.tsv"
+	for f in $workdir/interpro/membrane*.tsv
 	do
 	    [ -f "$f" ] && mv "$f" "${f%.tsv}"
 	done
@@ -36,7 +37,7 @@ fi
 
 if [ ! -e 'have_latest_interpro' ]; then
 	echo "Syncing locally retrieved data to output bucket $BUILD_OUTPUT_BUCKET"
-	aws s3 sync --metadata "version=$interpro" /tmp/interpro/ "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/";
+	aws s3 sync --metadata "version=$interpro" $workdir/interpro/ "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/";
 	if [ $? -gt 0 ]; then
 		errcode = $?
 		echo "Could not download InterPro entries from server"

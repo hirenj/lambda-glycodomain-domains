@@ -7,11 +7,11 @@ phases:
   pre_build:
     commands:
       - if [ ! -z "$BUILD_TEST" ]; then BUILD_TAXONOMY=1310605,35758; fi
-      - bin/prebuild.sh \$BUILD_TAXONOMY
+      - bin/prebuild.sh \$BUILD_TAXONOMY $WORKDIR
   build:
     commands:
       - if [ ! -z "$BUILD_TEST" ]; then BUILD_TAXONOMY=1310605,35758; fi
-      - bin/build.sh \$BUILD_TAXONOMY
+      - bin/build.sh \$BUILD_TAXONOMY $WORKDIR
   post_build:
     commands:
       - echo "Skipping post_build"
