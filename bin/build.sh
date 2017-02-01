@@ -29,6 +29,10 @@ if [ ! -e 'have_latest_interpro' ]; then
 	echo "File info for locally downloaded InterPro"
 	local_interpro_info=$(ls -al $workdir/interpro_$interpro.gz)
 	echo "$local_interpro_info"
+	if [ ! -s $workdir/interpro_$interpro.gz ]; then
+		echo "InterPro file is zero length, aborting"
+		exit 1
+	fi
 	node node_modules/parse_interpro/index.js --interpro-data="$workdir/interpro_$interpro.gz" --release="$interpro" --taxid "$taxids" $build_test_flag --output $workdir/interpro;
 	if [ $? -gt 0 ]; then
 		errcode = $?
