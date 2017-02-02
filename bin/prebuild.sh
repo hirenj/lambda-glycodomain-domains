@@ -56,7 +56,7 @@ done
 
 checkversion 	--fail-on-match \
 				--print-remote \
-				--remote "s3:::node-lambda/glycodomain/Glycodomain-latest-InterPro-$interpro_version-class.tsv" \
+				--remote "s3:::node-lambda/glycodomain/Glycodomain-latest-InterPro-latest-class.tsv" \
 				--header 'version' > glycodomain_version.txt
 
 glycodomain_version=$(<"glycodomain_version.txt")
