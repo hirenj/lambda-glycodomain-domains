@@ -61,4 +61,4 @@ if [ ! -d dist ]; then
 	mkdir -p dist
 fi
 
-node script.js --output dist --interpro_bucket "$BUILD_OUTPUT_BUCKET" --interpro_bucket_prefix "$BUILD_OUTPUT_PREFIX/interpro"
+node script.js --output dist --interpro_bucket "$BUILD_OUTPUT_BUCKET" --interpro_bucket_prefix "$BUILD_OUTPUT_PREFIX/interpro" --release=$interpro
