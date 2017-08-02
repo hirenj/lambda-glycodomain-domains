@@ -404,12 +404,11 @@ const download_interpro_classes = function() {
   }
   groups_promise = download_file_s3(interpro_bucket,interpro_bucket_prefix+'/class-InterPro.tsv').then(function(data) {
     let groups = {'TMhelix' : 'topo', 'SIGNAL' : 'topo'};
-    (data.Body || '').toString().split(/(?!\nIPR.*\n)\n/).forEach(function(group) {
-      let lines = group.split(/\n/);
-      let clazz = lines.shift().trim().toLowerCase();
-      if (clazz == 'domain' || clazz == 'repeat') {
-        lines.map(line => line.split(/\s/)[0]).forEach(interpro => groups[interpro] = clazz);
-      }
+    (data.Body || '').toString().split(/\n/).forEach(function(entry) {
+      let fields = entry.split('\t');
+      let clazz = fields[1];
+      let interpro = fields[0];
+      groups[interpro] = clazz;
     });
     return groups;
   });
