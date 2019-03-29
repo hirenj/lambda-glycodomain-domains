@@ -81,5 +81,6 @@ if [ $exit_code -eq 0 ]; then
 	true
 else
 	echo "Glycodomain files are up to date"
+	touch VERSION_MATCHING
 	false
 fi
