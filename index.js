@@ -29,6 +29,9 @@ if (config.region) {
 
 const s3 = new AWS.S3();
 
+const LOCAL_FILES = process.env.LOCAL_FILES ? process.env['LOCAL_FILES'] : null;
+
+const LOCAL_RELEASE = process.env.LOCAL_RELEASE;
 
 var upload_data_s3 = function upload_data_s3(taxid) {
   var params = {
@@ -356,70 +359,120 @@ const get_interpro_streams_s3 = function(release) {
 };
 
 const get_interpro_streams = function(release) {
-  return get_interpro_streams_s3(release);
-  // let stream = fs.createReadStream('InterPro-559292.tsv');
-  // stream.taxid = '559292';
-  // return Promise.resolve([ stream ]);
+  if (LOCAL_FILES) {
+    return get_interpro_streams_local(release,LOCAL_FILES);
+  } else {
+    return get_interpro_streams_s3(release);    
+  }
 };
+
+const get_interpro_streams_local = function(release,folder) {
+  let files = fs.readdirSync(folder);
+  let taxids = files.filter( file => file.indexOf(`InterPro-${release}`) == 0 ).map( file => file.replace('.tsv','').split('-')[2]);
+  let streams = taxids.map( taxid => {
+    let stream = line_filter(fs.createReadStream(`${folder}/InterPro-${release}-${taxid}.tsv`));
+    let membrane_stream = line_filter(fs.createReadStream(`${folder}/membrane-${taxid}`));
+    let result = new StreamInterleaver(membrane_stream);
+    stream.taxid = taxid;
+    result.taxid = taxid;
+    return stream.pipe(result);
+  });
+  return Promise.resolve(streams);
+}
 
 let classes_promise = null;
 let names_promise = null;
 let groups_promise = null;
 
+const parse_glycodomain_classes = function(data) {
+  let classes = {};
+  (data.Body || '').toString().split('\n').forEach(function(line) {
+    let bits = line.split('\t');
+    classes[bits[0]] = classes[bits[0]] || [];
+    classes[bits[0]].push(bits[1]);
+  });
+  return classes;
+};
+
 const download_glycodomain_classes = function() {
   if ( classes_promise ) {
     return classes_promise;
   }
-  classes_promise = download_file_s3(glycodomain_bucket,'glycodomain/Glycodomain-latest-InterPro-latest-class.tsv').then(function(data) {
-    let classes = {};
-    (data.Body || '').toString().split('\n').forEach(function(line) {
-      let bits = line.split('\t');
-      classes[bits[0]] = classes[bits[0]] || [];
-      classes[bits[0]].push(bits[1]);
-    });
-    return classes;
-  });
+  classes_promise = download_file_s3(glycodomain_bucket,'glycodomain/Glycodomain-latest-InterPro-latest-class.tsv').then(parse_glycodomain_classes);
   return classes_promise;
+};
+
+const parse_interpro_names = function(data) {
+  let names = {'TMhelix':'TMhelix', 'SIGNAL' : 'SIGNAL'};
+  names['release'] = data.Metadata.interpro;
+  (data.Body || '').toString().split('\n').forEach(function(line) {
+    let bits = line.split('\t');
+    names[bits[0]] = bits[1];
+  });
+  return names;
 };
 
 const download_interpro_names = function() {
   if (names_promise) {
     return names_promise;
   }
-  names_promise = download_file_s3(interpro_bucket,interpro_bucket_prefix+'/meta-InterPro.tsv').then(function(data) {
-    let names = {'TMhelix':'TMhelix', 'SIGNAL' : 'SIGNAL'};
-    names['release'] = data.Metadata.interpro;
-    (data.Body || '').toString().split('\n').forEach(function(line) {
-      let bits = line.split('\t');
-      names[bits[0]] = bits[1];
-    });
-    return names;
-  });
+  names_promise = download_file_s3(interpro_bucket,interpro_bucket_prefix+'/meta-InterPro.tsv').then(parse_interpro_names);
   return names_promise;
+};
+
+const parse_interpro_classes = function(data) {
+  let groups = {'TMhelix' : 'topo', 'SIGNAL' : 'topo'};
+  (data.Body || '').toString().split(/\n/).forEach(function(entry) {
+    let fields = entry.split('\t');
+    let clazz = fields[1];
+    let interpro = fields[0];
+    groups[interpro] = clazz;
+  });
+  return groups;  
 };
 
 const download_interpro_classes = function() {
   if (groups_promise) {
     return groups_promise;
   }
-  groups_promise = download_file_s3(interpro_bucket,interpro_bucket_prefix+'/class-InterPro.tsv').then(function(data) {
-    let groups = {'TMhelix' : 'topo', 'SIGNAL' : 'topo'};
-    (data.Body || '').toString().split(/\n/).forEach(function(entry) {
-      let fields = entry.split('\t');
-      let clazz = fields[1];
-      let interpro = fields[0];
-      groups[interpro] = clazz;
-    });
-    return groups;
-  });
+  groups_promise = download_file_s3(interpro_bucket,interpro_bucket_prefix+'/class-InterPro.tsv').then(parse_interpro_classes);
   return groups_promise;
 };
 
+const read_interpro_classes_local = function() {
+  if (groups_promise) {
+    return groups_promise;
+  }
+  groups_promise = Promise.resolve({Body: fs.readFileSync(LOCAL_FILES+'/class-InterPro.tsv')}).then(parse_interpro_classes);
+  return groups_promise;
+};
+
+const read_interpro_names_local = function(release) {
+  if (names_promise) {
+    return names_promise;
+  }
+  names_promise = Promise.resolve({Body: fs.readFileSync(LOCAL_FILES+'/meta-InterPro.tsv'), Metadata: { interpro: release }}).then(parse_interpro_names);
+  return names_promise;
+};
+
+const read_glycodomain_classes_local = function() {
+  if ( classes_promise ) {
+    return classes_promise;
+  }
+  classes_promise = Promise.resolve({Body: fs.readFileSync(LOCAL_FILES+'/Glycodomain-latest-InterPro-latest-class.tsv')}).then(parse_glycodomain_classes);
+  return classes_promise;
+};
 
 const create_glycodomain_filter = function() {
   let classes = {};
   let names = {};
-  return Promise.all([ download_glycodomain_classes(), download_interpro_names(), download_interpro_classes() ]).then(function(results) {
+  let data_promises;
+  if (LOCAL_FILES) {
+    data_promises = [ read_glycodomain_classes_local(), read_interpro_names_local(LOCAL_RELEASE), read_interpro_classes_local() ];  
+  } else {
+    data_promises = [ download_glycodomain_classes(), download_interpro_names(), download_interpro_classes() ];
+  }
+  return Promise.all(data_promises).then(function(results) {
     let classes = results[0];
     let names = results[1];
     let groups = results[2];

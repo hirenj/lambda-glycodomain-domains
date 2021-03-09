@@ -51,7 +51,7 @@ if [ ! -e 'have_latest_interpro' ]; then
 	echo "Syncing locally retrieved data to output bucket $BUILD_OUTPUT_BUCKET"
 	aws s3 sync --metadata "version=$interpro" $workdir/interpro/ "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/";
 	if [ $? -gt 0 ]; then
-		errcode = $?
+		errcode=$?
 		echo "Could not download InterPro entries from server"
 		exit $errcode
 	fi
