@@ -6,6 +6,8 @@ fi
 
 curl="curl -ssS"
 
+curl="curl"
+
 cached_curl
 
 if [ $? -eq 0 ]; then
@@ -16,6 +18,9 @@ taxids=$1
 workdir=$2
 
 interpro=$(<"interpro_version.txt");
+
+curlpath=$(which curl)
+echo "Using $curl for curl ($curlpath)"
 
 if [ ! -e 'have_latest_interpro' ]; then
 	echo "Retrieving InterPro data for release $interpro locally"
