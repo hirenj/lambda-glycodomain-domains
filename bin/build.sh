@@ -25,11 +25,13 @@ echo "Using $curl for curl ($curlpath)"
 if [ ! -e 'have_latest_interpro' ]; then
 	echo "Retrieving InterPro data for release $interpro locally"
 	mkdir -p $workdir/interpro;
-	$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz"
-	if [ $? -gt 0 ]; then
-		errcode = $?
-		echo "Failed to download InterPro file"
-		exit $errcode
+	if [ ! -f "$workdir/interpro_$interpro.gz" ]; then
+		$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz"
+		if [ $? -gt 0 ]; then
+			errcode = $?
+			echo "Failed to download InterPro file"
+			exit $errcode
+		fi
 	fi
 	echo "File info for locally downloaded InterPro"
 	local_interpro_info=$(ls -al $workdir/interpro_$interpro.gz)
