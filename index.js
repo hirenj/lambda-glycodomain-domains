@@ -192,16 +192,24 @@ StreamInterleaver.prototype._transform = function (obj,enc,cb) {
   let self = this;
   if ( this.stream && ( ! this.first_row || this.first_row[0] <= ref_id ) ) {
     if (this.first_row) {
+      // console.log(`First row now matches, dumping membrane info for ${this.first_row[0]}`);
       this.push(this.first_row.concat(self.taxid));
       this.first_row = null;
     }
     this.stream.on('data',function(row) {
       self.stream.pause();
       let id = row[0];
+      // console.log(`${id}, ${ref_id}, ${id <= ref_id}`);
       if (id <= ref_id) {
+        // if (id == ref_id) {
+        //   console.log(`Pushing extra membrane info for ${ref_id}`);
+        // } else {
+        //   console.log(`Catching up with ${id} to domain ID ${ref_id}`);
+        // }
         self.push(row.concat(self.taxid));
         self.stream.resume();
       } else {
+        // console.log(`Domain entry ${ref_id} is now ahead of ${id}, pushing domain`);
         self.first_row = row;
         self.push(obj.concat(self.taxid));
         self.stream.removeAllListeners('data');
@@ -215,6 +223,7 @@ StreamInterleaver.prototype._transform = function (obj,enc,cb) {
     this.stream.on('end',this.stream.end_cb);
     self.stream.resume();
   } else {
+    // console.log(`Pushing domain info of ${ref_id} because it is ahead of ${this.first_row[0]}`);
     self.push(obj.concat(self.taxid));
     cb();
   }

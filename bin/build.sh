@@ -64,6 +64,17 @@ if [ ! -e 'have_latest_interpro' ]; then
 	fi
 fi
 
+for membrane_file in $workdir/interpro/membrane-*; do
+	echo "Sorting $membrane_file"
+	sort -k1 -o "$membrane_file" "$membrane_file"
+done
+
+for interpro_file in $workdir/interpro/InterPro-$interpro-*.tsv; do
+	echo "Sorting $interpro_file"
+	sort -k1 -o "$interpro_file" "$interpro_file"
+done
+
+
 if [ ! -d dist ]; then
 	mkdir -p dist
 fi
