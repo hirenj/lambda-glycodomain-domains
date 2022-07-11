@@ -59,7 +59,7 @@ if [ ! -e 'have_latest_interpro' ]; then
 	aws s3 sync --metadata "version=$interpro" $workdir/interpro/ "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/";
 	if [ $? -gt 0 ]; then
 		errcode=$?
-		echo "Could not download InterPro entries from server"
+		echo "Could not upload InterPro entries to S3 server"
 		exit $errcode
 	fi
 fi
