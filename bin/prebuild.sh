@@ -38,7 +38,7 @@ fi
 
 
 if [ -e 'have_latest_interpro' ]; then
-	aws s3 sync "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/" $workdir/interpro/
+	aws s3 sync "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/" $workdir/interpro --exclude "*" --include "*-$interpro_version-*" --include "membrane-*" --include "*InterPro.tsv" --include "*$interpro_version.tsv"
 fi
 
 # Check that we have the extracted InterPro entries for our desired taxonomy ids
