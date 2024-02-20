@@ -1,0 +1,4562 @@
+interpro	Class
+IPR000001	Unknown / Kringle
+IPR000003	Binding
+IPR000006	Binding
+IPR000008	Binding / Protein
+IPR002420	Binding / Protein
+IPR014020	Binding / Protein
+IPR033884	Binding / Protein
+IPR000010	Cleavage / Inhibitor
+IPR025760	Cleavage / Inhibitor
+IPR025764	Cleavage / Inhibitor
+IPR027358	Cleavage / Inhibitor
+IPR000013	Cleavage
+IPR000013	Binding
+IPR000014	Other
+IPR013655	Binding / Protein
+IPR013656	Other
+IPR000020	Cleaved
+IPR018081	Cleaved
+IPR001840	Cleaved
+IPR000026	Binding
+IPR001887	Binding
+IPR004025	Binding
+IPR000033	Binding / Protein
+IPR000034	Unknown
+IPR000037	Binding
+IPR000040	Binding
+IPR016554	Binding
+IPR000047	Binding
+IPR000048	Binding / Protein
+IPR000055	Binding
+IPR000058	Binding
+IPR000061	Binding
+IPR000065	Factor
+IPR000072	Factor
+IPR000074	Binding / Lipid
+IPR000082	Unknown
+IPR000083	Binding / Protein
+IPR000086	Hydrolase
+IPR020476	Hydrolase
+IPR033716	Hydrolase
+IPR000089	Binding
+IPR000093	Binding
+IPR033923	Kinase
+IPR000103	Oxidoreductase
+IPR005982	Oxidoreductase
+IPR012081	Oxidoreductase
+IPR017561	Oxidoreductase
+IPR022890	Oxidoreductase
+IPR023856	Oxidoreductase
+IPR000110	Binding
+IPR000111	Hydrolase
+IPR000116	Binding
+IPR031059	Binding
+IPR031079	Binding
+IPR000118	Unknown
+IPR000119	Binding
+IPR005684	Binding
+IPR005685	Binding
+IPR005902	Binding
+IPR000123	Binding
+IPR000128	Binding
+IPR000132	Hydrolase
+IPR000146	Hydrolase / Phospho
+IPR023079	Hydrolase / Phospho
+IPR028343	Hydrolase / Phospho
+IPR000148	Binding
+IPR000150	Hydrolase
+IPR017223	Hydrolase
+IPR023938	Hydrolase
+IPR000157	Binding / Protein
+IPR000164	Binding
+IPR000177	Binding / Protein
+IPR000186	Factor
+IPR000187	Factor
+IPR000197	Binding
+IPR000200	Cleavage
+IPR000201	Binding
+IPR000203	Cleaved
+IPR000209	Cleavage
+IPR033857	Cleavage
+IPR030400	Cleavage
+IPR034041	Cleavage
+IPR034045	Cleavage
+IPR034051	Cleavage
+IPR034054	Cleavage
+IPR034056	Cleavage
+IPR034058	Cleavage
+IPR034061	Cleavage
+IPR034063	Cleavage
+IPR034065	Cleavage
+IPR034067	Cleavage
+IPR034073	Cleavage
+IPR034074	Cleavage
+IPR034075	Cleavage
+IPR034080	Cleavage
+IPR034084	Cleavage
+IPR000210	Binding / Protein
+IPR003131	Binding / Protein
+IPR000211	Binding
+IPR000212	Binding
+IPR005752	Binding
+IPR004586	Binding
+IPR005751	Binding
+IPR005753	Binding
+IPR014151	Binding
+IPR014152	Binding
+IPR000214	Binding
+IPR000221	Binding
+IPR000225	Binding / Protein
+IPR000226	Factor
+IPR001181	Factor
+IPR020447	Factor
+IPR000233	Binding
+IPR000237	Binding / Protein
+IPR000240	Cleavage / Inhibitor
+IPR000242	Hydrolase / Phospho
+IPR000246	Hydrolase
+IPR033844	Hydrolase
+IPR000253	Binding / Protein
+IPR032030	Binding / Protein
+IPR000254	Hydrolase
+IPR000256	Binding
+IPR000261	Binding / Protein
+IPR000262	Oxidoreductase
+IPR000268	Binding
+IPR000269	Binding
+IPR032952	Binding
+IPR000270	Binding / Protein
+IPR000280	Cleavage
+IPR000294	Binding
+IPR000299	Targeting
+IPR000306	Binding
+IPR000308	Binding
+IPR000315	Binding
+IPR020457	Binding
+IPR000316	Binding
+IPR000322	Hydrolase
+IPR000323	Binding
+IPR000323	Oxidoreductase
+IPR000324	Binding
+IPR000328	Retroviral
+IPR000330	Binding / DNA
+IPR000330	Binding / NTP
+IPR000331	Cleavage / Inhibitor
+IPR000347	Binding
+IPR000357	Binding / Protein
+IPR000372	Binding / Protein
+IPR000380	Binding
+IPR005733	Binding
+IPR005736	Binding
+IPR005738	Binding
+IPR005739	Binding
+IPR028612	Binding
+IPR000381	Factor
+IPR000382	Cleavage
+IPR000383	Hydrolase
+IPR000385	Binding
+IPR000387	Hydrolase / Phospho
+IPR020422	Hydrolase / Phospho
+IPR000392	Oxidoreductase
+IPR005971	Oxidoreductase
+IPR005977	Oxidoreductase
+IPR010246	Oxidoreductase
+IPR000394	Binding
+IPR000395	Cleavage
+IPR000403	Kinase
+IPR000407	Hydrolase
+IPR017227	Hydrolase
+IPR000409	Unknown
+IPR000415	Oxidoreductase
+IPR029478	Oxidoreductase
+IPR029479	Oxidoreductase
+IPR019943	Oxidoreductase
+IPR020051	Oxidoreductase
+IPR033877	Oxidoreductase
+IPR033878	Oxidoreductase
+IPR000421	Binding / Sugar
+IPR000427	Binding
+IPR000428	Binding
+IPR000429	Cleavage / Inhibitor
+IPR000433	Binding
+IPR000436	Binding / Protein
+IPR000443	Factor
+IPR000445	Binding
+IPR000463	Binding / Lipid
+IPR000467	Binding
+IPR026822	Binding
+IPR000472	Binding / Protein
+IPR000476	Factor
+IPR000479	Binding / Protein
+IPR000483	Unknown
+IPR031635	Binding / Protein
+IPR000487	Cleavage
+IPR000488	Binding / Protein
+IPR033994	Binding / Protein
+IPR033998	Binding / Protein
+IPR034029	Binding / Protein
+IPR034037	Binding / Protein
+IPR000490	Hydrolase
+IPR000491	Factor
+IPR000492	Binding
+IPR000494	Binding / Protein
+IPR000504	Binding
+IPR003954	Binding
+IPR033744	Binding
+IPR000510	Oxidoreductase
+IPR000514	Hydrolase
+IPR000518	Binding
+IPR000519	Unknown
+IPR000528	Binding / Lipid
+IPR000532	Factor
+IPR000542	Transferase
+IPR000545	Binding
+IPR000551	Binding
+IPR000555	Binding / Protein
+IPR000556	Hydrolase
+IPR000558	Binding
+IPR000565	Binding
+IPR005740	Binding
+IPR011557	Binding
+IPR000566	Binding
+IPR000569	Transferase
+IPR000571	Binding
+IPR000577	Kinase
+IPR006003	Kinase
+IPR005929	Kinase
+IPR005999	Kinase
+IPR006000	Kinase
+IPR006002	Kinase
+IPR013450	Kinase
+IPR033676	Kinase
+IPR000582	Binding, Inhibitor, Factor
+IPR000585	Binding
+IPR000587	Hydrolase
+IPR000593	Binding / Protein
+IPR000595	Isomerase / Sugar
+IPR000595	Binding / CAMP
+IPR000601	IG-like
+IPR000602	Hydrolase / Sugar
+IPR000605	Binding
+IPR014759	Binding
+IPR000607	Binding
+IPR000626	Binding / Protein
+IPR022617	Binding / Protein
+IPR033950	Binding / Protein
+IPR033882	Binding / Protein
+IPR023791	Hydrolase
+IPR000642	Cleavage
+IPR000655	Binding
+IPR000663	Factor
+IPR002406	Factor
+IPR002407	Factor
+IPR002408	Factor
+IPR000668	Cleavage
+IPR004419	Binding
+IPR000675	Hydrolase
+IPR000678	Binding
+IPR000679	Binding
+IPR000683	Oxidoreductase
+IPR000684	Binding
+IPR000687	Kinase
+IPR000690	Binding
+IPR000691	Cleavage / Inhibitor
+IPR000692	Binding
+IPR000692	Transferase
+IPR000710	Cleavage
+IPR000714	Binding
+IPR000716	Cleavage / Inhibitor
+IPR000717	Binding / Protein
+IPR000718	Cleavage
+IPR029727	Cleavage
+IPR029733	Cleavage
+IPR029734	Cleavage
+IPR029735	Cleavage
+IPR029737	Cleavage
+IPR029736	Cleavage
+IPR029738	Cleavage
+IPR030082	Cleavage
+IPR031122	Cleavage
+IPR000719	Kinase
+IPR001245	Kinase
+IPR020635	Kinase
+IPR027916	Kinase
+IPR033702	Kinase
+IPR000722	Binding
+IPR000727	Binding / Protein
+IPR000730	Binding
+IPR000737	Cleavage / Inhibitor
+IPR000742	Binding / Protein
+IPR000747	Binding
+IPR000748	Binding
+IPR000751	Hydrolase / Phospho
+IPR000755	Cleavage
+IPR000757	Hydrolase
+IPR000762	Factor
+IPR000770	Binding
+IPR000771	Binding
+IPR011288	Binding
+IPR023788	Binding
+IPR006411	Binding
+IPR000772	Binding / Sugar
+IPR000773	Factor
+IPR000778	Oxidoreductase
+IPR029650	Oxidoreductase
+IPR029653	Oxidoreductase
+IPR029654	Oxidoreductase
+IPR000779	Factor
+IPR000782	Adhesion
+IPR000783	Binding
+IPR000798	Binding / Protein
+IPR011174	Binding / Protein
+IPR015788	Binding / Protein
+IPR030691	Binding / Protein
+IPR030694	Binding / Protein
+IPR030698	Binding / Protein
+IPR000799	Binding / Lipid
+IPR029866	Binding / Lipid
+IPR029868	Binding / Lipid
+IPR000800	Structural / Protein lid 
+IPR000812	Binding
+IPR023484	Binding
+IPR029529	Binding
+IPR000814	Binding
+IPR033710	Binding
+IPR033711	Binding
+IPR015445	Binding
+IPR000824	Binding
+IPR000827	Factor
+IPR000834	Cleavage
+IPR000834	Binding
+IPR033842	Cleavage
+IPR033843	Cleavage
+IPR033849	Cleavage
+IPR033850	Cleavage
+IPR033852	Cleavage
+IPR033810	Cleavage
+IPR033848	Cleavage
+IPR033810	Binding
+IPR033848	Binding
+IPR000837	Binding
+IPR029813	Binding
+IPR029814	Binding
+IPR029816	Binding
+IPR029819	Binding
+IPR029820	Binding
+IPR000838	Binding
+IPR000840	Retroviral
+IPR000841	Cleavage
+IPR000843	Binding
+IPR000859	Oligomerisation, Binding / Protein
+IPR000864	Cleavage / Inhibitor
+IPR000866	Oxidoreductase
+IPR000867	Binding / Protein
+IPR000869	Binding
+IPR000872	Transferase
+IPR000877	Cleavage / Inhibitor
+IPR022713	Cleavage / Inhibitor
+IPR000878	Transferase
+IPR006363	Transferase
+IPR006366	Transferase
+IPR006362	Transferase
+IPR006364	Transferase
+IPR012818	Transferase
+IPR000884	Unknown
+IPR000885	Unknown
+IPR000890	Kinase
+IPR004372	Kinase
+IPR024896	Kinase
+IPR024917	Kinase
+IPR011245	Kinase
+IPR000907	Binding
+IPR001246	Oxidoreductase
+IPR001885	Binding
+IPR000922	Binding / Sugar
+IPR000923	Binding
+IPR017533	Binding
+IPR000924	Binding
+IPR004514	Binding
+IPR004526	Binding
+IPR004527	Binding
+IPR022380	Binding
+IPR022861	Binding
+IPR022888	Binding
+IPR000930	Cleavage
+IPR000940	Transferase
+IPR000943	Binding
+IPR012760	Binding
+IPR000951	Oxidoreductase
+IPR000959	Binding / Protein
+IPR033695	Binding / Protein
+IPR033696	Binding / Protein
+IPR033701	Binding / Protein
+IPR000961	Kinase
+IPR017892	Kinase
+IPR000962	Binding
+IPR020460	Binding
+IPR000966	Binding
+IPR000967	Binding
+IPR000969	Binding
+IPR000980	Binding / Phosphoprotein
+IPR014742	Binding / Phosphoprotein
+IPR000989	Binding
+IPR000998	Binding / Protein
+IPR001000	Hydrolase
+IPR001001	Binding
+IPR001007	Binding / Protein
+IPR001008	Binding
+IPR001009	Binding
+IPR001012	Binding / Protein
+IPR001018	Binding
+IPR001022	Binding
+IPR001024	Binding / Protein
+IPR001033	Binding
+IPR030044	Binding
+IPR030047	Binding
+IPR030045	Binding
+IPR030046	Binding
+IPR001037	Binding
+IPR001039	Binding / Peptide
+IPR001040	Binding
+IPR001041	Binding
+IPR025192	Binding
+IPR001073	Binding / Protein
+IPR001075	Binding
+IPR001078	Transferase
+IPR001079	Binding / Sugar
+IPR001083	Binding
+IPR001085	Transferase
+IPR030979	Transferase
+IPR001088	Hydrolase
+IPR001089	Factor
+IPR027220	Factor
+IPR027221	Factor
+IPR027222	Factor
+IPR027223	Factor
+IPR027225	Factor
+IPR028469	Factor
+IPR027222	Binding
+IPR001091	Binding
+IPR001094	Binding
+IPR010199	Binding
+IPR029758	Binding
+IPR023206	Binding
+IPR023208	Binding
+IPR028879	Binding
+IPR001098	Binding
+IPR001103	Binding
+IPR001111	Factor
+IPR001117	Oxidoreductase
+IPR001124	Binding / Lipid
+IPR001128	Oxidoreductase
+IPR030904	Oxidoreductase
+IPR002401	Oxidoreductase
+IPR002403	Oxidoreductase
+IPR002397	Oxidoreductase
+IPR030958	Oxidoreductase
+IPR031023	Oxidoreductase
+IPR002399	Oxidoreductase
+IPR008066	Oxidoreductase
+IPR008067	Oxidoreductase
+IPR008068	Oxidoreductase
+IPR008069	Oxidoreductase
+IPR008070	Oxidoreductase
+IPR008071	Oxidoreductase
+IPR020469	Oxidoreductase
+IPR032971	Oxidoreductase
+IPR033282	Oxidoreductase
+IPR033283	Oxidoreductase
+IPR002402	Oxidoreductase
+IPR002974	Oxidoreductase
+IPR008072	Oxidoreductase
+IPR024204	Oxidoreductase
+IPR027286	Oxidoreductase
+IPR030681	Oxidoreductase
+IPR030686	Oxidoreductase
+IPR002949	Oxidoreductase
+IPR001134	Binding / Protein
+IPR001134	Cleavage / Inhibitor
+IPR018933	Cleavage / Inhibitor
+IPR001137	Hydrolase
+IPR001138	Binding
+IPR020448	Binding
+IPR001148	Other
+IPR001154	Binding
+IPR028466	Binding
+IPR028467	Binding
+IPR001155	Binding
+IPR001155	Oxidoreductase
+IPR001156	Binding / Iron
+IPR001164	Cleavage / Inhibitor
+IPR028775	Cleavage / Inhibitor
+IPR001173	Transferase / Sugar
+IPR001174	Kinase
+IPR014606	Kinase
+IPR001177	Binding
+IPR001178	Binding / Ligand
+IPR015214	Binding / Ligand
+IPR015790	Binding / Ligand
+IPR001179	Isomerase / unfolded protein
+IPR001189	Binding
+IPR001190	Binding
+IPR001190	Binding / Protein
+IPR001193	Cleavage
+IPR001199	Binding
+IPR001202	Binding / Protein
+IPR001203	Oxidoreductase
+IPR001203	Binding
+IPR013984	Oxidoreductase
+IPR013984	Binding
+IPR001205	Binding
+IPR001206	Kinase
+IPR001207	Binding
+IPR001208	Binding
+IPR001211	Binding
+IPR001212	Binding
+IPR020436	Binding
+IPR001214	Binding / Protein
+IPR001220	Binding / Sugar
+IPR001222	Binding
+IPR034004	Binding
+IPR034012	Binding
+IPR034014	Binding
+IPR001223	Hydrolase
+IPR011583	Hydrolase
+IPR001226	Binding
+IPR001227	Transferase
+IPR014043	Transferase
+IPR020801	Transferase
+IPR014181	Transferase
+IPR001235	Binding
+IPR002386	Binding
+IPR002387	Binding
+IPR012745	Binding
+IPR013475	Binding
+IPR023511	Binding
+IPR001236	Oxidoreductase
+IPR001239	Cleavage / Inhibitor
+IPR001241	Binding
+IPR005737	Binding
+IPR001243	Binding
+IPR001250	Binding
+IPR014628	Binding
+IPR016305	Binding
+IPR001254	Cleavage
+IPR015420	Cleavage
+IPR001258	Binding / Protein
+IPR001261	Cleavage
+IPR001265	Binding
+IPR001287	Binding
+IPR001292	Binding
+IPR001293	Binding
+IPR001298	Binding / Protein
+IPR001299	Binding
+IPR001304	Binding / Sugar
+IPR033816	Binding / Sugar
+IPR033987	Binding / Sugar
+IPR033988	Binding / Sugar
+IPR033989	Binding / Sugar
+IPR033990	Binding / Sugar
+IPR033991	Binding / Sugar
+IPR033992	Binding / Sugar
+IPR034007	Binding / Sugar
+IPR034008	Binding / Sugar
+IPR034010	Binding / Sugar
+IPR034011	Binding / Sugar
+IPR001313	Binding
+IPR001314	Cleavage
+IPR003966	Cleavage
+IPR017326	Cleavage
+IPR011163	Cleavage
+IPR011360	Cleavage
+IPR012224	Cleavage
+IPR026280	Cleavage
+IPR012267	Cleavage
+IPR014394	Cleavage
+IPR017324	Cleavage
+IPR017329	Cleavage
+IPR023317	Cleavage
+IPR024175	Cleavage
+IPR033190	Cleavage
+IPR003966	Binding
+IPR012224	Binding
+IPR033190	Binding
+IPR008292	Cleavage
+IPR028341	Cleavage
+IPR017118	Cleavage
+IPR017327	Cleavage
+IPR024174	Cleavage
+IPR027284	Cleavage
+IPR033040	Cleavage
+IPR001316	Cleavage
+IPR001318	Factor
+IPR001319	Binding
+IPR001323	Factor
+IPR003013	Factor
+IPR003978	Factor
+IPR001333	Cleavage
+IPR001334	Binding
+IPR001343	Binding
+IPR001347	Binding / Sugar
+IPR001352	Binding
+IPR004641	Binding
+IPR004649	Binding
+IPR020787	Binding
+IPR022898	Binding
+IPR001356	Binding
+IPR008422	Binding
+IPR020479	Binding
+IPR001360	Hydrolase
+IPR005928	Hydrolase
+IPR017736	Hydrolase
+IPR028546	Hydrolase
+IPR001362	Hydrolase
+IPR006232	Hydrolase
+IPR001367	Binding
+IPR001367	Stabilisation / Oligomerisation
+IPR001368	Binding / Protein
+IPR001374	Binding
+IPR034069	Binding
+IPR034071	Binding
+IPR034076	Binding
+IPR034077	Binding
+IPR034079	Binding
+IPR034082	Binding
+IPR034083	Binding
+IPR034042	Binding
+IPR034068	Binding
+IPR034072	Binding
+IPR034081	Binding
+IPR001382	Binding
+IPR001384	Cleavage
+IPR001393	Binding
+IPR001394	Hydrolase / Ubiquitin
+IPR033815	Hydrolase / Ubiquitin
+IPR033840	Hydrolase / Ubiquitin
+IPR033841	Hydrolase / Ubiquitin
+IPR001396	Binding
+IPR001400	Factor
+IPR001401	Binding / GTP
+IPR001406	Binding
+IPR001409	Binding
+IPR001412	Binding
+IPR001415	Factor
+IPR003625	Factor
+IPR003626	Factor
+IPR001424	Binding
+IPR001427	Binding
+IPR029739	Binding
+IPR029740	Binding
+IPR029741	Binding
+IPR029742	Binding
+IPR029743	Binding
+IPR001431	Cleavage
+IPR001433	Oxidoreductase
+IPR001709	Oxidoreductase
+IPR001437	Binding
+IPR001440	Binding / Protein
+IPR001442	Binding / Sugar
+IPR001452	Binding / Protein
+IPR029294	Binding / Protein
+IPR001464	Binding
+IPR002388	Binding
+IPR002389	Binding
+IPR002393	Binding
+IPR002390	Binding
+IPR002391	Binding
+IPR002392	Binding
+IPR009115	Binding
+IPR008088	Binding
+IPR008156	Binding
+IPR008157	Binding
+IPR009116	Binding
+IPR009166	Binding
+IPR002389	Binding / Protein
+IPR009117	Binding
+IPR009118	Binding
+IPR013286	Binding
+IPR015473	Binding
+IPR001478	Binding / Protein
+IPR024958	Binding / Protein
+IPR029414	Binding / Protein
+IPR001483	Factor
+IPR001487	Binding / Protein
+IPR001490	Cleavage
+IPR001505	Binding
+IPR001506	Cleavage
+IPR034035	Cleavage
+IPR034036	Cleavage
+IPR034038	Cleavage
+IPR034039	Cleavage
+IPR001507	Oligomerisation
+IPR001510	Binding
+IPR001514	Binding
+IPR001523	Binding
+IPR001524	Hydrolase
+IPR001525	Transferase
+IPR017198	Transferase
+IPR030487	Transferase
+IPR030488	Transferase
+IPR001526	Binding
+IPR001528	Cleavage
+IPR001531	Binding
+IPR001537	Binding
+IPR001545	Factor
+IPR001547	Hydrolase
+IPR001548	Cleavage
+IPR033591	Cleavage
+IPR001550	Binding
+IPR001557	Oxidoreductase
+IPR011275	Oxidoreductase
+IPR010097	Oxidoreductase
+IPR023958	Oxidoreductase
+IPR010945	Oxidoreductase
+IPR011272	Oxidoreductase
+IPR011273	Oxidoreductase
+IPR011274	Oxidoreductase
+IPR011304	Oxidoreductase
+IPR001559	Binding
+IPR001561	Binding
+IPR001565	Binding / Lipid
+IPR001566	Binding
+IPR001567	Cleavage
+IPR001568	Binding
+IPR033697	Binding
+IPR001570	Cleavage
+IPR001577	Cleavage
+IPR001579	Hydrolase
+IPR001580	Binding
+IPR009169	Binding
+IPR001590	Cleavage
+IPR033817	Cleavage
+IPR034025	Cleavage
+IPR034027	Cleavage
+IPR034028	Cleavage
+IPR034030	Cleavage
+IPR001591	Binding
+IPR001594	Binding
+IPR001598	Binding
+IPR001599	Cleavage / Inhibitor
+IPR001604	Binding
+IPR001604	Hydrolase
+IPR020821	Binding
+IPR020821	Hydrolase
+IPR001605	Binding / Protein
+IPR001606	Binding
+IPR001607	Binding
+IPR001611	Binding / Protein
+IPR001613	Oxidoreductase
+IPR001616	Binding
+IPR001623	Binding / Protein
+IPR001627	Binding / Protein
+IPR001628	Binding
+IPR001630	Binding
+IPR029825	Stabilisation / Oligomerisation
+IPR001631	Binding
+IPR001647	Binding
+IPR001650	Unknown
+IPR001651	Factor
+IPR001656	Binding
+IPR001660	Binding / Protein
+IPR001668	Binding
+IPR001670	Oxidoreductase
+IPR001670	Binding
+IPR001678	Transferase
+IPR011023	Binding
+IPR001680	Binding / Protein
+IPR001683	Binding
+IPR001690	Transferase
+IPR001693	Factor
+IPR001695	Binding
+IPR001701	Hydrolase
+IPR001710	Factor
+IPR001713	Cleavage / Inhibitor
+IPR001715	Binding / Protein
+IPR010441	Binding / Protein
+IPR022613	Binding / Protein
+IPR001719	Binding
+IPR001722	Hydrolase
+IPR001723	Binding
+IPR003070	Binding
+IPR001728	Binding
+IPR003068	Binding
+IPR003069	Binding
+IPR003074	Binding
+IPR003071	Binding
+IPR003072	Binding
+IPR003073	Binding
+IPR003078	Binding
+IPR003075	Binding
+IPR003076	Binding
+IPR003077	Binding
+IPR027289	Binding
+IPR003079	Binding
+IPR024178	Binding
+IPR016355	Binding
+IPR023257	Binding
+IPR028355	Binding
+IPR033544	Binding
+IPR001730	Cleavage
+IPR001731	Binding
+IPR001732	Oxidoreductase
+IPR001739	Binding
+IPR001747	Unknown
+IPR001751	Binding
+IPR001752	Binding
+IPR001762	Cleavage / Inhibitor
+IPR001764	Hydrolase
+IPR001765	Binding
+IPR019560	Binding
+IPR001769	Cleavage
+IPR001774	Binding / Ligand
+IPR001781	Binding
+IPR033725	Binding
+IPR033726	Binding
+IPR033727	Binding
+IPR001787	Binding
+IPR001788	Binding
+IPR001791	Binding
+IPR001795	Binding
+IPR001799	Binding / Ligand
+IPR001801	Binding
+IPR001802	Binding
+IPR011795	Binding
+IPR001804	Oxidoreductase
+IPR011829	Oxidoreductase
+IPR014273	Binding
+IPR004429	Oxidoreductase
+IPR004434	Oxidoreductase
+IPR004439	Oxidoreductase
+IPR011828	Oxidoreductase
+IPR023698	Oxidoreductase
+IPR001810	Binding / Protein
+IPR001811	Factor
+IPR033899	Factor
+IPR001815	Cleavage
+IPR001818	Cleavage
+IPR001818	Binding
+IPR033739	Cleavage
+IPR033739	Binding
+IPR034033	Cleavage
+IPR034033	Binding
+IPR001821	Binding
+IPR001827	Binding
+IPR001834	Oxidoreductase
+IPR033566	Oxidoreductase
+IPR001837	Binding
+IPR028419	Binding
+IPR028415	Binding
+IPR028418	Binding
+IPR001839	Factor
+IPR001841	Binding / Protein
+IPR001841	Binding
+IPR024766	Binding
+IPR027370	Binding / Protein
+IPR027934	Binding / Protein
+IPR032043	Binding / Protein
+IPR027370	Binding
+IPR027934	Binding
+IPR032043	Binding
+IPR001842	Cleavage
+IPR001842	Binding
+IPR001843	Cleavage
+IPR001846	Binding
+IPR001847	Cleavage
+IPR001849	Binding / Lipid, Targeting
+IPR024774	Binding / Protein
+IPR001850	Binding
+IPR001867	Binding
+IPR001870	Binding / Protein
+IPR003879	Binding / Protein
+IPR001875	Binding / Protein
+IPR001876	Binding
+IPR031558	Binding
+IPR001878	Binding
+IPR025829	Binding
+IPR001879	Unknown
+IPR001881	Binding
+IPR001884	Binding
+IPR022847	Binding
+IPR001890	Binding
+IPR001892	Binding
+IPR019977	Binding
+IPR019980	Binding
+IPR001907	Cleavage
+IPR001909	Binding
+IPR003655	Binding
+IPR001915	Cleavage
+IPR001917	Transferase
+IPR001919	Hydrolase
+IPR001919	Binding / Sugar
+IPR001928	Cleaved
+IPR001932	Hydrolase / Phospho
+IPR001937	Binding
+IPR001940	Cleavage
+IPR011782	Cleavage
+IPR011783	Cleavage
+IPR001941	Factor
+IPR001943	Binding / Protein
+IPR001944	Hydrolase
+IPR026283	Hydrolase
+IPR001945	Binding
+IPR001948	Binding
+IPR022983	Binding
+IPR022984	Binding
+IPR033818	Binding
+IPR001949	Binding
+IPR001951	Binding
+IPR001952	Hydrolase / Phospho
+IPR001955	Factor
+IPR015480	Factor
+IPR001957	Binding
+IPR001965	Binding / Protein
+IPR001965	Binding
+IPR019787	Binding / Protein
+IPR001989	Oxidoreductase
+IPR001997	Binding
+IPR029980	Binding
+IPR002004	Binding
+IPR002008	Binding
+IPR002012	Factor
+IPR002017	Binding / Protein
+IPR002023	Oxidoreductase
+IPR002035	Adhesion / Metal-dependent
+IPR007198	Adhesion / Metal-dependent
+IPR025861	Adhesion / Metal-dependent
+IPR033881	Adhesion / Metal-dependent
+IPR002036	Cleavage
+IPR002037	Hydrolase
+IPR002045	Binding
+IPR002047	Factor
+IPR002048	Binding
+IPR002049	Binding / Protein
+IPR002052	Binding
+IPR002052	Transferase
+IPR002054	Binding
+IPR002057	Oxidoreductase
+IPR002059	Binding
+IPR002060	Transferase
+IPR006449	Transferase
+IPR017827	Transferase
+IPR017828	Transferase
+IPR002071	Binding
+IPR002072	Binding / Ligand
+IPR002083	Binding / Protein
+IPR002085	Binding
+IPR002085	Oxidoreductase
+IPR004627	Binding
+IPR014182	Binding
+IPR014183	Binding
+IPR026583	Binding
+IPR028632	Binding
+IPR005903	Oxidoreductase
+IPR014184	Oxidoreductase
+IPR010085	Binding
+IPR014187	Binding
+IPR014188	Binding
+IPR014189	Binding
+IPR014190	Binding
+IPR017614	Binding
+IPR017743	Binding
+IPR017816	Binding
+IPR023921	Binding
+IPR033915	Binding
+IPR010085	Oxidoreductase
+IPR014187	Oxidoreductase
+IPR014188	Oxidoreductase
+IPR014189	Oxidoreductase
+IPR014190	Oxidoreductase
+IPR017614	Oxidoreductase
+IPR017743	Oxidoreductase
+IPR017816	Oxidoreductase
+IPR023921	Oxidoreductase
+IPR033915	Oxidoreductase
+IPR002092	Binding
+IPR002100	Binding
+IPR002100	Stabilisation / Oligomerisation
+IPR033896	Binding
+IPR033897	Binding
+IPR033896	Stabilisation / Oligomerisation
+IPR033897	Stabilisation / Oligomerisation
+IPR002102	Binding / Sugar
+IPR002104	Binding
+IPR002105	Hydrolase
+IPR002108	Binding
+IPR002110	Binding / Protein
+IPR002112	Binding
+IPR015558	Binding
+IPR029822	Binding
+IPR029823	Binding
+IPR002117	Binding
+IPR032645	Binding
+IPR032646	Binding
+IPR002119	Binding
+IPR021171	Binding
+IPR002121	Binding
+IPR022758	Binding
+IPR002123	Transferase
+IPR004552	Transferase
+IPR002125	Binding
+IPR002126	Binding
+IPR002130	Isomerase / unfolded protein
+IPR025658	Isomerase / unfolded protein
+IPR002143	Binding
+IPR005878	Binding
+IPR005879	Binding
+IPR023669	Binding
+IPR002148	Binding
+IPR002155	Transferase
+IPR012806	Transferase
+IPR012793	Transferase
+IPR012805	Transferase
+IPR002156	Binding
+IPR002160	Cleavage / Inhibitor
+IPR016308	Cleavage / Inhibitor
+IPR002165	Unknown
+IPR002166	Binding
+IPR002168	Hydrolase
+IPR002169	Cleavage
+IPR002169	Binding
+IPR002172	Binding / Protein
+IPR002173	Kinase
+IPR002181	Binding
+IPR002183	Factor
+IPR002186	Binding
+IPR002192	Kinase
+IPR002204	Oxidoreductase
+IPR002205	Binding
+IPR002209	Factor
+IPR028253	Factor
+IPR028279	Factor
+IPR028284	Factor
+IPR028210	Factor
+IPR028223	Factor
+IPR028232	Factor
+IPR028239	Factor
+IPR028240	Factor
+IPR028242	Factor
+IPR028247	Factor
+IPR028249	Factor
+IPR028251	Factor
+IPR028252	Factor
+IPR028254	Factor
+IPR028285	Factor
+IPR028287	Factor
+IPR028289	Factor
+IPR028291	Factor
+IPR028292	Factor
+IPR028296	Factor
+IPR028303	Factor
+IPR028304	Factor
+IPR002223	Cleavage / Inhibitor
+IPR002225	Oxidoreductase
+IPR002227	Oxidoreductase
+IPR002241	Hydrolase
+IPR006215	Hydrolase
+IPR002288	Binding
+IPR002290	Kinase
+IPR002295	Binding
+IPR002297	Binding
+IPR002300	Binding
+IPR002301	Binding
+IPR023585	Binding
+IPR023586	Binding
+IPR002302	Binding
+IPR002303	Binding
+IPR022874	Binding
+IPR002305	Binding
+IPR002306	Binding
+IPR002307	Binding
+IPR020653	Binding
+IPR024109	Binding
+IPR023617	Binding
+IPR023678	Binding
+IPR023684	Binding
+IPR024088	Binding
+IPR024107	Binding
+IPR024108	Binding
+IPR002310	Binding
+IPR002312	Binding
+IPR004522	Binding
+IPR004523	Binding
+IPR004524	Binding
+IPR002314	Binding
+IPR033721	Binding
+IPR033728	Binding
+IPR033729	Binding
+IPR033730	Binding
+IPR033731	Binding
+IPR002315	Binding
+IPR022960	Binding
+IPR022961	Binding
+IPR002317	Binding
+IPR002318	Binding
+IPR022429	Binding
+IPR023033	Binding
+IPR027522	Binding
+IPR002328	Binding
+IPR002328	Oxidoreductase
+IPR002343	Binding
+IPR006546	Binding
+IPR006548	Binding
+IPR002344	Binding
+IPR002346	Oxidoreductase
+IPR002350	Binding / Protein
+IPR002354	Factor
+IPR002355	Binding
+IPR002364	Binding
+IPR002364	Oxidoreductase
+IPR002369	Adhesion / Metal-dependent
+IPR002415	Binding
+IPR002421	Binding
+IPR002427	Oxidoreductase
+IPR002429	Binding
+IPR002464	Binding
+IPR002466	Binding
+IPR002470	Cleavage
+IPR002471	Cleavage
+IPR002477	Binding / Peptidoglycan
+IPR002478	Binding
+IPR004521	Binding
+IPR002489	Oxidoreductase
+IPR017550	Binding
+IPR002492	Binding
+IPR002502	Hydrolase
+IPR006619	Binding
+IPR006619	Hydrolase
+IPR002505	Transferase
+IPR004614	Transferase
+IPR002506	Binding
+IPR002508	Hydrolase
+IPR002509	Hydrolase
+IPR017625	Hydrolase
+IPR002510	Cleavage
+IPR025502	Cleavage
+IPR002514	Binding
+IPR002515	Binding
+IPR002525	Binding
+IPR002527	Binding
+IPR002527	Cleavage
+IPR002527	Transferase
+IPR002527	Hydrolase
+IPR002533	Cleavage
+IPR002543	Binding
+IPR002546	Binding
+IPR002548	Cleavage
+IPR002558	Binding
+IPR002559	Binding
+IPR002562	Binding
+IPR002563	Binding
+IPR002568	Binding
+IPR002571	Binding
+IPR002583	Binding
+IPR002588	Binding
+IPR002610	Cleavage
+IPR017092	Cleavage
+IPR017213	Cleavage
+IPR023662	Cleavage
+IPR002628	Binding
+IPR002629	Binding
+IPR002631	Binding
+IPR002637	Hydrolase
+IPR020922	Hydrolase
+IPR027502	Hydrolase
+IPR002643	Binding
+IPR002646	Binding
+IPR002653	Binding
+IPR002656	Transferase
+IPR002681	Binding
+IPR016405	Binding
+IPR002683	Binding
+IPR002686	Binding
+IPR002692	Hydrolase
+IPR014395	Hydrolase
+IPR002693	Binding
+IPR002694	Binding
+IPR002702	Binding
+IPR002705	Cleavage
+IPR002711	Binding
+IPR002717	Transferase
+IPR002729	Binding
+IPR033641	Binding
+IPR019851	Binding
+IPR019855	Binding
+IPR019856	Binding
+IPR019857	Binding
+IPR019858	Binding
+IPR023843	Binding
+IPR023844	Binding
+IPR027617	Binding
+IPR002730	Binding
+IPR002742	Oxidoreductase
+IPR002748	Transferase
+IPR002770	Transferase
+IPR002772	Hydrolase
+IPR002775	Binding
+IPR013795	Binding
+IPR014560	Binding
+IPR014612	Binding
+IPR020241	Binding
+IPR002780	Binding
+IPR002811	Oxidoreductase
+IPR002812	Oxidoreductase
+IPR002815	Binding
+IPR004085	Binding
+IPR013048	Binding
+IPR002817	Binding
+IPR002821	Hydrolase
+IPR002756	Hydrolase
+IPR002828	Hydrolase
+IPR002836	Binding
+IPR022889	Binding
+IPR033956	Binding
+IPR002857	Binding
+IPR002861	Unknown
+IPR002868	Cleavage
+IPR002869	Oxidoreductase
+IPR002871	Binding
+IPR002873	Binding
+IPR002877	Transferase
+IPR025807	Transferase
+IPR025816	Transferase
+IPR026490	Transferase
+IPR002880	Oxidoreductase
+IPR002884	Cleavage
+IPR002888	Oxidoreductase
+IPR002888	Binding
+IPR002890	Cleavage / Inhibitor
+IPR002893	Binding / Protein
+IPR002903	Transferase
+IPR002904	Binding
+IPR002905	Binding
+IPR022923	Binding
+IPR002909	Binding / Protein
+IPR032397	Binding / Protein
+IPR033926	Binding / Protein
+IPR002910	Binding
+IPR002913	Binding / Lipid
+IPR002918	Hydrolase
+IPR002919	Cleavage / Inhibitor
+IPR002925	Hydrolase
+IPR002933	Hydrolase
+IPR017141	Cleavage
+IPR010161	Binding
+IPR010175	Binding
+IPR010964	Binding
+IPR023556	Binding
+IPR017439	Hydrolase
+IPR033845	Hydrolase
+IPR001160	Hydrolase
+IPR005941	Hydrolase
+IPR010158	Hydrolase
+IPR017591	Hydrolase
+IPR010159	Hydrolase
+IPR010162	Hydrolase
+IPR010169	Hydrolase
+IPR010174	Hydrolase
+IPR010182	Hydrolase
+IPR033687	Hydrolase
+IPR011291	Hydrolase
+IPR012166	Hydrolase
+IPR017149	Hydrolase
+IPR017150	Hydrolase
+IPR017153	Hydrolase
+IPR023905	Hydrolase
+IPR033846	Hydrolase
+IPR002937	Oxidoreductase
+IPR002938	Binding
+IPR002941	Binding
+IPR002942	Binding
+IPR002955	Binding
+IPR002969	Binding / Lipid
+IPR026222	Binding / Lipid
+IPR003010	Hydrolase
+IPR003018	Binding / Protein
+IPR016132	Binding / Protein
+IPR003019	Binding
+IPR003022	Binding
+IPR003025	Binding
+IPR003029	Binding
+IPR003043	Transferase
+IPR003060	Binding / Ligand
+IPR003086	Cleavage / Inhibitor
+IPR003097	Oxidoreductase
+IPR003100	Binding / Protein
+IPR021103	Binding / Protein
+IPR003102	Binding / Protein
+IPR003108	Binding
+IPR003112	Unknown
+IPR003119	Targeting
+IPR003121	Binding / Protein
+IPR019835	Binding / Protein
+IPR003124	Binding
+IPR003126	Binding
+IPR003128	Binding
+IPR003137	Binding, Structural / Protein lid
+IPR003140	Hydrolase
+IPR003141	Binding
+IPR003150	Binding
+IPR003151	Binding / Protein
+IPR003152	Binding / Protein
+IPR003154	Binding
+IPR003156	Binding
+IPR003157	Transferase
+IPR003163	Binding
+IPR003165	Binding
+IPR003168	Binding
+IPR003169	Binding / Protein
+IPR003173	Binding
+IPR003174	Binding
+IPR003176	Binding
+IPR003180	Binding
+IPR003202	Binding
+IPR003203	Binding
+IPR003212	Binding
+IPR003222	Binding
+IPR003224	Binding
+IPR003235	Factor
+IPR003251	Oxidoreductase
+IPR003251	Binding
+IPR003286	Binding
+IPR003299	Binding
+IPR003300	Hydrolase
+IPR003307	Binding / Protein
+IPR003308	Binding
+IPR003314	Binding
+IPR003322	Retroviral
+IPR003340	Binding
+IPR003346	Binding
+IPR003350	Binding
+IPR003356	Binding
+IPR003367	Binding
+IPR003391	Binding
+IPR003410	IG
+IPR003415	Binding
+IPR003421	Oxidoreductase
+IPR010131	Binding / Lipid
+IPR003424	Factor
+IPR003432	Binding
+IPR003439	Binding / ATP
+IPR015856	Binding / ATP
+IPR015860	Binding / ATP
+IPR017902	Binding / ATP
+IPR034001	Binding / ATP
+IPR034003	Binding / ATP
+IPR003441	Binding
+IPR003451	Binding
+IPR003465	Cleavage / Inhibitor
+IPR003477	Binding
+IPR003480	Transferase
+IPR003484	Transferase
+IPR003491	Binding
+IPR003494	Binding / Protein
+IPR003523	Binding
+IPR003536	Binding / Protein
+IPR003537	Cleavage / Inhibitor
+IPR003541	Binding
+IPR003543	Binding
+IPR003545	Binding
+IPR003546	Hydrolase / Phospho
+IPR003547	Kinase
+IPR003583	Binding
+IPR003591	Binding / Protein
+IPR003593	Binding / ATP
+IPR003594	Binding / ATP
+IPR020575	Binding / ATP
+IPR032834	Binding / ATP
+IPR003597	IG
+IPR003598	IG
+IPR003599	IG
+IPR003601	Binding
+IPR003602	Binding
+IPR003604	Binding
+IPR003605	Activation
+IPR003609	Binding
+IPR003610	Hydrolase
+IPR003610	Binding / Sugar
+IPR032798	Hydrolase
+IPR032798	Binding / Sugar
+IPR003611	Binding
+IPR003613	Transferase
+IPR003616	Other
+IPR003620	Factor
+IPR003644	Binding / Calcium
+IPR003645	Binding / Protein
+IPR015369	Binding / Protein
+IPR003650	Binding
+IPR003652	Binding
+IPR003652	Binding / Protein
+IPR003653	Cleavage
+IPR003656	Binding
+IPR003664	Transferase
+IPR012116	Transferase
+IPR012281	Transferase
+IPR003668	Binding
+IPR003699	Transferase
+IPR017821	Transferase
+IPR003710	Oxidoreductase
+IPR003735	Binding
+IPR003742	Transferase
+IPR016051	Transferase
+IPR003751	Binding
+IPR003767	Oxidoreductase
+IPR023689	Oxidoreductase
+IPR017590	Oxidoreductase
+IPR003796	Binding
+IPR003806	Binding
+IPR003812	Transferase / AMP
+IPR003819	Oxidoreductase
+IPR003821	Binding
+IPR003851	Binding
+IPR003877	Binding / Protein
+IPR003886	Unknown
+IPR003890	Binding
+IPR003890	Binding / Protein
+IPR003892	Binding / Protein
+IPR003893	Binding
+IPR003902	Binding
+IPR003913	Cleavage / Inhibitor
+IPR003914	Cleavage / Inhibitor
+IPR029880	Cleavage / Inhibitor
+IPR029882	Cleavage / Inhibitor
+IPR003915	Binding
+IPR003952	Oxidoreductase
+IPR003961	Binding / Protein
+IPR031669	Binding / Protein
+IPR003977	Transferase
+IPR003987	Unknown
+IPR003988	IG-like
+IPR003995	Binding
+IPR003996	Transferase
+IPR004026	Binding
+IPR004026	Transferase
+IPR004033	Transferase
+IPR014122	Transferase
+IPR032904	Transferase
+IPR004043	Binding / Sugar
+IPR004044	Binding
+IPR004045	Binding / Protein
+IPR004084	Binding
+IPR004087	Binding
+IPR004088	Binding
+IPR004094	Cleavage / Inhibitor
+IPR004104	Oxidoreductase
+IPR004107	Binding
+IPR004114	Binding
+IPR004122	Binding
+IPR004137	Oxidoreductase
+IPR010048	Binding
+IPR004460	Oxidoreductase
+IPR010047	Oxidoreductase
+IPR004148	Binding / Protein
+IPR004159	Transferase
+IPR004166	Kinase
+IPR004167	Transferase
+IPR018123	Binding
+IPR004172	Binding / Protein
+IPR015132	Binding / Protein
+IPR015143	Binding / Protein
+IPR004177	Binding
+IPR004181	Binding
+IPR004183	Oxidoreductase
+IPR004185	Hydrolase
+IPR004186	Binding
+IPR004188	Binding
+IPR004189	Binding
+IPR004193	Hydrolase
+IPR004210	Binding
+IPR004221	Binding
+IPR018131	Binding
+IPR004227	Binding
+IPR004227	Transferase
+IPR004230	Binding
+IPR004232	Binding
+IPR022513	Binding
+IPR004233	Binding
+IPR004234	Binding
+IPR004250	Factor
+IPR004281	Factor
+IPR004321	Binding
+IPR004333	Binding
+IPR004341	Binding
+IPR004343	Binding
+IPR004361	Binding
+IPR004364	Binding
+IPR018149	Binding
+IPR004365	Binding
+IPR004378	Oxidoreductase
+IPR004385	Binding
+IPR004387	Cleavage
+IPR004398	Transferase
+IPR004421	Binding
+IPR004437	Binding
+IPR004438	Cleavage
+IPR034009	Cleavage
+IPR004443	Unknown
+IPR004446	Hydrolase / Phospho
+IPR004453	Oxidoreductase
+IPR004457	Binding
+IPR004470	Binding
+IPR004473	Binding
+IPR004475	Binding
+IPR004476	Binding
+IPR011804	Binding
+IPR011805	Binding
+IPR004483	Binding
+IPR033098	Binding
+IPR004489	Oxidoreductase
+IPR004493	Binding
+IPR020791	Binding
+IPR004495	Binding
+IPR004503	Binding
+IPR004506	Transferase
+IPR004519	Binding
+IPR004529	Binding
+IPR022911	Binding
+IPR022917	Binding
+IPR004530	Binding
+IPR004531	Binding
+IPR022918	Binding
+IPR004535	Binding
+IPR004538	Binding
+IPR004546	Binding
+IPR004553	Oxidoreductase
+IPR004590	Binding
+IPR004591	Binding
+IPR004595	Binding
+IPR004605	Binding
+IPR004613	Binding
+IPR030879	Binding
+IPR030854	Binding
+IPR004645	Binding
+IPR018384	Binding
+IPR004652	Oxidoreductase
+IPR032887	Oxidoreductase
+IPR004659	Binding
+IPR028878	Binding
+IPR004660	Oxidoreductase
+IPR017600	Oxidoreductase
+IPR004661	Binding
+IPR033748	Binding
+IPR004665	Binding
+IPR004688	Binding
+IPR004722	Binding
+IPR024403	Binding
+IPR004782	Binding
+IPR004807	Binding
+IPR004825	Factor
+IPR004826	Binding
+IPR004839	Binding
+IPR010961	Binding
+IPR004843	Hydrolase
+IPR006186	Hydrolase
+IPR004850	Binding / Protein
+IPR004852	Oxidoreductase
+IPR004859	Binding
+IPR004868	Binding
+IPR004871	Binding
+IPR004875	Binding
+IPR004930	Binding
+IPR004953	Binding
+IPR004960	Transferase
+IPR011920	Transferase
+IPR011921	Transferase
+IPR030857	Transferase
+IPR004963	Hydrolase
+IPR004973	Binding
+IPR004978	Factor
+IPR004986	Binding
+IPR004999	Binding
+IPR005001	Binding
+IPR005018	Adhesion
+IPR015920	Adhesion
+IPR005025	Oxidoreductase
+IPR005036	Binding / Protein
+IPR005039	Binding
+IPR005043	Binding / Protein
+IPR005059	Binding
+IPR005063	Binding
+IPR005066	Oxidoreductase
+IPR005072	Cleavage
+IPR005072	Binding
+IPR005073	Cleavage
+IPR033838	Cleavage
+IPR033839	Cleavage
+IPR005084	Binding / Sugar
+IPR006584	Binding / Sugar
+IPR005097	Oxidoreductase
+IPR005104	Binding
+IPR005106	Oxidoreductase
+IPR005117	Oxidoreductase
+IPR005123	Oxidoreductase
+IPR006620	Oxidoreductase
+IPR005146	Binding
+IPR020825	Binding
+IPR005147	Binding
+IPR005148	Binding
+IPR005160	Binding
+IPR005189	Kinase
+IPR005192	Hydrolase
+IPR005197	Hydrolase
+IPR005231	Binding
+IPR005252	Binding
+IPR005259	Binding
+IPR005299	Transferase
+IPR005300	Hydrolase
+IPR005304	Transferase
+IPR023503	Transferase
+IPR005310	Binding / Sugar
+IPR005319	Binding
+IPR005319	Cleavage
+IPR005323	Binding / Sugar
+IPR005338	Kinase
+IPR005376	Binding
+IPR005383	Binding
+IPR005412	Binding
+IPR005454	Binding
+IPR029891	Binding
+IPR029893	Binding
+IPR005471	Binding
+IPR005490	Transferase
+IPR005533	Adhesion
+IPR005539	Binding
+IPR005540	Binding
+IPR005541	Binding
+IPR005559	Binding
+IPR005561	Binding
+IPR005569	Binding
+IPR005571	Binding
+IPR005582	Binding
+IPR005584	Binding
+IPR005617	Binding / Protein
+IPR005621	Binding
+IPR005627	Binding
+IPR005650	Binding
+IPR014071	Binding
+IPR005662	Binding
+IPR005674	Hydrolase
+IPR005734	Binding
+IPR005741	Binding
+IPR005742	Binding
+IPR005743	Binding
+IPR005790	Binding
+IPR005797	Oxidoreductase
+IPR005798	Oxidoreductase
+IPR005803	Oxidoreductase
+IPR005817	Binding / Ligand
+IPR009139	Binding / Ligand
+IPR009140	Binding / Ligand
+IPR009141	Binding / Ligand
+IPR009142	Binding / Ligand
+IPR009143	Binding / Ligand
+IPR013300	Binding / Ligand
+IPR013301	Binding / Ligand
+IPR013302	Binding / Ligand
+IPR013303	Binding / Ligand
+IPR013304	Binding / Ligand
+IPR026535	Binding / Ligand
+IPR026536	Binding / Ligand
+IPR026537	Binding / Ligand
+IPR026538	Binding / Ligand
+IPR005818	Binding
+IPR005819	Binding
+IPR005839	Transferase
+IPR005840	Transferase
+IPR006463	Transferase
+IPR006467	Transferase
+IPR006466	Transferase
+IPR005880	Binding
+IPR005880	Transferase
+IPR005884	Oxidoreductase
+IPR005897	Cleavage
+IPR005911	Binding
+IPR005936	Cleavage
+IPR005937	Hydrolase
+IPR023501	Hydrolase
+IPR005938	Hydrolase
+IPR005939	Hydrolase
+IPR005974	Binding
+IPR010142	Binding
+IPR011290	Binding
+IPR005992	Oxidoreductase
+IPR006001	Kinase
+IPR006017	Binding
+IPR006020	Binding / Protein
+IPR006019	Binding / Protein
+IPR033930	Binding / Protein
+IPR006026	Cleavage
+IPR006026	Binding
+IPR034036	Binding
+IPR034038	Binding
+IPR034039	Binding
+IPR006027	Binding
+IPR006035	Binding
+IPR014033	Binding
+IPR005923	Binding
+IPR005925	Binding
+IPR023694	Binding
+IPR013776	Hydrolase
+IPR013775	Binding
+IPR013776	Binding
+IPR006054	Binding
+IPR006066	Oxidoreductase
+IPR006066	Binding
+IPR006067	Oxidoreductase
+IPR006067	Binding
+IPR006076	Oxidoreductase
+IPR017610	Transferase
+IPR006077	Binding
+IPR006083	Kinase
+IPR006093	Oxidoreductase
+IPR006094	Oxidoreductase
+IPR006095	Oxidoreductase
+IPR014362	Oxidoreductase
+IPR016211	Oxidoreductase
+IPR006096	Oxidoreductase
+IPR033922	Oxidoreductase
+IPR006097	Oxidoreductase
+IPR006101	Hydrolase
+IPR023933	Hydrolase
+IPR006102	Hydrolase
+IPR006103	Hydrolase
+IPR006104	Hydrolase
+IPR006105	Cleavage / Inhibitor
+IPR006106	Cleavage / Inhibitor
+IPR016309	Cleavage / Inhibitor
+IPR002411	Cleavage / Inhibitor
+IPR006108	Oxidoreductase
+IPR006110	Binding
+IPR006111	Binding
+IPR003716	Binding
+IPR028363	Binding
+IPR006116	Binding
+IPR006116	Transferase
+IPR006117	Binding
+IPR006117	Transferase
+IPR006119	Binding
+IPR006120	Binding
+IPR006121	Binding
+IPR006122	Binding
+IPR006124	Binding
+IPR006127	Binding
+IPR006128	Binding
+IPR006129	Binding
+IPR022434	Binding
+IPR006134	Binding
+IPR006137	Binding
+IPR006139	Oxidoreductase
+IPR006145	Binding
+IPR006146	Binding
+IPR006158	Binding
+IPR006159	Binding
+IPR006164	Binding
+IPR006165	Binding
+IPR006166	Binding
+IPR020819	Binding
+IPR006172	Binding
+IPR029702	Binding
+IPR029703	Binding
+IPR014382	Binding
+IPR014416	Binding
+IPR030559	Binding
+IPR006176	Oxidoreductase
+IPR006179	Hydrolase
+IPR006294	Hydrolase
+IPR006420	Hydrolase
+IPR011240	Hydrolase
+IPR014485	Hydrolase
+IPR014579	Hydrolase
+IPR030998	Hydrolase
+IPR006180	Oxidoreductase
+IPR006194	Binding
+IPR015944	Binding
+IPR006196	Binding
+IPR006197	Binding
+IPR006200	Cleavage
+IPR006199	Cleavage
+IPR006206	Kinase
+IPR000705	Kinase
+IPR022963	Kinase
+IPR006205	Kinase
+IPR022937	Kinase
+IPR012369	Kinase
+IPR006207	Factor
+IPR006211	Oligomerisation
+IPR006212	Unclear
+IPR006224	Binding
+IPR006225	Binding
+IPR006243	Binding
+IPR006262	Binding
+IPR006263	Binding
+IPR020797	Binding
+IPR006276	Binding
+IPR006289	Binding
+IPR006291	Binding
+IPR006308	Binding
+IPR006309	Binding
+IPR006345	Binding
+IPR006349	Hydrolase / Phospho
+IPR006358	Binding
+IPR006359	Binding
+IPR006360	Transferase
+IPR006376	Binding
+IPR006383	Hydrolase / Phospho
+IPR006384	Hydrolase / Phospho
+IPR016965	Hydrolase / Phospho
+IPR017718	Hydrolase / Phospho
+IPR006385	Hydrolase / Phospho
+IPR006386	Hydrolase / Phospho
+IPR006401	Oxidoreductase
+IPR006409	Binding
+IPR006417	Binding
+IPR006439	Hydrolase
+IPR011950	Hydrolase
+IPR011951	Hydrolase
+IPR006346	Hydrolase
+IPR006351	Hydrolase
+IPR011949	Hydrolase
+IPR023733	Hydrolase
+IPR023943	Hydrolase
+IPR027511	Hydrolase
+IPR006440	Kinase
+IPR006501	Cleavage / Inhibitor
+IPR006509	Binding
+IPR006515	Binding
+IPR006529	Binding
+IPR006536	Binding
+IPR033110	Binding
+IPR006543	Hydrolase / Phospho
+IPR005954	Hydrolase / Phospho
+IPR006552	Binding
+IPR006555	Binding
+IPR006560	Transferase
+IPR006564	Binding
+IPR006572	Binding
+IPR006575	Binding / Protein
+IPR006576	Binding / Protein
+IPR006581	Binding / Protein
+IPR006591	Binding
+IPR023464	Binding
+IPR006592	Binding
+IPR006594	Binding / Protein
+IPR006597	Binding / Protein
+IPR006612	Binding
+IPR006638	Binding
+IPR006638	Transferase
+IPR023404	Binding
+IPR023404	Transferase
+IPR006642	Binding
+IPR006652	Binding / Protein
+IPR006655	Oxidoreductase
+IPR006656	Oxidoreductase
+IPR006657	Oxidoreductase
+IPR006658	Oxidoreductase
+IPR011887	Oxidoreductase
+IPR006680	Hydrolase
+IPR006684	Hydrolase
+IPR014166	Hydrolase
+IPR006691	Binding
+IPR006694	Oxidoreductase
+IPR006700	Transferase
+IPR006710	Hydrolase
+IPR016828	Hydrolase
+IPR016840	Hydrolase
+IPR006737	Factor
+IPR006738	Factor
+IPR006748	Kinase
+IPR006775	Hydrolase
+IPR006779	Binding
+IPR006782	Factor
+IPR006794	Binding
+IPR006796	Binding / Protein
+IPR006799	Factor
+IPR006801	Binding / Lipid
+IPR006815	Binding
+IPR006828	Binding / Protein
+IPR006854	Binding
+IPR006890	Oxidoreductase
+IPR006895	Binding
+IPR006910	Binding / Protein
+IPR006935	Binding
+IPR006935	Hydrolase
+IPR006963	Oxidoreductase
+IPR007010	Binding
+IPR007015	Binding
+IPR007024	Binding
+IPR007025	Binding
+IPR007046	Binding
+IPR007066	Binding
+IPR007069	Binding
+IPR007070	Transferase
+IPR007071	Binding
+IPR007072	Transferase
+IPR007073	Binding
+IPR007075	Binding
+IPR007080	Binding
+IPR007081	Binding
+IPR007083	Binding
+IPR007087	Binding
+IPR031514	Binding
+IPR007097	Binding
+IPR007110	Binding / Protein
+IPR013106	IG
+IPR032052	Binding / Protein
+IPR032699	Binding / Protein
+IPR007120	Binding
+IPR007121	Binding
+IPR007122	Binding
+IPR030004	Binding
+IPR030007	Binding
+IPR030012	Binding
+IPR015628	Binding
+IPR030009	Binding
+IPR015626	Binding
+IPR029917	Binding
+IPR029919	Binding
+IPR030010	Binding
+IPR030014	Binding
+IPR007123	Binding
+IPR007125	Binding
+IPR007127	Binding
+IPR007130	Transferase
+IPR007131	Binding / Protein
+IPR007145	Binding
+IPR032921	Binding
+IPR007159	Binding
+IPR020603	Binding
+IPR007167	Binding
+IPR007185	Binding
+IPR007197	Binding
+IPR007197	Transferase
+IPR007199	Binding
+IPR007202	Binding
+IPR007213	Transferase
+IPR011610	Transferase
+IPR016651	Transferase
+IPR016874	Transferase
+IPR007219	Binding
+IPR007275	Binding
+IPR007324	Binding / Sugar
+IPR007329	Binding
+IPR007348	Binding
+IPR007364	Transferase
+IPR007365	Oligomerisation
+IPR007406	Binding
+IPR007409	Binding
+IPR007459	Binding
+IPR007477	Binding / Protein
+IPR007484	Cleavage
+IPR007492	Binding
+IPR007521	Kinase
+IPR007526	Binding / Protein
+IPR007527	Binding
+IPR007533	Binding
+IPR007560	Binding
+IPR007597	Hydrolase
+IPR007602	Binding
+IPR007605	Cleavage / Inhibitor
+IPR007610	Binding
+IPR007624	Binding
+IPR007627	Binding
+IPR007630	Binding
+IPR007631	Binding
+IPR007636	Binding
+IPR007637	Binding
+IPR007638	Binding
+IPR007639	Binding
+IPR007641	Binding
+IPR007642	Binding
+IPR007644	Binding
+IPR007645	Binding
+IPR007646	Binding
+IPR007654	Binding
+IPR007666	Kinase
+IPR015990	Kinase
+IPR011790	Kinase
+IPR031299	Kinase
+IPR007668	Binding
+IPR007692	Binding
+IPR007719	Binding
+IPR007722	Binding
+IPR007722	Hydrolase
+IPR007728	Binding
+IPR007728	Transferase
+IPR007745	Binding
+IPR007757	Transferase
+IPR025848	Transferase
+IPR007779	Binding
+IPR007785	Binding
+IPR007809	Binding / Protein
+IPR007811	Binding
+IPR007823	Transferase
+IPR007848	Transferase
+IPR007853	Binding
+IPR007856	Multiple / Cleaved
+IPR007857	Transferase
+IPR007859	Binding
+IPR007869	Binding
+IPR007871	Transferase
+IPR007882	Binding
+IPR007889	Binding
+IPR007925	Binding
+IPR007933	Binding
+IPR007934	Binding / Sugar
+IPR007937	Binding
+IPR007939	Binding
+IPR007944	Binding
+IPR007984	Binding
+IPR008001	Factor
+IPR008006	Cleavage
+IPR008006	Binding
+IPR008013	Binding
+IPR008031	Transferase
+IPR008037	Cleavage / Inhibitor
+IPR008045	Binding
+IPR008046	Binding
+IPR008047	Binding
+IPR008049	Binding
+IPR008050	Binding
+IPR008065	Binding / Ligand
+IPR008080	Binding
+IPR008086	Cleavage / Inhibitor
+IPR008087	Binding
+IPR008097	Factor
+IPR008104	Isomerase / unfolded protein
+IPR008105	Factor
+IPR008108	Hydrolase / Phospho
+IPR008111	Binding
+IPR008138	Multiple / Cleaved
+IPR008139	Multiple / Cleaved
+IPR008142	Oxidoreductase
+IPR008143	Oxidoreductase
+IPR008154	Binding
+IPR008160	Structural
+IPR008174	Factor
+IPR008175	Factor
+IPR008180	Hydrolase
+IPR008181	Hydrolase
+IPR011962	Hydrolase
+IPR023537	Hydrolase
+IPR008189	Transferase
+IPR008193	Binding
+IPR008197	Cleavage / Inhibitor
+IPR008211	Oligomerisation
+IPR008225	Binding
+IPR023659	Binding
+IPR023661	Binding
+IPR008229	Binding
+IPR008250	Binding
+IPR008254	Binding
+IPR026816	Binding
+IPR008255	Oxidoreductase
+IPR008259	Oxidoreductase
+IPR008263	Hydrolase
+IPR008264	Hydrolase
+IPR008266	Kinase
+IPR008268	Cleavage
+IPR008269	Cleavage
+IPR008271	Kinase
+IPR008272	Hydrolase
+IPR008274	Oxidoreductase
+IPR008288	Binding
+IPR008294	Cleavage
+IPR008294	Binding
+IPR008300	Transferase
+IPR008334	Hydrolase
+IPR008335	Oxidoreductase
+IPR012137	Oxidoreductase
+IPR030835	Oxidoreductase
+IPR008336	Binding
+IPR013030	Binding
+IPR008353	Cleavage
+IPR008356	Hydrolase / Phospho
+IPR016334	Hydrolase / Phospho
+IPR008357	Cleavage
+IPR008367	Binding
+IPR008379	Binding
+IPR008393	Binding
+IPR008403	Binding / Lipid
+IPR008404	Cleavage / Inhibitor
+IPR008405	Binding / Lipid
+IPR008415	Binding
+IPR008425	Hydrolase / Phospho
+IPR008434	Binding
+IPR008448	Binding
+IPR008463	Binding
+IPR008567	Transferase
+IPR008576	Transferase
+IPR008593	Binding
+IPR008594	Hydrolase
+IPR008595	Kinase
+IPR008632	Binding / Lipid
+IPR008705	Binding
+IPR008721	Binding
+IPR016811	Binding
+IPR020529	Binding
+IPR008723	Binding
+IPR008744	Binding
+IPR008750	Cleavage
+IPR008753	Cleavage
+IPR008760	Cleavage
+IPR008790	Kinase
+IPR008797	Binding
+IPR008806	Binding
+IPR008807	Binding
+IPR008823	Binding
+IPR008829	Transferase
+IPR013375	Transferase
+IPR019872	Transferase
+IPR008851	Binding
+IPR008858	Binding
+IPR008859	Binding
+IPR008865	Binding
+IPR008876	Binding
+IPR008888	Binding
+IPR008899	Binding
+IPR008906	Stabilisation / Oligomerisation
+IPR008913	Binding
+IPR008915	Cleavage
+IPR008916	Other
+IPR008917	Binding
+IPR008918	Binding
+IPR008921	Binding
+IPR015199	Binding
+IPR013748	Binding
+IPR021886	Binding
+IPR022754	Binding
+IPR032780	Binding
+IPR008930	Transferase
+IPR001906	Transferase
+IPR011626	Transferase
+IPR008939	Hydrolase
+IPR008952	REMOVE
+IPR028977	REMOVE
+IPR008953	Binding
+IPR008954	Binding
+IPR008958	Transferase
+IPR008963	Binding
+IPR015914	Binding
+IPR008965	Binding / Sugar
+IPR012291	Hydrolase
+IPR001956	Binding / Sugar
+IPR004866	Binding / Sugar
+IPR011539	Binding
+IPR024061	Binding
+IPR012346	Binding
+IPR015351	Binding
+IPR013524	Binding
+IPR013801	Binding
+IPR008969	Binding
+IPR008969	Cleavage
+IPR008972	Cupredoxin
+IPR013732	Binding
+IPR017533	Cupredoxin
+IPR028096	Cupredoxin
+IPR008974	Binding / Protein
+IPR018121	Binding / Protein
+IPR008977	Amidation
+IPR008979	Binding / Sugar
+IPR001090	Binding / Sugar
+IPR002706	Binding / Sugar
+IPR003305	Binding / Sugar
+IPR005086	Binding / Sugar
+IPR005087	Binding / Sugar
+IPR005088	Binding / Sugar
+IPR005638	Binding / Sugar
+IPR006588	Binding / Sugar
+IPR010400	Binding / Sugar
+IPR010565	Binding / Sugar
+IPR013222	Binding / Sugar
+IPR013736	Binding / Sugar
+IPR015176	Binding / Sugar
+IPR015295	Binding / Sugar
+IPR015908	Binding / Sugar
+IPR025300	Binding / Sugar
+IPR029411	Binding / Sugar
+IPR032164	Binding / Sugar
+IPR008983	Binding / Protein
+IPR006052	Binding / Protein
+IPR008984	Binding / Protein
+IPR017855	Binding / Protein
+IPR001132	Binding / Protein
+IPR008989	Binding
+IPR008993	Binding
+IPR009003	Cleavage
+IPR000199	Cleavage
+IPR000317	Cleavage
+IPR001665	Cleavage
+IPR004109	Cleavage
+IPR024387	Cleavage
+IPR009011	Binding / Man6p
+IPR012913	Binding / Man6p
+IPR009017	Binding / Protein
+IPR006605	Binding / Protein
+IPR023413	Binding / Protein
+IPR009019	Binding
+IPR009020	Cleavage / Activation
+IPR003146	Cleavage / Activation
+IPR010259	Cleavage / Activation
+IPR015366	Cleavage / Activation
+IPR032815	Cleavage / Activation
+IPR009025	Stabilisation / Oligomerisation
+IPR011263	Stabilisation / Oligomerisation
+IPR009029	Oxidoreductase
+IPR009030	Unclear
+IPR011641	Unclear
+IPR032778	Unclear
+IPR009033	Binding
+IPR009033	Binding / Protein
+IPR009038	Binding / Protein
+IPR009042	Binding
+IPR009044	Binding
+IPR009048	Binding / Ligand
+IPR009051	Binding
+IPR009052	Binding
+IPR009057	Binding
+IPR015195	Binding
+IPR030828	Binding
+IPR023082	Binding
+IPR001005	Binding
+IPR017877	Binding
+IPR017884	Binding
+IPR017930	Binding
+IPR006447	Binding
+IPR032563	Binding
+IPR002622	Binding
+IPR006455	Binding
+IPR006600	Binding
+IPR014875	Binding
+IPR015010	Binding
+IPR024978	Binding
+IPR025246	Binding
+IPR009060	Binding / Protein
+IPR015940	Binding / Protein
+IPR005637	Binding / Protein
+IPR015228	Binding / Protein
+IPR015368	Binding / Protein
+IPR033741	Binding / Protein
+IPR033864	Binding / Protein
+IPR009066	Binding / Ligand
+IPR009072	Stabilisation / Oligomerisation
+IPR003228	Stabilisation / Oligomerisation
+IPR003958	Stabilisation / Oligomerisation
+IPR004823	Stabilisation / Oligomerisation
+IPR009079	Factor / Cytokine
+IPR012351	Factor / Cytokine
+IPR009080	Binding
+IPR013155	Binding
+IPR015273	Binding
+IPR008909	Binding
+IPR033705	Binding
+IPR033708	Binding
+IPR033709	Binding
+IPR009084	Binding
+IPR009087	Binding
+IPR009089	Binding
+IPR009095	Binding / Protein
+IPR009105	Binding
+IPR009109	Cleavage / Inhibitor
+IPR009122	Binding
+IPR009123	Binding
+IPR009145	Binding
+IPR009157	Binding
+IPR009162	Binding
+IPR009168	Binding / Protein
+IPR012210	Binding / Protein
+IPR012211	Binding / Protein
+IPR012213	Binding / Protein
+IPR022321	Binding / Protein
+IPR022322	Binding / Protein
+IPR022326	Binding / Protein
+IPR022327	Binding / Protein
+IPR009170	Binding
+IPR009179	Binding
+IPR009220	Cleavage
+IPR009220	Binding
+IPR009234	Binding
+IPR009254	Binding / Ligand
+IPR009283	Binding
+IPR009287	Binding
+IPR009349	Binding
+IPR009396	Factor
+IPR009438	Factor
+IPR009447	Transferase
+IPR009454	Unknown
+IPR009466	Transferase
+IPR009469	Binding
+IPR009496	Unknown
+IPR009508	Binding
+IPR009522	Binding
+IPR015971	Binding
+IPR009528	Binding
+IPR009581	Kinase
+IPR009590	Binding / Protein
+IPR009608	Factor
+IPR009668	Binding
+IPR009714	Factor
+IPR009767	Binding
+IPR009768	Binding
+IPR009810	Binding
+IPR009829	Binding
+IPR009861	Binding / Ligand
+IPR009868	Binding
+IPR009970	Binding
+IPR010009	Binding / Lipid
+IPR010036	Hydrolase / Phospho
+IPR024734	Hydrolase / Phospho
+IPR010078	Binding
+IPR010086	Binding
+IPR010087	Binding
+IPR010089	Binding
+IPR010093	Binding
+IPR010108	Oxidoreductase
+IPR010114	Binding
+IPR010125	Transferase
+IPR010126	Hydrolase
+IPR010143	Binding
+IPR005972	Binding
+IPR010147	Binding
+IPR010193	Kinase
+IPR010194	Kinase
+IPR010204	Binding
+IPR010206	Binding
+IPR010207	Binding
+IPR016463	Binding
+IPR010211	Binding
+IPR010213	Binding
+IPR010228	Binding
+IPR010238	Binding
+IPR010243	Binding
+IPR010248	Binding
+IPR010270	Binding
+IPR010286	Transferase
+IPR017182	Transferase
+IPR016909	Transferase
+IPR010294	Cleavage
+IPR010294	Unknown
+IPR010304	Binding
+IPR010307	Adhesion
+IPR010312	Binding
+IPR010336	Binding
+IPR010354	Binding
+IPR010363	Unknown
+IPR010372	Binding
+IPR010394	Binding
+IPR010402	Binding / Protein
+IPR010426	Transferase
+IPR012740	Transferase
+IPR010431	Binding
+IPR030143	Binding
+IPR024703	Binding
+IPR030144	Binding
+IPR030146	Binding
+IPR010435	Cleavage
+IPR010440	Kinase
+IPR017172	Kinase
+IPR022826	Kinase
+IPR027023	Kinase
+IPR010442	Binding
+IPR033723	Binding
+IPR033724	Binding
+IPR010452	Hydrolase / Phospho
+IPR010457	IG
+IPR010472	Binding
+IPR010473	Binding
+IPR010475	Factor
+IPR010483	Binding
+IPR010488	Kinase
+IPR010489	Transferase
+IPR010502	Hydrolase
+IPR010502	Binding / Sugar
+IPR019248	Hydrolase
+IPR019248	Binding / Sugar
+IPR010504	Binding
+IPR010506	Binding / Protein
+IPR010507	Binding
+IPR010524	Binding
+IPR010525	Binding
+IPR010526	Unknown
+IPR010531	Binding
+IPR010532	Binding
+IPR010534	Binding
+IPR010536	Unknown
+IPR010542	Binding
+IPR010575	Binding
+IPR010578	Binding
+IPR010585	Binding
+IPR010600	Cleavage / Inhibitor
+IPR010603	Binding
+IPR010603	Stabilisation / Oligomerisation
+IPR010606	Transferase
+IPR010606	Binding
+IPR010611	Hydrolase
+IPR010614	Binding
+IPR010615	Kinase
+IPR010622	Kinase
+IPR010660	Unknown
+IPR010662	Hydrolase
+IPR010666	Binding
+IPR010675	Transferase
+IPR010711	Binding
+IPR010712	Binding
+IPR010714	Binding / Protein
+IPR010744	Binding
+IPR010758	Oxidoreductase
+IPR010798	Binding / Ligand
+IPR010832	Cleavage / Inhibitor
+IPR010886	Binding
+IPR010895	IG-like
+IPR010909	Unknown
+IPR010928	Binding
+IPR010932	Binding
+IPR010935	Binding / Protein
+IPR010963	Transferase
+IPR011291	Binding
+IPR010966	Binding
+IPR010978	Binding
+IPR019499	Binding
+IPR015866	Binding
+IPR010979	Binding
+IPR015886	Binding
+IPR010981	Stabilisation / Oligomerisation
+IPR010982	Binding
+IPR027910	Binding
+IPR010992	Binding
+IPR010995	Binding
+IPR010997	Binding
+IPR010999	Retroviral
+IPR014834	Retroviral
+IPR011001	Binding / Lipid
+IPR011009	Kinase
+IPR002575	Kinase
+IPR022359	Kinase
+IPR004147	Kinase
+IPR015275	Kinase
+IPR015897	Kinase
+IPR011010	Binding
+IPR013500	Binding
+IPR011011	Binding
+IPR010911	Binding
+IPR017455	Binding
+IPR031946	Binding
+IPR011013	Binding / Sugar
+IPR014718	Binding / Sugar
+IPR015179	Binding / Sugar
+IPR015364	Binding / Sugar
+IPR007444	Binding / Sugar
+IPR011682	Binding / Sugar
+IPR003159	Binding / Sugar
+IPR004199	Binding / Sugar
+IPR015220	Binding / Sugar
+IPR025887	Binding / Sugar
+IPR011016	Binding
+IPR011029	Binding / Protein
+IPR001315	Binding / Protein
+IPR004020	Binding / Protein
+IPR029397	Binding / Protein
+IPR011030	Unknown
+IPR014797	Binding
+IPR011038	Binding
+IPR015304	Binding
+IPR012674	Binding
+IPR002351	Binding
+IPR010788	Binding
+IPR011040	Unknown
+IPR033654	Unknown
+IPR011042	Binding / Protein
+IPR013658	Binding / Protein
+IPR032485	Binding / Protein
+IPR011047	Alcohol dehyd.
+IPR027295	Alcohol dehyd.
+IPR011050	Unknown
+IPR012332	Unknown
+IPR015331	Unknown
+IPR012334	Unknown
+IPR000070	Unknown
+IPR002022	Unknown
+IPR004898	Unknown
+IPR022442	Unknown
+IPR011052	Cleavage / Inhibitor
+IPR011059	Hydrolase
+IPR011061	Cleavage / Inhibitor
+IPR024793	Cleavage / Inhibitor
+IPR011068	Binding
+IPR011104	Kinase
+IPR011105	Hydrolase
+IPR011109	Binding
+IPR011113	Binding
+IPR011120	Binding
+IPR011124	Binding
+IPR011125	Binding
+IPR011126	Kinase
+IPR011128	Oxidoreductase
+IPR011129	Binding
+IPR011141	Transferase
+IPR011145	Hydrolase
+IPR011149	Binding
+IPR011161	Binding / Peptide
+IPR029287	Binding / Peptide
+IPR011162	Binding / Peptide
+IPR014745	Binding / Peptide
+IPR000353	Binding / Peptide
+IPR011177	Binding
+IPR011178	Binding
+IPR011179	Binding
+IPR011224	Transferase
+IPR011237	Binding
+IPR011244	Transferase
+IPR011249	Binding
+IPR011251	Oxidoreductase
+IPR024011	Oxidoreductase
+IPR011254	Oxidoreductase
+IPR011259	Binding / Protein
+IPR011260	Binding
+IPR011262	Stabilisation / Oligomerisation
+IPR011264	Binding
+IPR011287	Transferase
+IPR011289	Binding
+IPR011302	Binding
+IPR011310	Hydrolase / Phospho
+IPR011325	Binding
+IPR011330	Hydrolase / Sugar
+IPR017625	Hydrolase / Sugar
+IPR027291	Hydrolase / Sugar
+IPR011333	Binding / Protein
+IPR016073	Binding / Protein
+IPR011336	Binding
+IPR011337	Binding
+IPR011338	Binding
+IPR011339	Binding
+IPR011364	Binding
+IPR011364	Transferase
+IPR011381	Transferase
+IPR011390	Binding / Protein
+IPR011398	Binding
+IPR011399	Binding
+IPR011400	Binding
+IPR011402	Binding
+IPR011420	Binding
+IPR011488	Binding
+IPR022964	Binding
+IPR011489	Binding / Protein
+IPR011498	Binding / Protein
+IPR011505	Cleavage
+IPR011505	Binding
+IPR011511	Binding / Protein
+IPR011537	Binding
+IPR011541	Binding
+IPR011544	Binding
+IPR011545	Binding
+IPR011546	Cleavage
+IPR011546	Binding
+IPR011564	Binding
+IPR011576	Binding
+IPR011578	Binding
+IPR015334	Binding
+IPR011598	Stabilisation / Oligomerisation
+IPR032201	Stabilisation / Oligomerisation
+IPR011604	Binding
+IPR019080	Binding
+IPR017482	Binding
+IPR011625	Unknown
+IPR011639	Binding
+IPR011651	Binding / Ligand
+IPR011656	Unknown
+IPR011658	Binding / Sugar
+IPR011663	Binding
+IPR011671	Transferase
+IPR011684	Binding
+IPR011697	Hydrolase
+IPR011705	Oligomerisation
+IPR011706	Binding
+IPR011706	Oxidoreductase
+IPR011707	Binding
+IPR011712	Stabilisation / Oligomerisation
+IPR011722	Binding
+IPR011760	Binding
+IPR011761	Binding
+IPR004218	Binding
+IPR005479	Binding
+IPR005483	Binding
+IPR009720	Binding
+IPR011095	Binding
+IPR013650	Binding
+IPR013651	Binding
+IPR020561	Binding
+IPR011773	Binding
+IPR011788	Binding
+IPR011789	Binding
+IPR011791	Binding
+IPR011794	Binding
+IPR011797	Binding
+IPR011811	Hydrolase
+IPR011822	Binding
+IPR011837	Hydrolase
+IPR022844	Hydrolase
+IPR011844	Cleavage
+IPR011844	Binding
+IPR011856	Binding
+IPR006677	Binding
+IPR011879	Binding
+IPR011907	Binding
+IPR011913	Kinase
+IPR011914	Kinase
+IPR011930	Binding / Protein
+IPR011931	Binding
+IPR011940	Binding
+IPR011946	Binding
+IPR011948	Hydrolase / Phospho
+IPR011988	Oligomerisation
+IPR011989	Binding
+IPR033133	Binding
+IPR033712	Binding
+IPR002553	Binding
+IPR024574	Binding
+IPR032682	Binding
+IPR011990	Binding / Protein
+IPR033745	Binding / Protein
+IPR011991	Binding / DNA
+IPR015265	Binding
+IPR016032	Binding
+IPR022687	Binding
+IPR012318	Binding
+IPR015191	Binding
+IPR015285	Kinase
+IPR014879	Binding
+IPR000591	Binding / DNA
+IPR003725	Binding / DNA
+IPR001346	Binding / DNA
+IPR002577	Binding / DNA
+IPR002831	Binding / DNA
+IPR004409	Binding / DNA
+IPR005149	Binding / DNA
+IPR006630	Binding / DNA
+IPR009718	Binding / DNA
+IPR013196	Binding / DNA
+IPR014793	Binding / DNA
+IPR015102	Binding / DNA
+IPR015163	Binding / DNA
+IPR015198	Binding / DNA
+IPR000792	Binding / DNA
+IPR027395	Binding / DNA
+IPR031655	Binding / DNA
+IPR031725	Binding / DNA
+IPR032298	Binding / DNA
+IPR033439	Binding / DNA
+IPR011992	Binding / Calcium
+IPR014741	Binding
+IPR019577	Binding
+IPR015359	Binding / Calcium
+IPR011993	Binding / Lipid, Targeting
+IPR000156	Binding / Lipid, Targeting
+IPR000697	Binding / Lipid, Targeting
+IPR033927	Binding / Lipid, Targeting
+IPR002404	Binding / Lipid, Targeting
+IPR006019	Binding / Lipid, Targeting
+IPR033930	Binding / Lipid, Targeting
+IPR012466	Binding / Lipid, Targeting
+IPR012544	Binding / Lipid, Targeting
+IPR013876	Binding / Lipid, Targeting
+IPR018980	Binding / Lipid, Targeting
+IPR033931	Binding / Lipid, Targeting
+IPR011998	Stabilisation / Oligomerisation
+IPR012006	Binding
+IPR012008	Binding
+IPR012052	Binding
+IPR012090	Binding
+IPR012091	Cleavage
+IPR012091	Binding
+IPR012094	Binding
+IPR012131	Binding
+IPR022695	Binding
+IPR012133	Binding
+IPR012133	Oxidoreductase
+IPR020920	Binding
+IPR014080	Binding
+IPR023989	Binding
+IPR014080	Oxidoreductase
+IPR023989	Oxidoreductase
+IPR012144	Binding
+IPR012147	Transferase
+IPR014079	Transferase
+IPR014081	Transferase
+IPR012151	Hydrolase / Phospho
+IPR012151	Binding / Protein
+IPR012152	Hydrolase / Phospho
+IPR012153	Hydrolase / Phospho
+IPR012156	Binding
+IPR012162	Binding
+IPR014069	Binding
+IPR012171	Oxidoreductase
+IPR012178	Binding
+IPR012188	Oxidoreductase
+IPR012188	Binding
+IPR012220	Binding
+IPR012227	Binding
+IPR027133	Transferase
+IPR027139	Transferase
+IPR027128	Binding
+IPR027130	Binding
+IPR027136	Binding
+IPR027138	Binding
+IPR012233	Kinase
+IPR012265	Hydrolase / Phospho
+IPR012266	Hydrolase / Phospho
+IPR012280	Stabilisation / Oligomerisation
+IPR012289	Hydrolase
+IPR029474	Hydrolase
+IPR012290	Binding / Ligand
+IPR004866	Hydrolase
+IPR012293	Binding
+IPR012308	Binding
+IPR012313	Binding
+IPR012314	Cleavage
+IPR012314	Binding
+IPR012319	Binding
+IPR012336	Oxidoreductase
+IPR013740	Oxidoreductase
+IPR013766	Oxidoreductase
+IPR002109	Oxidoreductase
+IPR014025	Oxidoreductase
+IPR011899	Oxidoreductase
+IPR011906	Oxidoreductase
+IPR033658	Oxidoreductase
+IPR011649	Oxidoreductase
+IPR012941	Oxidoreductase
+IPR005788	Oxidoreductase
+IPR024253	Oxidoreductase
+IPR012337	Binding
+IPR001584	Binding
+IPR006133	Binding
+IPR006641	Binding
+IPR028231	Binding
+IPR032639	Binding
+IPR013520	Binding
+IPR015242	Binding
+IPR015361	Binding
+IPR019288	Binding
+IPR024567	Binding
+IPR033390	Binding
+IPR020189	Binding
+IPR011615	Binding
+IPR015367	Binding
+IPR012348	Oxidoreductase
+IPR012349	Binding
+IPR012349	Oxidoreductase
+IPR019920	Binding
+IPR019920	Oxidoreductase
+IPR012392	Transferase
+IPR012500	Cleavage
+IPR012500	Binding
+IPR012510	Binding
+IPR012532	Binding
+IPR012541	Binding
+IPR012542	Binding
+IPR012561	Unknown
+IPR012562	Binding
+IPR012582	Binding
+IPR012601	Binding
+IPR012608	Factor
+IPR012653	Transferase
+IPR012677	Binding
+IPR014789	Binding
+IPR014886	Binding
+IPR015245	Binding
+IPR012678	Binding
+IPR024794	Binding
+IPR012704	Binding
+IPR012712	Binding
+IPR012727	Oxidoreductase
+IPR012751	Binding
+IPR012754	Binding
+IPR012755	Binding
+IPR012756	Binding
+IPR012757	Binding
+IPR012758	Binding
+IPR012759	Binding
+IPR012761	Binding
+IPR012768	Hydrolase
+IPR012771	Binding
+IPR012777	Binding
+IPR012779	Binding
+IPR012780	Binding
+IPR012781	Binding
+IPR012784	Binding
+IPR012787	Binding
+IPR012794	Binding
+IPR012795	Binding
+IPR012796	Binding
+IPR012827	Binding
+IPR012833	Oxidoreductase
+IPR012839	Oxidoreductase
+IPR023880	Oxidoreductase
+IPR023912	Oxidoreductase
+IPR030905	Oxidoreductase
+IPR033974	Oxidoreductase
+IPR012845	Binding
+IPR028617	Binding
+IPR012850	Binding
+IPR012853	Transferase
+IPR012882	Oxidoreductase
+IPR012884	Binding
+IPR012886	Binding
+IPR012886	Transferase
+IPR012890	Binding
+IPR012896	Unknown
+IPR012915	Binding
+IPR012919	Skipped?
+IPR012920	Transferase
+IPR012928	Cleavage
+IPR012934	Binding
+IPR012935	Binding
+IPR012951	Oxidoreductase
+IPR012957	Binding
+IPR012958	Binding
+IPR012959	Binding
+IPR012962	Binding
+IPR012967	Stabilisation / Oligomerisation
+IPR012993	Kinase
+IPR013010	Binding
+IPR013016	Cleavage
+IPR013023	Oxidoreductase
+IPR014359	Oxidoreductase
+IPR016206	Oxidoreductase
+IPR016207	Oxidoreductase
+IPR013026	Binding / Protein
+IPR013049	Binding
+IPR013082	Binding
+IPR013083	Binding
+IPR018957	Binding
+IPR022723	Binding
+IPR031790	Binding
+IPR013085	Binding
+IPR013087	Binding
+IPR015094	Binding
+IPR019485	Binding
+IPR013088	Binding
+IPR013094	Hydrolase
+IPR013098	IG
+IPR013105	Binding / Protein
+IPR013111	Binding / Protein
+IPR013112	Oxidoreductase
+IPR013118	Oxidoreductase
+IPR013121	Oxidoreductase
+IPR013123	Transferase
+IPR013128	Cleavage
+IPR015644	Cleavage
+IPR015645	Cleavage
+IPR033157	Cleavage
+IPR033158	Cleavage
+IPR033159	Cleavage
+IPR033160	Cleavage
+IPR033163	Cleavage
+IPR033164	Cleavage
+IPR013131	Oxidoreductase
+IPR013146	Binding
+IPR013151	IG
+IPR013158	Binding
+IPR013162	IG
+IPR013164	Binding
+IPR013171	Binding
+IPR013188	Binding
+IPR013192	Binding
+IPR013215	Binding
+IPR013216	Transferase
+IPR031164	Transferase
+IPR013237	Binding
+IPR013249	Binding
+IPR013257	Transferase
+IPR013263	Binding
+IPR013273	Cleavage
+IPR013273	Binding
+IPR013274	Cleavage
+IPR013275	Cleavage
+IPR013276	Cleavage
+IPR013277	Cleavage
+IPR013274	Binding
+IPR013275	Binding
+IPR013276	Binding
+IPR013277	Binding
+IPR013319	Hydrolase
+IPR002594	Hydrolase
+IPR013320	Binding / Sugar
+IPR004124	Binding / Sugar
+IPR005052	Binding / Sugar
+IPR013189	Binding / Sugar
+IPR014895	Binding / Sugar
+IPR015289	Binding / Sugar
+IPR015344	Binding / Sugar
+IPR033123	Binding / Sugar
+IPR013323	Transferase
+IPR013323	Binding
+IPR013324	Binding
+IPR013325	Binding
+IPR013328	Oxidoreductase
+IPR013752	Oxidoreductase
+IPR006109	Oxidoreductase
+IPR015814	Oxidoreductase
+IPR029154	Oxidoreductase
+IPR013344	Binding
+IPR013345	Binding
+IPR013352	Binding
+IPR013430	Binding
+IPR013462	Binding
+IPR013483	Binding
+IPR013485	Binding
+IPR013497	Binding
+IPR013498	Binding
+IPR013499	Binding
+IPR013503	Binding
+IPR013503	Kinase
+IPR013506	Binding
+IPR013517	Unknown
+IPR013519	Unknown
+IPR013522	Binding
+IPR013530	Binding
+IPR013563	Binding
+IPR013572	Binding
+IPR013576	Factor
+IPR013580	Oxidoreductase
+IPR013601	Transferase
+IPR013625	Binding / Protein
+IPR033928	Binding / Protein
+IPR033929	Binding / Protein
+IPR013638	Binding
+IPR013644	Binding / Protein
+IPR013649	Other
+IPR013653	Transferase
+IPR013670	Binding
+IPR013683	Hydrolase / Phospho
+IPR013694	Cleavage / Inhibitor
+IPR013695	Kinase
+IPR013697	Binding
+IPR013700	Binding
+IPR013703	Cleavage
+IPR013705	Transferase
+IPR013733	Binding
+IPR013754	Stabilisation / Oligomerisation
+IPR013757	Binding
+IPR013758	Binding
+IPR013759	Binding
+IPR013761	Binding
+IPR015316	Binding
+IPR013762	Binding
+IPR024456	Binding
+IPR013768	Binding
+IPR013780	Binding / Sugar
+IPR015340	Binding
+IPR031319	Binding / Sugar
+IPR015156	Binding / Sugar
+IPR015165	Binding / Sugar
+IPR015167	Binding / Sugar
+IPR015261	Binding / Sugar
+IPR015279	Binding / Sugar
+IPR019492	Binding / Sugar
+IPR031919	Binding / Sugar
+IPR032091	Binding / Sugar
+IPR033452	Binding / Sugar
+IPR013781	Hydrolase / Sugar
+IPR015883	Hydrolase
+IPR022790	Hydrolase
+IPR011583	Hydrolase / Sugar
+IPR003790	Hydrolase / Sugar
+IPR011100	Hydrolase / Sugar
+IPR025275	Hydrolase / Sugar
+IPR025277	Hydrolase / Sugar
+IPR031330	Hydrolase / Sugar
+IPR033453	Hydrolase / Sugar
+IPR013783	IG-like
+IPR001102	IG-like
+IPR031669	IG-like
+IPR032052	IG-like
+IPR032699	IG-like
+IPR024303	IG-like
+IPR032879	IG-like
+IPR033764	IG-like
+IPR013784	Binding / Sugar
+IPR002044	Binding / Sugar
+IPR029413	Binding / Sugar
+IPR013787	Binding / Calcium
+IPR013789	Kinase
+IPR013802	Binding
+IPR013802	Transferase
+IPR013803	Cleaved
+IPR013806	Unknown / Kringle
+IPR000562	Unknown / Kringle
+IPR013810	Binding
+IPR013812	Hydrolase
+IPR013819	Binding
+IPR013847	Binding
+IPR013848	Transferase
+IPR013856	Cleavage
+IPR013858	Binding
+IPR013872	Binding / Protein
+IPR013896	Kinase
+IPR013912	Binding
+IPR013970	Binding
+IPR016588	Binding
+IPR013980	Binding / Protein
+IPR011106	Binding / Protein
+IPR013983	Oxidoreductase
+IPR013983	Binding
+IPR013985	Binding
+IPR013992	Binding
+IPR013998	Binding
+IPR014001	Binding / DNA
+IPR011492	Binding / DNA
+IPR014017	Hydrolase
+IPR014026	Oxidoreductase
+IPR014027	Oxidoreductase
+IPR014044	Unknown
+IPR014258	Unknown
+IPR014064	Hydrolase / Phospho
+IPR014102	Oxidoreductase
+IPR014154	Binding
+IPR014178	Binding
+IPR014185	Binding
+IPR014200	Binding
+IPR014209	Binding
+IPR014212	Binding
+IPR014218	Binding
+IPR014222	Oxidoreductase
+IPR014233	Binding
+IPR014236	Binding
+IPR014241	Binding
+IPR014278	Binding
+IPR014279	Binding
+IPR014281	Binding
+IPR014284	Binding
+IPR014286	Binding
+IPR014292	Transferase
+IPR014293	Binding
+IPR014296	Binding
+IPR014311	Binding
+IPR014313	Oxidoreductase
+IPR014313	Binding
+IPR014322	Binding
+IPR014288	Binding
+IPR014352	Binding / Lipid, Targeting
+IPR019748	Binding / Protein
+IPR014375	Binding
+IPR014392	Hydrolase / Phospho
+IPR014412	Cleavage
+IPR014436	Binding
+IPR014615	Binding
+IPR014635	Binding
+IPR014644	Transferase
+IPR014646	Binding
+IPR014710	Isomerase / Sugar
+IPR018490	Binding / CAMP
+IPR011051	Isomerase / Sugar
+IPR001538	Isomerase / Sugar
+IPR006045	Isomerase / Sugar
+IPR008894	Isomerase / Sugar
+IPR009327	Isomerase / Sugar
+IPR013096	Isomerase / Sugar
+IPR024060	Isomerase / Sugar
+IPR025974	Isomerase / Sugar
+IPR025979	Isomerase / Sugar
+IPR014711	Binding
+IPR014715	Binding
+IPR014716	Binding
+IPR014727	Binding
+IPR014728	Cleavage / Inhibitor
+IPR015113	Cleavage / Inhibitor
+IPR022414	Kinase
+IPR014751	Binding
+IPR014756	IG
+IPR000336	IG
+IPR027287	IG
+IPR032397	IG
+IPR033926	IG
+IPR003172	IG
+IPR033916	IG
+IPR033917	IG
+IPR004197	IG
+IPR004302	IG
+IPR005102	IG
+IPR005203	IG
+IPR008015	IG
+IPR013518	IG
+IPR013540	IG
+IPR014749	IG
+IPR014755	IG
+IPR014880	IG
+IPR015202	IG
+IPR015219	IG
+IPR023295	IG
+IPR024792	IG
+IPR032640	IG
+IPR014758	Binding
+IPR023457	Binding
+IPR023458	Binding
+IPR014760	Unknown
+IPR014766	Binding
+IPR014766	Cleavage
+IPR014776	Transferase
+IPR014777	Transferase
+IPR014780	Binding
+IPR014782	Cleavage
+IPR014782	Binding
+IPR014783	Oxidoreductase
+IPR014784	Oxidoreductase
+IPR024548	Oxidoreductase
+IPR014800	Binding
+IPR014815	Binding
+IPR014822	Binding
+IPR014827	Transferase
+IPR014828	Transferase
+IPR014829	Transferase
+IPR014853	Unknown
+IPR014868	Binding
+IPR014891	Binding
+IPR014905	Binding
+IPR014930	Kinase
+IPR014944	Binding
+IPR015008	Binding
+IPR015011	Binding
+IPR015013	Binding
+IPR015014	Binding
+IPR015022	Kinase
+IPR015083	Transferase
+IPR015095	Transferase
+IPR015103	Hydrolase / Phospho
+IPR015107	Transferase
+IPR015109	Binding
+IPR015115	Binding
+IPR015123	Kinase
+IPR015123	Cleavage / Inhibitor
+IPR015124	Transferase
+IPR015129	Binding / Protein
+IPR015152	Binding / Protein
+IPR015190	Binding
+IPR015211	Cleavage
+IPR015211	Binding
+IPR015225	Binding
+IPR015237	Hydrolase
+IPR015240	Binding
+IPR015249	Binding
+IPR015255	Unknown
+IPR015262	Binding
+IPR015264	Binding
+IPR015277	Binding
+IPR015280	Binding
+IPR015284	Binding / Protein
+IPR015291	Binding
+IPR015307	Binding
+IPR015311	Hydrolase
+IPR015320	Binding
+IPR015321	Binding / Protein
+IPR015323	Oxidoreductase
+IPR015324	Transferase
+IPR016522	Transferase
+IPR015327	Binding
+IPR015339	Binding / Sugar
+IPR015341	Hydrolase
+IPR015341	Binding
+IPR015346	Binding
+IPR015349	Binding
+IPR015352	Cleavage
+IPR015352	Binding / Protein
+IPR015373	IG
+IPR015375	Hydrolase
+IPR015376	Hydrolase
+IPR015376	Binding
+IPR015387	Hydrolase / Phospho
+IPR015405	Binding
+IPR015407	Binding
+IPR015413	Binding
+IPR033911	Binding
+IPR015423	Binding
+IPR015446	Cleavage
+IPR015455	Binding
+IPR015476	Factor
+IPR015507	Transferase
+IPR004512	Transferase
+IPR028589	Transferase
+IPR028590	Transferase
+IPR015510	Hydrolase
+IPR017331	Hydrolase
+IPR015519	Kinase
+IPR015550	Factor
+IPR015555	Cleavage / Inhibitor
+IPR015555	Binding
+IPR015556	Cleavage / Inhibitor
+IPR015557	Cleavage / Inhibitor
+IPR015559	Binding
+IPR015567	Cleavage
+IPR015567	Binding
+IPR015570	Binding
+IPR015571	Binding
+IPR015590	Oxidoreductase
+IPR000965	Oxidoreductase
+IPR015656	Binding
+IPR015660	Binding
+IPR015666	Binding
+IPR015699	Binding
+IPR015701	Oxidoreductase
+IPR015710	Binding
+IPR015711	Binding
+IPR015722	Transferase
+IPR017111	Transferase
+IPR015726	Kinase
+IPR015754	Binding
+IPR015782	Kinase
+IPR015782	Binding
+IPR015783	Kinase
+IPR015797	Hydrolase
+IPR029119	Hydrolase
+IPR033650	Hydrolase
+IPR015798	Binding
+IPR015799	Binding
+IPR015800	Binding
+IPR015802	Binding
+IPR015815	Oxidoreductase
+IPR006398	Oxidoreductase
+IPR011548	Oxidoreductase
+IPR030876	Oxidoreductase
+IPR015816	Unknown
+IPR015817	Unknown
+IPR015818	Unknown
+IPR015819	Unknown
+IPR015820	Binding
+IPR015833	Binding
+IPR015845	Oxidoreductase
+IPR015848	Binding
+IPR015849	Binding
+IPR015875	Oxidoreductase
+IPR015880	Binding
+IPR015881	Oxidoreductase
+IPR015887	Binding
+IPR015892	Binding
+IPR015893	Binding
+IPR004111	Binding
+IPR011075	Binding
+IPR015292	Binding
+IPR013570	Binding
+IPR013573	Binding
+IPR015915	Binding / Protein
+IPR015917	Cleavage
+IPR015919	Binding
+IPR006644	Binding
+IPR015923	Factor
+IPR015939	Oxidoreductase
+IPR015943	Binding / Protein
+IPR017986	Binding / Protein
+IPR011045	Binding / Protein
+IPR031920	Binding / Protein
+IPR032401	Binding / Protein
+IPR027946	Binding / Protein
+IPR015955	Oxidoreductase
+IPR022616	Hydrolase
+IPR022383	Oxidoreductase
+IPR016014	Unknown
+IPR016015	Unknown
+IPR016017	Factor
+IPR016024	Binding
+IPR001263	Binding
+IPR014768	Binding
+IPR016020	Binding
+IPR016021	Binding
+IPR032192	Binding
+IPR016026	Hydrolase
+IPR000792	Binding
+IPR016040	Binding / NADP
+IPR000594	Binding / NADP
+IPR000846	Binding / NADP
+IPR003781	Binding / NADP
+IPR003869	Binding / NADP
+IPR033922	Binding / NADP
+IPR006115	Binding / NADP
+IPR006140	Binding / NADP
+IPR006151	Binding / NADP
+IPR006367	Binding / NADP
+IPR008030	Binding / NADP
+IPR012302	Binding / NADP
+IPR013120	Binding / NADP
+IPR010080	Binding / NADP
+IPR013332	Binding / NADP
+IPR013968	Binding / NADP
+IPR019665	Binding / NADP
+IPR022674	Binding / NADP
+IPR028939	Binding / NADP
+IPR031640	Binding / NADP
+IPR016054	Unknown
+IPR016054	Binding
+IPR016061	Binding
+IPR016075	Binding
+IPR016085	Cleavage / Inhibitor
+IPR021140	Cleavage / Inhibitor
+IPR016090	Hydrolase / Phospholipid
+IPR016092	Binding
+IPR031108	Binding
+IPR011298	Binding
+IPR023063	Binding
+IPR016093	Unknown
+IPR016094	Binding
+IPR016130	Hydrolase / Phospho
+IPR016131	Binding
+IPR016156	Oxidoreductase
+IPR029324	Stabilisation / Oligomerisation
+IPR004099	Oxidoreductase
+IPR028202	Oxidoreductase
+IPR016160	Oxidoreductase
+IPR016161	Oxidoreductase
+IPR016162	Oxidoreductase
+IPR016163	Oxidoreductase
+IPR016177	Binding
+IPR016179	Factor
+IPR016181	Other
+IPR000182	Other
+IPR031165	Other
+IPR016182	Binding
+IPR016186	Binding / Sugar
+IPR000538	Binding / Sugar
+IPR013117	Binding / Sugar
+IPR016187	Binding / Sugar
+IPR005138	Binding / Sugar
+IPR005532	Binding / Sugar
+IPR011448	Binding / Sugar
+IPR016191	Binding
+IPR016192	Binding
+IPR016192	Hydrolase
+IPR016197	Other
+IPR000953	Other
+IPR008251	Other
+IPR017984	Other
+IPR025995	Other
+IPR016201	Unknown
+IPR033760	Unknown
+IPR016208	Oxidoreductase
+IPR016218	Transferase
+IPR023427	Transferase
+IPR016224	Transferase
+IPR016230	Kinase
+IPR016234	Kinase
+IPR016235	Kinase
+IPR016237	Kinase
+IPR016238	Kinase
+IPR016239	Kinase
+IPR016241	Kinase
+IPR016242	Kinase
+IPR016250	Kinase
+IPR028539	Kinase
+IPR016254	Kinase
+IPR016263	Binding
+IPR016269	Transferase
+IPR016274	Hydrolase / Phospho
+IPR016276	Hydrolase / Phospho
+IPR016277	Hydrolase / Phospho
+IPR016280	Binding
+IPR028390	Binding
+IPR028400	Binding
+IPR028403	Binding
+IPR016288	Hydrolase
+IPR016293	Cleavage
+IPR016293	Binding
+IPR028693	Cleavage
+IPR028705	Cleavage
+IPR028697	Cleavage
+IPR028718	Cleavage
+IPR028700	Cleavage
+IPR028716	Cleavage
+IPR028709	Cleavage
+IPR028735	Cleavage
+IPR028711	Cleavage
+IPR028723	Cleavage
+IPR028726	Cleavage
+IPR028729	Cleavage
+IPR028733	Cleavage
+IPR028697	Binding
+IPR028693	Binding
+IPR028709	Binding
+IPR028718	Binding
+IPR028729	Binding
+IPR028716	Binding
+IPR028726	Binding
+IPR028732	Cleavage
+IPR028732	Binding
+IPR016294	Cleavage
+IPR016294	Binding
+IPR016304	Binding
+IPR016304	Isomerase / unfolded protein
+IPR016335	Hydrolase / Phospho
+IPR016336	Hydrolase / Phospho
+IPR027262	Hydrolase / Phospho
+IPR016343	Binding
+IPR016344	Binding
+IPR016359	Binding
+IPR027255	Binding
+IPR016363	Binding / Sugar
+IPR016365	Binding
+IPR016371	Binding
+IPR016397	Cleavage / Inhibitor
+IPR016400	Binding
+IPR016424	Binding
+IPR016438	Binding
+IPR016440	Binding
+IPR016440	Oxidoreductase
+IPR023957	Binding
+IPR023957	Oxidoreductase
+IPR016446	Oxidoreductase
+IPR016461	Transferase
+IPR014088	Transferase
+IPR016473	Binding
+IPR013404	Binding
+IPR016479	Transferase
+IPR016527	Binding
+IPR016569	Binding
+IPR016615	Hydrolase
+IPR030299	Hydrolase
+IPR030298	Hydrolase
+IPR016653	Transferase
+IPR016667	Hydrolase / Phospho
+IPR016679	Binding
+IPR016681	Binding
+IPR016691	Transferase
+IPR016700	Binding
+IPR016718	Transferase
+IPR016730	Binding
+IPR016764	Transferase
+IPR016814	Binding
+IPR016848	Binding
+IPR016858	Transferase
+IPR016914	Transferase
+IPR017047	Factor
+IPR017050	Cleavage
+IPR031067	Cleavage
+IPR017051	Cleavage
+IPR017052	Cleavage
+IPR017053	Binding
+IPR017066	Transferase
+IPR017090	Kinase
+IPR017097	Factor
+IPR027285	Factor
+IPR030680	Factor
+IPR017100	Factor
+IPR017132	Binding
+IPR017155	Transferase
+IPR017184	Kinase
+IPR017194	Kinase
+IPR017194	Binding
+IPR017224	Oxidoreductase
+IPR017226	Binding
+IPR017234	Transferase
+IPR017235	Transferase
+IPR017238	Binding
+IPR017253	Binding
+IPR017276	Binding
+IPR017322	Kinase
+IPR017325	Binding
+IPR017328	Binding
+IPR017332	Cleavage / Inhibitor
+IPR017335	Transferase
+IPR017348	Kinase
+IPR017352	Binding
+IPR017354	Binding
+IPR017356	Cleavage / Inhibitor
+IPR017361	Hydrolase / Phospho
+IPR017368	Cleavage
+IPR017368	Binding
+IPR017375	Binding
+IPR017400	Binding
+IPR017406	Kinase
+IPR017407	Kinase
+IPR017409	Kinase
+IPR017416	Binding
+IPR017425	Kinase
+IPR017428	Kinase
+IPR017448	Binding / Protein
+IPR017449	Binding
+IPR017472	Transferase
+IPR017476	Oxidoreductase
+IPR028356	Oxidoreductase
+IPR028357	Oxidoreductase
+IPR028358	Oxidoreductase
+IPR028359	Oxidoreductase
+IPR032891	Oxidoreductase
+IPR017512	Binding
+IPR017568	Transferase
+IPR017570	Binding
+IPR017583	Kinase
+IPR005926	Kinase
+IPR022463	Kinase
+IPR017593	Binding
+IPR017660	Binding
+IPR017679	Binding
+IPR017681	Binding
+IPR017682	Binding
+IPR017705	Binding
+IPR017714	Binding
+IPR027514	Binding
+IPR017752	Binding
+IPR017760	Binding
+IPR017813	Transferase
+IPR017839	Binding
+IPR017840	Oxidoreductase
+IPR017849	Hydrolase / Phospho
+IPR017850	Hydrolase / Phospho
+IPR000917	Hydrolase / Phospho
+IPR032158	Hydrolase / Phospho
+IPR017852	Transferase
+IPR017853	Hydrolase / Sugar
+IPR025195	Hydrolase / Sugar
+IPR017854	Binding
+IPR022710	Binding
+IPR023587	Binding
+IPR017857	Binding
+IPR017867	Hydrolase / Phospho
+IPR002115	Hydrolase / Phospho
+IPR017868	Binding / Protein
+IPR017868	IG-like
+IPR017868	IG
+IPR017878	Binding
+IPR017897	Binding
+IPR017905	Oxidoreductase
+IPR017910	Binding
+IPR017924	Binding
+IPR017927	Oxidoreductase
+IPR008333	Oxidoreductase
+IPR013113	Oxidoreductase
+IPR017938	Oxidoreductase
+IPR017941	Oxidoreductase
+IPR005805	Oxidoreductase
+IPR012748	Oxidoreductase
+IPR017881	Oxidoreductase
+IPR017942	Binding / Lipid
+IPR017943	Binding / Lipid
+IPR017947	Binding
+IPR017948	Factor
+IPR017954	Binding / Lipid
+IPR017956	Binding
+IPR017964	Binding
+IPR017967	Binding
+IPR017969	Binding
+IPR017972	Oxidoreductase
+IPR017985	Binding
+IPR017995	Binding
+IPR018019	Cleavage
+IPR018048	Factor
+IPR018049	Factor
+IPR018053	Hydrolase
+IPR018063	Transferase
+IPR018087	Hydrolase
+IPR018088	Transferase
+IPR018097	Binding
+IPR018114	Cleavage
+IPR018116	Factor
+IPR018124	Binding
+IPR018141	Binding
+IPR018142	Factor
+IPR018146	Binding
+IPR018150	Binding
+IPR002313	Binding
+IPR012739	Binding
+IPR018151	Binding
+IPR018159	Binding / Protein
+IPR018162	Binding
+IPR018163	Binding
+IPR018164	Binding
+IPR018165	Binding
+IPR018170	Oxidoreductase
+IPR018188	Binding
+IPR018200	Hydrolase / Ubiquitin
+IPR018211	Oxidoreductase
+IPR018211	Binding
+IPR018224	Binding
+IPR018233	Binding
+IPR018245	Factor
+IPR018246	Binding
+IPR018250	Binding / Ligand
+IPR018252	Binding
+IPR018258	Binding
+IPR018268	Binding
+IPR018269	Binding
+IPR018287	Binding
+IPR018299	Hydrolase / Phospho
+IPR018312	Binding
+IPR018314	Binding
+IPR018314	Transferase
+IPR018326	Binding
+IPR018327	Binding
+IPR018328	Binding
+IPR018330	Binding
+IPR010183	Binding
+IPR018338	Binding
+IPR018343	Binding
+IPR018357	Transferase
+IPR018360	Factor
+IPR018362	Binding
+IPR018366	Hydrolase
+IPR018366	Binding / Sugar
+IPR018392	Binding / Peptidoglycan
+IPR018428	Binding
+IPR018430	Binding
+IPR018437	Binding
+IPR018441	Binding
+IPR018442	Binding
+IPR018483	Kinase
+IPR018484	Kinase
+IPR018485	Kinase
+IPR018487	Binding
+IPR018496	Binding
+IPR018497	Cleavage
+IPR018502	Binding
+IPR018504	Binding
+IPR018514	Cleavage / Inhibitor
+IPR018514	Factor
+IPR018515	Cleavage / Inhibitor
+IPR018521	Binding
+IPR018522	Binding
+IPR018524	Binding
+IPR018524	Hydrolase
+IPR018525	Binding
+IPR018527	Binding
+IPR018668	Binding
+IPR018799	Binding
+IPR018848	Transferase
+IPR018909	Binding / Sugar
+IPR018935	Kinase
+IPR018936	Kinase
+IPR018941	IG-like
+IPR018944	Binding
+IPR018992	Cleavage
+IPR018995	Binding
+IPR018999	Binding
+IPR019012	Transferase
+IPR019019	Binding / Sugar
+IPR019028	Binding / Sugar
+IPR019044	Binding
+IPR019045	Binding
+IPR019046	Binding
+IPR019057	Binding
+IPR019067	Binding
+IPR019068	Binding
+IPR019070	Binding
+IPR019071	Binding
+IPR019072	Binding
+IPR019073	Binding
+IPR019134	Binding / Protein
+IPR019165	Cleavage
+IPR019307	Binding
+IPR019369	Transferase
+IPR019466	Oligomerisation
+IPR019479	Oxidoreductase
+IPR019495	Binding
+IPR019503	Cleavage
+IPR019507	Cleavage / Inhibitor
+IPR019508	Cleavage / Inhibitor
+IPR019565	Transferase
+IPR019574	Oxidoreductase
+IPR019582	Binding
+IPR019614	Transferase
+IPR019666	Binding
+IPR019734	Binding / Protein
+IPR019767	Factor
+IPR019769	Binding
+IPR019770	Binding
+IPR019771	Binding
+IPR019779	Binding
+IPR019800	Hydrolase
+IPR019801	Hydrolase
+IPR019802	Hydrolase
+IPR019809	Binding
+IPR019818	Oxidoreductase
+IPR019828	Binding
+IPR019831	Binding
+IPR019832	Binding
+IPR019833	Binding
+IPR019874	Transferase
+IPR019969	Binding
+IPR020004	Hydrolase
+IPR020024	Kinase
+IPR020045	Binding
+IPR020046	Binding
+IPR020054	Cleavage / Inhibitor
+IPR020059	Binding
+IPR020061	Binding
+IPR020062	Binding
+IPR020067	Binding / Protein
+IPR020084	Hydrolase
+IPR020089	Factor
+IPR020090	Factor
+IPR020091	Factor
+IPR020092	Factor
+IPR020094	Binding
+IPR020095	Binding
+IPR020097	Binding
+IPR020103	Binding
+IPR020119	Binding
+IPR020340	Binding
+IPR020365	Binding
+IPR020374	Transferase
+IPR020384	Transferase
+IPR020428	Hydrolase / Phospho
+IPR020432	Factor
+IPR020442	Binding / Ligand
+IPR020471	Oxidoreductase
+IPR020567	Transferase
+IPR020568	Other
+IPR001247	Other
+IPR001498	Other
+IPR011334	Other
+IPR014721	Other
+IPR005324	Other
+IPR005517	Other
+IPR013507	Other
+IPR015192	Other
+IPR015870	Other
+IPR020573	Transferase
+IPR020584	Binding
+IPR020587	Binding
+IPR020588	Binding
+IPR020606	Binding
+IPR020609	Binding
+IPR020610	Transferase
+IPR020611	Oxidoreductase
+IPR020613	Transferase
+IPR020615	Transferase
+IPR020616	Transferase
+IPR020617	Transferase
+IPR020629	Binding
+IPR020658	Kinase
+IPR020683	Binding / Protein
+IPR020684	Kinase
+IPR029878	Kinase
+IPR020691	Kinase
+IPR020708	Binding
+IPR020789	Binding
+IPR020795	Binding
+IPR020813	Binding
+IPR020813	Transferase
+IPR020816	Binding
+IPR020833	Binding
+IPR020834	Binding
+IPR020838	Binding
+IPR020843	Oxidoreductase
+IPR020847	Binding
+IPR020848	Binding
+IPR020855	Binding
+IPR020858	Unknown
+IPR015247	Unknown
+IPR020883	Binding
+IPR020890	Binding
+IPR020892	Isomerase / unfolded protein
+IPR020904	Oxidoreductase
+IPR020916	Transferase
+IPR020934	Binding
+IPR020965	Transferase
+IPR020981	Binding / Protein
+IPR021002	Transferase
+IPR021109	Cleavage
+IPR011969	Cleavage
+IPR013242	Cleavage
+IPR019103	Cleavage
+IPR033821	Cleavage
+IPR033121	Cleavage
+IPR033819	Cleavage
+IPR033823	Cleavage
+IPR033866	Cleavage
+IPR033869	Cleavage
+IPR033873	Cleavage
+IPR033874	Cleavage
+IPR033876	Cleavage
+IPR033868	Cleavage
+IPR021116	Factor
+IPR021117	Factor
+IPR021118	Factor
+IPR021153	Binding
+IPR021158	Cleavage
+IPR021158	Binding
+IPR021162	Transferase
+IPR021163	Oxidoreductase
+IPR021169	Transferase
+IPR021179	Oxidoreductase
+IPR021181	Binding
+IPR029506	Binding
+IPR021190	Cleavage
+IPR021190	Binding
+IPR028687	Cleavage
+IPR028688	Cleavage
+IPR028708	Cleavage
+IPR028707	Cleavage
+IPR028736	Cleavage
+IPR021191	Binding
+IPR021520	Unknown
+IPR021590	Transferase
+IPR021601	Kinase
+IPR021604	Binding
+IPR021613	Adhesion / ECM
+IPR021654	Transferase
+IPR032926	Transferase
+IPR021668	Kinase
+IPR021721	Transferase
+IPR021805	Cleavage
+IPR021816	Unknown
+IPR021820	Kinase
+IPR021824	Cleavage
+IPR021828	Hydrolase
+IPR021852	Unknown
+IPR021930	Hydrolase
+IPR021977	Stabilisation / Oligomerisation
+IPR021996	Oligomerisation
+IPR022034	Binding
+IPR022049	Kinase
+IPR022068	Cleavage
+IPR022103	Transferase
+IPR022120	Cleavage
+IPR022126	Kinase
+IPR022165	Kinase
+IPR022170	Transferase
+IPR022176	Unknown
+IPR022184	Transferase
+IPR022230	Cleavage
+IPR022247	Kinase
+IPR022299	Binding
+IPR022312	Binding
+IPR001726	Binding
+IPR027249	Binding
+IPR027292	Binding
+IPR022334	Factor
+IPR022341	Factor
+IPR022350	Factor
+IPR022384	Binding
+IPR022384	Transferase
+IPR022385	Unknown
+IPR022394	Binding
+IPR022394	Oxidoreductase
+IPR022409	IG-like
+IPR022413	Kinase
+IPR022415	Kinase
+IPR022416	Oligomerisation
+IPR022421	Factor
+IPR023258	Factor
+IPR022433	Binding
+IPR022450	Cleavage
+IPR022481	Binding
+IPR022495	Kinase
+IPR022634	Binding
+IPR022635	Binding
+IPR022648	Binding
+IPR022649	Binding
+IPR022667	Transferase
+IPR022672	Kinase
+IPR022673	Kinase
+IPR022689	Binding
+IPR022897	Binding
+IPR022691	Binding
+IPR022708	Kinase
+IPR022732	Cleavage
+IPR022733	Transferase
+IPR022764	Cleavage
+IPR022768	Binding
+IPR022778	Hydrolase / Phospho
+IPR022783	Binding
+IPR022919	Cleavage
+IPR022921	Transferase
+IPR022928	Kinase
+IPR022975	Hydrolase
+IPR022988	Binding
+IPR014160	Binding
+IPR023030	Kinase
+IPR023032	Transferase
+IPR023034	Isomerase / unfolded protein
+IPR023059	Isomerase / unfolded protein
+IPR023072	Transferase
+IPR023091	Cleavage
+IPR023142	Kinase
+IPR023173	Oxidoreductase
+IPR023209	Binding
+IPR023214	Hydrolase
+IPR023299	Binding
+IPR006549	Hydrolase
+IPR005954	Hydrolase
+IPR006551	Hydrolase
+IPR010033	Hydrolase
+IPR011945	Hydrolase
+IPR023226	Hydrolase
+IPR023273	Transferase
+IPR023302	Cleavage
+IPR023342	Binding
+IPR023397	Transferase
+IPR023467	Transferase
+IPR028342	Transferase
+IPR023475	Transferase
+IPR023507	Kinase
+IPR023529	Binding
+IPR023549	Cleavage / Inhibitor
+IPR023553	Transferase
+IPR023576	Transferase
+IPR023602	Kinase
+IPR023612	Cleavage
+IPR023643	Oxidoreductase
+IPR023644	Binding
+IPR023648	Binding
+IPR023672	Binding
+IPR023676	Binding
+IPR023700	Binding
+IPR023710	Binding
+IPR023713	Binding
+IPR023753	Oxidoreductase
+IPR023757	Hydrolase
+IPR023758	Binding
+IPR023796	Cleavage / Inhibitor
+IPR033829	Cleavage / Inhibitor
+IPR033830	Cleavage / Inhibitor
+IPR033831	Cleavage / Inhibitor
+IPR033833	Cleavage / Inhibitor
+IPR033835	Cleavage / Inhibitor
+IPR033836	Cleavage / Inhibitor
+IPR033832	Cleavage / Inhibitor
+IPR033834	Cleavage / Inhibitor
+IPR023854	Hydrolase
+IPR023865	Kinase
+IPR023867	Oxidoreductase
+IPR023936	Oxidoreductase
+IPR023945	Binding
+IPR023950	Binding
+IPR024027	Transferase
+IPR024036	Oxidoreductase
+IPR024079	Cleavage
+IPR029463	Cleavage
+IPR029482	Cleavage
+IPR034032	Cleavage
+IPR024084	Oxidoreductase
+IPR024098	Stabilisation / Oligomerisation
+IPR024100	Stabilisation / Oligomerisation
+IPR024101	Stabilisation / Oligomerisation
+IPR024142	Binding
+IPR024160	Transferase
+IPR024162	Transferase
+IPR024165	Kinase
+IPR024171	Kinase
+IPR024187	Binding
+IPR024192	Kinase
+IPR024193	Binding
+IPR024205	Kinase
+IPR024237	Binding / Protein
+IPR024261	Binding
+IPR024279	Binding
+IPR024314	Binding / Protein
+IPR024318	Binding / Protein
+IPR024329	Oligomerisation
+IPR024344	Binding
+IPR024531	Stabilisation / Oligomerisation
+IPR024571	Unknown
+IPR024624	Binding
+IPR024667	Binding
+IPR024678	Kinase
+IPR024721	Binding / Protein
+IPR024731	Binding / Protein
+IPR024836	Binding
+IPR024846	Binding / Protein
+IPR024855	Binding / Protein
+IPR028551	Stabilisation / Oligomerisation
+IPR024876	Binding / Protein
+IPR024884	Binding
+IPR024928	Transferase
+IPR024936	Isomerase / unfolded protein
+IPR024945	Binding / Protein
+IPR024957	Binding
+IPR024991	Transferase
+IPR025155	Unknown
+IPR025232	Unknown
+IPR025249	Binding
+IPR025304	Binding / Protein
+IPR025525	Binding
+IPR025654	Binding / Protein
+IPR025654	Binding
+IPR025655	Binding / Protein
+IPR025708	Binding
+IPR025710	Oxidoreductase
+IPR025718	Binding / Protein
+IPR025725	Transferase
+IPR025773	Cleavage
+IPR025779	Transferase
+IPR025789	Transferase
+IPR025799	Transferase
+IPR025805	Transferase
+IPR025824	Binding
+IPR025830	Binding
+IPR025885	Binding / Protein
+IPR025898	Binding
+IPR025901	Binding
+IPR025911	Binding
+IPR026008	Kinase
+IPR026074	Binding
+IPR027321	Binding
+IPR027322	Binding
+IPR026111	Binding
+IPR026118	Binding
+IPR026124	Binding
+IPR026147	Cleavage / Inhibitor
+IPR026155	Factor
+IPR026194	Factor
+IPR026254	Transferase
+IPR026257	Isomerase / unfolded protein
+IPR026259	Oxidoreductase
+IPR026296	Binding
+IPR026296	Factor
+IPR026577	Binding
+IPR026611	Kinase
+IPR026635	Transferase
+IPR026648	Binding
+IPR026649	Binding / Ligand
+IPR026679	Binding
+IPR026683	Kinase
+IPR026699	Binding
+IPR023474	Binding
+IPR026712	Kinase
+IPR026762	Binding
+IPR030717	Cleavage / Inhibitor
+IPR026792	Binding
+IPR026817	Cleavage / Inhibitor
+IPR026823	Binding / Protein
+IPR026848	Transferase
+IPR026892	Hydrolase
+IPR026905	Binding
+IPR026914	Binding
+IPR026918	Cleavage
+IPR026918	Binding
+IPR026921	Binding
+IPR026962	Binding
+IPR026963	Binding
+IPR026966	Unknown
+IPR026984	Kinase
+IPR027038	Cleavage / Inhibitor
+IPR027052	Oxidoreductase
+IPR027053	Cleavage
+IPR027062	Cleavage
+IPR027065	Cleavage
+IPR027501	Cleavage
+IPR027503	Cleavage
+IPR027543	Cleavage
+IPR004663	Cleavage
+IPR004815	Cleavage
+IPR033141	Cleavage
+IPR014251	Cleavage
+IPR014252	Cleavage
+IPR027086	Kinase
+IPR027150	Binding
+IPR027153	Binding
+IPR027160	Binding
+IPR027175	Binding
+IPR027214	Cleavage / Inhibitor
+IPR027213	Cleavage / Inhibitor
+IPR027233	Hydrolase / Phospho
+IPR027239	Binding
+IPR027240	Binding
+IPR027264	Kinase
+IPR027266	Binding / Protein
+IPR018948	Binding / Protein
+IPR027300	Binding / Ligand
+IPR027310	Binding
+IPR027323	Binding
+IPR027324	Binding
+IPR030797	Binding
+IPR027328	Binding
+IPR027735	Binding
+IPR027738	Binding
+IPR027333	Binding
+IPR027335	Binding
+IPR027339	Binding
+IPR027350	Transferase / Sugar
+IPR027352	Binding
+IPR027355	Binding
+IPR027393	Binding / Protein
+IPR027397	Binding
+IPR027417	Binding / NTP
+IPR000863	Binding / NTP
+IPR002586	Binding / NTP
+IPR002611	Binding / NTP
+IPR002789	Binding / NTP
+IPR003495	Binding / NTP
+IPR003714	Binding / NTP
+IPR004435	Binding / NTP
+IPR005225	Binding / NTP
+IPR000795	Binding / NTP
+IPR031168	Binding / NTP
+IPR006703	Binding / NTP
+IPR008145	Binding / NTP
+IPR011579	Binding / NTP
+IPR013317	Binding / NTP
+IPR014774	Binding / NTP
+IPR010624	Binding / NTP
+IPR019476	Binding / NTP
+IPR025669	Binding / NTP
+IPR005702	Binding / NTP
+IPR025723	Binding / NTP
+IPR030378	Binding / NTP
+IPR010914	Binding / NTP
+IPR030381	Binding / NTP
+IPR030383	Binding / NTP
+IPR030385	Binding / NTP
+IPR030386	Binding / NTP
+IPR030388	Binding / NTP
+IPR030389	Binding / NTP
+IPR030393	Binding / NTP
+IPR030394	Binding / NTP
+IPR031166	Binding / NTP
+IPR031167	Binding / NTP
+IPR031314	Binding / NTP
+IPR033875	Binding / NTP
+IPR027444	Binding
+IPR027448	Binding
+IPR027454	Stabilisation / Oligomerisation
+IPR027465	Binding / Protein
+IPR027468	Unknown
+IPR027496	Oxidoreductase
+IPR027516	Binding
+IPR027641	Binding
+IPR027650	Binding
+IPR027653	Binding
+IPR027654	Binding
+IPR027658	Binding
+IPR027682	Binding
+IPR027685	Binding
+IPR030493	Binding
+IPR030494	Binding
+IPR027687	Binding
+IPR027690	Binding / Ligand
+IPR027717	Binding
+IPR027726	Transferase
+IPR027791	Transferase / Sugar
+IPR027816	Binding
+IPR027928	Binding
+IPR027995	Transferase / Sugar
+IPR028082	Binding / Protein
+IPR001828	Binding / Protein
+IPR025997	Binding / Protein
+IPR028081	Binding / Protein
+IPR028088	Binding
+IPR028142	Binding / Ligand
+IPR000975	Binding / Ligand
+IPR003294	Binding / Ligand
+IPR003295	Binding / Ligand
+IPR003296	Binding / Ligand
+IPR003297	Binding / Ligand
+IPR027163	Binding / Ligand
+IPR027164	Binding / Ligand
+IPR027166	Binding / Ligand
+IPR027169	Binding / Ligand
+IPR027171	Binding / Ligand
+IPR027172	Binding / Ligand
+IPR015529	Binding / Ligand
+IPR028146	Stabilisation, Targeting
+IPR028255	Binding
+IPR028271	Binding
+IPR028297	Binding
+IPR028324	Kinase
+IPR028408	Binding
+IPR028433	Binding
+IPR028438	Binding
+IPR028449	Binding
+IPR028450	Binding
+IPR028453	Binding
+IPR028458	Binding
+IPR028459	Kinase
+IPR028468	Stabilisation / Oligomerisation
+IPR028471	Hydrolase / Phospho
+IPR028472	Hydrolase / Phospho
+IPR028473	Hydrolase / Phospho
+IPR028479	Hydrolase / Phospho
+IPR028478	Hydrolase / Phospho
+IPR028474	Binding
+IPR028475	Binding
+IPR028481	Binding
+IPR028482	Binding
+IPR028486	Binding
+IPR028487	Binding
+IPR028488	Binding
+IPR028489	Binding
+IPR028493	Binding
+IPR028494	Binding
+IPR028497	Binding
+IPR028499	Binding
+IPR028507	Binding
+IPR028534	Binding
+IPR028544	Binding
+IPR028548	Binding
+IPR028553	Cleavage / Inhibitor
+IPR028554	Cleavage / Inhibitor
+IPR028557	Cleavage / Inhibitor
+IPR028558	Cleavage / Inhibitor
+IPR028559	Binding
+IPR028570	Kinase
+IPR028596	Binding
+IPR028594	Binding
+IPR028601	Binding
+IPR028614	Oxidoreductase
+IPR028624	Binding
+IPR028644	Binding
+IPR028646	Binding
+IPR028654	Binding
+IPR028660	Binding
+IPR028725	Binding
+IPR028740	Binding
+IPR028741	Kinase
+IPR028742	Kinase
+IPR028750	Binding
+IPR028753	Binding
+IPR028754	Kinase
+IPR028770	Hydrolase / Phospho
+IPR028772	Kinase
+IPR028777	Kinase
+IPR028779	Kinase
+IPR028795	Transferase
+IPR028806	Binding
+IPR028813	Binding
+IPR028836	Oxidoreductase
+IPR028836	Binding
+IPR028846	Binding
+IPR028847	Binding
+IPR028854	Cleavage / Inhibitor
+IPR028870	Binding
+IPR028889	Hydrolase / Ubiquitin
+IPR028881	Hydrolase / Ubiquitin
+IPR028890	Hydrolase / Ubiquitin
+IPR028916	Unknown
+IPR028974	Binding
+IPR028991	Stabilisation / Oligomerisation
+IPR028995	Binding
+IPR028995	Hydrolase
+IPR029000	Isomerase / unfolded protein
+IPR029006	Binding
+IPR029021	Hydrolase / Phospho
+IPR000340	Hydrolase / Phospho
+IPR010569	Hydrolase / Phospho
+IPR029023	Hydrolase / Phospho
+IPR029034	Factor
+IPR006208	Factor
+IPR032104	Factor
+IPR029044	Transferase / Sugar
+IPR005835	Transferase / Sugar
+IPR015338	Transferase / Sugar
+IPR025877	Transferase / Sugar
+IPR029047	Binding / Protein
+IPR029048	Stabilisation
+IPR029055	Hydrolase
+IPR015230	Hydrolase
+IPR017932	Hydrolase
+IPR033738	Hydrolase
+IPR029058	Hydrolase
+IPR000073	Hydrolase
+IPR001031	Hydrolase
+IPR020802	Hydrolase
+IPR001375	Hydrolase
+IPR002018	Hydrolase
+IPR002921	Hydrolase
+IPR005645	Hydrolase
+IPR008391	Hydrolase
+IPR010333	Hydrolase
+IPR013818	Hydrolase
+IPR033906	Hydrolase
+IPR029059	Hydrolase
+IPR029063	Other
+IPR030384	Transferase
+IPR001077	Other
+IPR002723	Other
+IPR025807	Other
+IPR025816	Other
+IPR026490	Other
+IPR004971	Other
+IPR006342	Other
+IPR031164	Other
+IPR015985	Other
+IPR022642	Other
+IPR025714	Other
+IPR030374	Other
+IPR030380	Other
+IPR030382	Other
+IPR029071	Unknown
+IPR000341	Unknown
+IPR022617	Unknown
+IPR033950	Unknown
+IPR033882	Unknown
+IPR001158	Unknown
+IPR003116	Unknown
+IPR018979	Unknown
+IPR021569	Unknown
+IPR029136	Binding
+IPR029228	Stabilisation / Oligomerisation
+IPR029325	Binding / Ligand
+IPR029344	Binding
+IPR029387	Stabilisation / Oligomerisation
+IPR029403	Unknown
+IPR029487	Transferase
+IPR029508	Binding
+IPR029510	Oxidoreductase
+IPR029516	Binding
+IPR029517	Binding
+IPR029518	Binding
+IPR029527	Binding
+IPR029528	Binding
+IPR029534	Binding
+IPR029539	Binding
+IPR029542	Binding
+IPR029543	Binding
+IPR029544	Binding
+IPR029562	Binding / Ligand
+IPR029597	Kinase
+IPR029601	Kinase
+IPR029632	Binding
+IPR029634	Binding
+IPR029637	Binding
+IPR029643	Binding
+IPR029645	Cleavage / Inhibitor
+IPR029646	Binding
+IPR029658	Binding
+IPR029710	Binding
+IPR029712	Cleavage / Inhibitor
+IPR029762	Cleavage
+IPR029785	Cleavage / Inhibitor
+IPR029829	Binding
+IPR029833	Binding
+IPR029845	Binding
+IPR029864	Cleavage / Inhibitor
+IPR029874	Binding
+IPR029875	Kinase
+IPR029876	Kinase
+IPR029894	Binding / Lipid
+IPR029901	Binding
+IPR029904	Binding
+IPR029905	Binding
+IPR029908	Binding
+IPR029921	Binding
+IPR029923	Binding
+IPR029926	Binding / Protein
+IPR029932	Binding
+IPR029973	Binding
+IPR029974	Binding
+IPR029982	Binding
+IPR029984	Binding
+IPR029987	Binding
+IPR029990	Binding
+IPR029996	Binding
+IPR030051	Binding
+IPR030052	Binding
+IPR030059	Binding
+IPR030061	Cleavage / Inhibitor
+IPR030072	Binding
+IPR030107	Binding
+IPR030104	Binding
+IPR030106	Binding
+IPR030109	Binding
+IPR030127	Binding
+IPR030129	Binding
+IPR030135	Binding
+IPR030214	Binding
+IPR030222	Binding
+IPR030233	Binding
+IPR030235	Binding
+IPR030237	Binding
+IPR030265	Binding
+IPR030266	Binding
+IPR030269	Binding / Protein
+IPR030297	Hydrolase
+IPR030301	Binding / Protein
+IPR030326	Binding
+IPR030398	Cleavage
+IPR030403	Cleavage / Inhibitor
+IPR030408	Binding
+IPR030409	Cleavage / Inhibitor
+IPR030433	Cleavage
+IPR030446	Binding
+IPR030484	Kinase
+IPR030499	Binding
+IPR030500	Binding
+IPR030531	Cleavage / Inhibitor
+IPR030534	Binding
+IPR030535	Binding
+IPR030548	Binding
+IPR030549	Binding / Protein
+IPR030554	Binding
+IPR030555	Binding
+IPR030562	Binding
+IPR030590	Hydrolase / Phospho
+IPR030592	Binding / Ligand
+IPR030592	Factor
+IPR030593	Factor
+IPR030594	Binding
+IPR030595	Factor
+IPR030598	Factor
+IPR030611	Kinase
+IPR030613	Kinase
+IPR030614	Kinase
+IPR030615	Binding
+IPR030616	Kinase
+IPR030626	Binding
+IPR030638	Binding / Sugar
+IPR030639	Transferase
+IPR030640	Binding / Sugar
+IPR030649	Binding / Sugar
+IPR030652	Binding / Sugar
+IPR030653	Binding / Sugar
+IPR030674	Hydrolase
+IPR030675	Binding / Lipid
+IPR030179	Binding / Lipid
+IPR030180	Binding / Lipid
+IPR030181	Binding / Lipid
+IPR032950	Binding / Lipid
+IPR030684	Cleavage
+IPR030722	Cleavage / Inhibitor
+IPR030724	Cleavage / Inhibitor
+IPR030731	Cleavage / Inhibitor
+IPR030739	Cleavage / Inhibitor
+IPR030770	Cleavage / Inhibitor
+IPR030772	Cleavage / Inhibitor
+IPR030776	Cleavage / Inhibitor
+IPR030776	Binding
+IPR030796	Binding
+IPR030846	Binding
+IPR030873	Cleavage
+IPR030977	Binding
+IPR031071	Kinase
+IPR031075	Binding
+IPR031076	Binding
+IPR031077	Binding
+IPR031096	Binding
+IPR031109	Binding
+IPR031127	Transferase
+IPR031150	Binding
+IPR031210	Isomerase / unfolded protein
+IPR031212	Isomerase / unfolded protein
+IPR031214	Cleavage / Inhibitor
+IPR031244	Binding
+IPR031248	Transferase
+IPR031256	Binding / Lipid
+IPR031257	Binding / Lipid
+IPR031259	Binding / Lipid
+IPR031261	Binding / Lipid
+IPR031264	Binding / Lipid
+IPR031266	Binding / Lipid
+IPR031270	Binding / Lipid
+IPR031272	Binding / Lipid
+IPR031276	Binding / Lipid
+IPR031279	Binding / Lipid
+IPR031281	Binding / Lipid
+IPR033073	Binding / Lipid
+IPR033075	Binding / Lipid
+IPR031401	Binding
+IPR031468	Binding / Lipid
+IPR031559	Kinase
+IPR031673	Stabilisation / Oligomerisation
+IPR031755	Cleavage / Inhibitor
+IPR031756	Binding / Sugar
+IPR031776	Binding
+IPR031852	Binding
+IPR031868	Binding
+IPR031877	Binding
+IPR032005	Binding
+IPR032012	Binding
+IPR032198	Stabilisation / Oligomerisation
+IPR032199	Binding
+IPR032200	Binding
+IPR032355	Binding
+IPR032394	Stabilisation / Oligomerisation
+IPR032461	Binding
+IPR032524	Binding
+IPR032569	Binding
+IPR032592	Binding
+IPR032642	Binding
+IPR032643	Binding
+IPR032644	Binding
+IPR032670	Transferase
+IPR032700	Binding / Ligand
+IPR032747	Binding
+IPR032850	Binding
+IPR032867	Binding
+IPR032882	Kinase
+IPR032890	Oxidoreductase
+IPR032917	Transferase
+IPR032918	Transferase
+IPR032922	Binding
+IPR032934	Binding
+IPR032935	Binding
+IPR032937	Binding
+IPR032940	Binding
+IPR032957	Binding / Protein
+IPR032962	Transferase
+IPR032992	Binding
+IPR033013	Binding
+IPR033014	Binding
+IPR033016	Binding
+IPR033017	Binding
+IPR033018	Binding
+IPR033022	Binding
+IPR033037	Binding
+IPR033048	Binding
+IPR033051	Binding
+IPR033054	Binding
+IPR033066	Binding
+IPR033086	Binding
+IPR033087	Binding
+IPR033088	Binding
+IPR033090	Binding
+IPR033092	Binding
+IPR033103	Binding
+IPR033104	Binding
+IPR033105	Binding
+IPR033106	Binding
+IPR033107	Binding
+IPR033109	Binding
+IPR033162	Cleavage / Inhibitor
+IPR033185	Cleavage / Inhibitor
+IPR033198	Binding
+IPR033217	Kinase
+IPR033221	Kinase
+IPR033225	Factor
+IPR033232	Kinase
+IPR033235	Kinase
+IPR033262	Binding
+IPR033273	Transferase
+IPR033276	Transferase
+IPR033291	Binding
+IPR033293	Binding
+IPR033314	Stabilisation / Oligomerisation
+IPR033318	Stabilisation / Oligomerisation
+IPR033319	Stabilisation / Oligomerisation
+IPR033329	Binding
+IPR033336	Binding
+IPR033340	Binding / Lipid
+IPR033366	Kinase
+IPR033382	Hydrolase / Ubiquitin
+IPR033383	Hydrolase / Ubiquitin
+IPR033384	Hydrolase / Ubiquitin
+IPR033387	Cleavage
+IPR033486	Binding
+IPR033490	Binding
+IPR033498	Transferase
+IPR033502	Cleavage
+IPR033547	Cleavage / Inhibitor
+IPR033562	Hydrolase
+IPR033902	Hydrolase
+IPR033563	Binding / Sugar
+IPR033564	Cleavage / Inhibitor
+IPR033565	Kinase
+IPR033573	Kinase
+IPR033583	Binding
+IPR033595	Cleavage
+IPR033596	Cleavage
+IPR033605	Cleavage
+IPR033613	Cleavage
+IPR033621	Binding / Protein
+IPR033624	Kinase
+IPR033627	Kinase
+IPR033628	Kinase
+IPR033664	Transferase
+IPR033668	Binding
+IPR033671	Transferase
+IPR033673	Transferase
+IPR033700	Kinase
+IPR033734	Binding / Sugar
+IPR033824	Cleavage
+IPR033851	Cleavage
+IPR033885	Oxidoreductase
+IPR014607	Oxidoreductase
+IPR033908	Oxidoreductase
+IPR033910	Binding
+IPR033925	Binding
+IPR033953	Cleavage
+IPR033955	Cleavage

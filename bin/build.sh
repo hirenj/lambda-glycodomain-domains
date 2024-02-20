@@ -18,7 +18,8 @@ aws sts get-caller-identity
 has_credentials="$?"
 
 taxids=${1:9606,7227,6239,284812,559292,9823,10090,10116,10029}
-workdir=$2
+workdir=${2:/work}
+outdir=${3:/dist}
 
 interpro=$(<"interpro_version.txt");
 
@@ -77,9 +78,10 @@ for interpro_file in $workdir/interpro/InterPro-$interpro-*.tsv; do
 	sort -k1 -o "$interpro_file" "$interpro_file"
 done
 
+cp Glycodomain-latest-InterPro-latest-class.tsv $workdir/interpro/
 
-if [ ! -d dist ]; then
-	mkdir -p dist
+if [ ! -d "$outdir" ]; then
+	mkdir -p "$outdir"
 fi
 
 LOCAL_FILES=$workdir/interpro node script.js --output dist --release=$interpro #--interpro_bucket "$BUILD_OUTPUT_BUCKET" --interpro_bucket_prefix "$BUILD_OUTPUT_PREFIX/interpro" --release=$interpro
