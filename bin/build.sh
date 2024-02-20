@@ -14,6 +14,9 @@ if [ $? -eq 0 ]; then
 	curl="cached_curl"
 fi
 
+aws sts get-caller-identity
+has_credentials="$?"
+
 taxids=$1
 workdir=$2
 
@@ -26,7 +29,7 @@ if [ ! -e 'have_latest_interpro' ]; then
 	echo "Retrieving InterPro data for release $interpro locally"
 	mkdir -p $workdir/interpro;
 	if [ ! -f "$workdir/interpro_$interpro.gz" ]; then
-		$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz"
+		$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/releases/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz"
 		if [ $? -gt 0 ]; then
 			errcode = $?
 			echo "Failed to download InterPro file"
@@ -54,7 +57,7 @@ if [ ! -e 'have_latest_interpro' ]; then
 	done
 fi
 
-if [ ! -e 'have_latest_interpro' ]; then
+if [ ! -e 'have_latest_interpro' && "$has_credentials" == 0 ]; then
 	echo "Syncing locally retrieved data to output bucket $BUILD_OUTPUT_BUCKET"
 	aws s3 sync --metadata "version=$interpro" $workdir/interpro/ "s3://${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/";
 	if [ $? -gt 0 ]; then

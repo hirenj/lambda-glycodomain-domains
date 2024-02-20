@@ -15,19 +15,29 @@ rm *version.txt
 
 checkversion --fail-on-match \
 			 --print-remote \
-			 --remote 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/current/release_notes.txt' \
+			 --remote 'ftp://ftp.ebi.ac.uk/pub/databases/interpro/current_release/release_notes.txt' \
              --regex 'Release (\d+\.\d+)' > interpro_version.txt
 
 interpro_version=$(<"interpro_version.txt")
 
-echo "Checking for presence of ${taxids%%,*} as extracted InterPro"
-echo "Checking S3 path s3:::${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/InterPro-${interpro_version}-${taxids%%,*}.tsv"
+aws sts get-caller-identity
+has_credentials="$?"
 
-checkversion --fail-on-match \
+if [[ $has_credentials == 0 ]]; then
+
+	echo "Checking for presence of ${taxids%%,*} as extracted InterPro"
+	echo "Checking S3 path s3:::${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/InterPro-${interpro_version}-${taxids%%,*}.tsv"
+
+	checkversion --fail-on-match \
 			 --s3path "s3:::${BUILD_OUTPUT_BUCKET}/${BUILD_OUTPUT_PREFIX}/interpro/InterPro-${interpro_version}-${taxids%%,*}.tsv" \
 			 --static "$interpro_version"
 
-have_existing_interpro=$?
+	have_existing_interpro=$?
+else
+	have_existing_interpro=0
+	exit 0
+fi
+
 if [ $have_existing_interpro -gt 0 ]; then
 	touch 'have_latest_interpro' && echo "We have an existing InterPro build for this release"
 else
@@ -53,15 +63,15 @@ for taxid in ${taxids//,/ }; do
 	fi
 done
 
-
+if [[ $has_credentials == 0 ]]; then
 checkversion 	--fail-on-match \
 				--print-remote \
 				--remote "s3:::node-lambda/glycodomain/Glycodomain-latest-InterPro-latest-class.tsv" \
 				--header 'version' > glycodomain_version.txt
 
 glycodomain_version=$(<"glycodomain_version.txt")
-
 echo "Checking for domains with version InterPro-${interpro_version}-Glycodomain-${glycodomain_version}"
+fi
 
 exit_code=1
 
