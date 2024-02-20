@@ -17,7 +17,7 @@ fi
 aws sts get-caller-identity
 has_credentials="$?"
 
-taxids=$1
+taxids=${1:9606,7227,6239,284812,559292,9823,10090,10116,10029}
 workdir=$2
 
 interpro=$(<"interpro_version.txt");
