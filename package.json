@@ -19,7 +19,7 @@
   "dependencies": {
     "byline": "^5.0.0",
     "lambda-helpers": "hirenj/lambda-helpers",
-    "nconf": "^0.8.4",
+    "nconf": "^0.11.4",
     "stream-stream": "^1.2.6"
   }
 }
