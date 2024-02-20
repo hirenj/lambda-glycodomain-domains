@@ -13,5 +13,13 @@ RUN apt-get update \
 
 RUN npm install -g hirenj/node-checkversion
 
+RUN mkdir -p /build
+
+COPY . /build
+
+WORKDIR /build
+
+RUN npm install
+
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
