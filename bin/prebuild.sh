@@ -1,9 +1,9 @@
 #!/bin/bash
 
-taxids=$1
-workdir=$2
+taxids=${1:-9606,7227,6239,284812,559292,9823,10090,10116,10029}
+workdir=${2:-/work}
 
-rm -rf $workdir/interpro
+#rm -rf $workdir/interpro
 
 if [ -e have_latest_interpro ]; then
 	rm have_latest_interpro
