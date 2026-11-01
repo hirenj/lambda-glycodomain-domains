@@ -33,6 +33,8 @@ const LOCAL_FILES = process.env.LOCAL_FILES ? process.env['LOCAL_FILES'] : null;
 
 const LOCAL_RELEASE = process.env.LOCAL_RELEASE;
 
+const GIT_SHA = process.env.GIT_SHA || 'unknown';
+
 var upload_data_s3 = function upload_data_s3(taxid) {
   var params = {
     'Bucket': bucket_name,
@@ -97,7 +99,7 @@ util.inherits(DomainTransform, Transform);
 DomainTransform.prototype._transform = function (obj,enc,cb) {
   if (this.lastid != null && this.lastid !== obj[0]) {
     if (this.domains.length > 0) {
-      this.push([this.lastid.toLowerCase(),JSON.stringify([].concat(this.domains)),this.lasttax]);
+      this.push([this.lastid.toUpperCase(),JSON.stringify([].concat(this.domains)),this.lasttax]);
     }
     this.domains = [];
   }
@@ -111,7 +113,8 @@ DomainTransform.prototype._transform = function (obj,enc,cb) {
   }
   let data = {'dom' : this.names[interpro], 'interpro' : interpro, 'start' : parseInt(obj[2]), 'end' : parseInt(obj[3]) };
   let glycodomain = this.classes[interpro];
-  data.class = glycodomain ? glycodomain.filter(dom => dom !== 'Skipped' && dom !== 'REMOVE' && dom !== 'Skipped?').concat(entry_type) : [entry_type];
+  let classes = glycodomain ? glycodomain.filter(dom => dom !== 'Skipped' && dom !== 'REMOVE' && dom !== 'Skipped?').concat(entry_type) : [entry_type];
+  data.class = [...new Set(classes.map(c => c.trim()))];
   this.domains.push(data);
   this.lastid = obj[0];
   this.lasttax = obj[4];
@@ -322,15 +325,16 @@ const upload_data_file = function(filename) {
   return outstream;
 };
 
-const create_json_writer = function(interpro_release,glycodomain_release,taxonomies,file) {
+const create_json_writer = function(interpro_release,taxonomies,file) {
   let out = (new require('stream').PassThrough({objectMode: true}));
   let write_promises = [];
   taxonomies.forEach(function(tax) {
     let meta = { "mimetype" : "application/json+glycodomain",
                  "title" : "GlycoDomain "+tax,
-                 "version" : { interpro: interpro_release,
-                                glycodomain: glycodomain_release,
-                                taxonomy: tax } };
+                 "glycodomain-version" : "1.0",
+                 "data-version" : "interpro_"+interpro_release,
+                 "sample" : { "species" : parseInt(tax) },
+                 "software" : [{ "name" : "hirenj/lambda-glycodomain-domains", "version" : GIT_SHA, "run-date" : new Date().toISOString() }] };
     let json_stream = out.pipe(new TaxFilter(tax)).pipe(new CheapJSON(meta));
     let outstream;
     if (file) {
@@ -487,8 +491,6 @@ const create_glycodomain_filter = function() {
     let groups = results[2];
     let filter = new DomainTransform(names,classes,groups);
     filter.interpro_release = names['release'];
-    filter.glycodomain_release = 'latest';
-    // delete names['release'];
     return filter;
   });
 };
@@ -498,7 +500,7 @@ const produce_dataset = function(release,file_output) {
     let taxids = interpro_streams.map((str) => str.taxid );
     let write_promises = interpro_streams.map(function(interpro_stream) {
       return create_glycodomain_filter().then(function(domain_filter) {
-        let writer = create_json_writer(domain_filter.interpro_release, domain_filter.glycodomain_release, [interpro_stream.taxid],file_output);
+        let writer = create_json_writer(domain_filter.interpro_release, [interpro_stream.taxid],file_output);
         let stream = interpro_stream.pipe(domain_filter);
         stream.pipe(writer);
         return new Promise(function(resolve,reject) {

@@ -84,5 +84,5 @@ if [ ! -d "$outdir" ]; then
 	mkdir -p "$outdir"
 fi
 
-LOCAL_FILES=$workdir/interpro LOCAL_RELEASE="$interpro" node script.js --output "$outdir" --release=$interpro #--interpro_bucket "$BUILD_OUTPUT_BUCKET" --interpro_bucket_prefix "$BUILD_OUTPUT_PREFIX/interpro" --release=$interpro
+LOCAL_FILES=$workdir/interpro LOCAL_RELEASE="$interpro" GIT_SHA=$(git rev-parse HEAD 2>/dev/null || echo unknown) node script.js --output "$outdir" --release=$interpro #--interpro_bucket "$BUILD_OUTPUT_BUCKET" --interpro_bucket_prefix "$BUILD_OUTPUT_PREFIX/interpro" --release=$interpro
 
