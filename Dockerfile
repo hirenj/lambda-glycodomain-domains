@@ -1,4 +1,4 @@
-FROM node:16-bookworm
+FROM node:lts
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
