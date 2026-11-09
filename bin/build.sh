@@ -30,12 +30,18 @@ if [ ! -e 'have_latest_interpro' ]; then
 	echo "Retrieving InterPro data for release $interpro locally"
 	mkdir -p $workdir/interpro;
 	if [ ! -f "$workdir/interpro_$interpro.gz" ]; then
-		$curl "ftp://ftp.ebi.ac.uk/pub/databases/interpro/releases/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz"
+		# Download to a .part path and only mv into the real cache filename on success - this is a
+		# 13GB transfer, so a network blip partway through used to leave a truncated file sitting
+		# at the final cache path, which `[ ! -f ... ]` above then treated as "already downloaded"
+		# forever after, never retrying and failing confusingly in parse_interpro instead.
+		$curl --fail "ftp://ftp.ebi.ac.uk/pub/databases/interpro/releases/$interpro/protein2ipr.dat.gz" > "$workdir/interpro_$interpro.gz.part"
 		if [ $? -gt 0 ]; then
-			errcode = $?
+			errcode=$?
+			rm -f "$workdir/interpro_$interpro.gz.part"
 			echo "Failed to download InterPro file"
 			exit $errcode
 		fi
+		mv "$workdir/interpro_$interpro.gz.part" "$workdir/interpro_$interpro.gz"
 	fi
 	echo "File info for locally downloaded InterPro"
 	local_interpro_info=$(ls -al $workdir/interpro_$interpro.gz)
@@ -46,7 +52,7 @@ if [ ! -e 'have_latest_interpro' ]; then
 	fi
 	node node_modules/parse_interpro/index.js --interpro-data="$workdir/interpro_$interpro.gz" --release="$interpro" --taxid "$taxids" $build_test_flag --output $workdir/interpro;
 	if [ $? -gt 0 ]; then
-		errcode = $?
+		errcode=$?
 		echo "Failed to download InterPro entries"
 		exit $errcode
 	fi

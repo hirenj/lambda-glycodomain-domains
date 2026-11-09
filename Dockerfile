@@ -28,6 +28,15 @@ RUN npm install
 # EACCES under a non-root --user.
 RUN chmod -R a+rwX /build
 
+# git refuses to operate on a repo it doesn't own ("detected dubious ownership", git >= 2.35.2,
+# CVE-2022-24765) - /build is owned by root (COPY, above) but build.sh runs as the arbitrary host
+# UID from --user, so `git rev-parse HEAD` (GIT_SHA in build.sh) silently fell back to its "unknown"
+# default via its own `|| echo unknown`, instead of erroring - a quiet loss of data provenance
+# rather than a visible failure. --system (not --global) so it applies regardless of $HOME, which
+# isn't reliably set for an arbitrary numeric --user with no /etc/passwd entry. Scoped to this one
+# path, not a wildcard, since that's the only directory this image ever runs git against.
+RUN git config --system --add safe.directory /build
+
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
 
