@@ -50,7 +50,19 @@ if [ ! -e 'have_latest_interpro' ]; then
 		echo "InterPro file is zero length, aborting"
 		exit 1
 	fi
-	node node_modules/parse_interpro/index.js --interpro-data="$workdir/interpro_$interpro.gz" --release="$interpro" --taxid "$taxids" $build_test_flag --output $workdir/interpro;
+	# release_notes.txt/entry.list/short_names.dat are small, rarely-changing reference files that
+	# parse_interpro used to re-fetch via FTP on every single run regardless of --interpro-data
+	# above - a transient FTP hiccup on any one of these took down the whole build just as much as
+	# a failure on the 13GB file would. Cache them the same atomic way (.part + mv) and pass the
+	# cached copies in, now that parse_interpro accepts them (--release-notes/--entry-list/
+	# --short-names), so a retry doesn't re-hit FTP for files that already downloaded fine.
+	for meta_file in release_notes.txt entry.list short_names.dat; do
+		if [ ! -s "$workdir/$meta_file" ]; then
+			curl --fail "ftp://ftp.ebi.ac.uk/pub/databases/interpro/releases/$interpro/$meta_file" > "$workdir/$meta_file.part"
+			mv "$workdir/$meta_file.part" "$workdir/$meta_file"
+		fi
+	done
+	node node_modules/parse_interpro/index.js --interpro-data="$workdir/interpro_$interpro.gz" --release-notes="$workdir/release_notes.txt" --entry-list="$workdir/entry.list" --short-names="$workdir/short_names.dat" --release="$interpro" --taxid "$taxids" $build_test_flag --output $workdir/interpro;
 	if [ $? -gt 0 ]; then
 		errcode=$?
 		echo "Failed to download InterPro entries"
